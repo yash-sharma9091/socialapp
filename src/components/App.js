@@ -1,21 +1,14 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import { ConnectedRouter } from 'react-router-redux';
 
-import Main from './Main';
-import Login from './Login';
+
+import {Router} from '../router';
 
 const App = props => {
-  const { history } = props;
+  	const { history } = props;
 
-  return (
-    <ConnectedRouter history={history}>
-      <Switch>
-        <Route path="/login" component={Login} />
-        <Route path="/" component={Main} />
-      </Switch>
-    </ConnectedRouter>
-  );
+  	return (
+  		<Router history={history}/>
+  	);
 };
 
 export default App;

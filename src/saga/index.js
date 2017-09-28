@@ -2,14 +2,18 @@ import { call, put, takeLatest } from 'redux-saga/effects';
 import {login} from '../api/login';
 import { AUTH_REQUEST, AUTH_SUCCESS, AUTH_FAILURE } from '../reducer';
 
-function* authorize({ payload: { email, password } }) {
+function* authorize(action) {
 	try {
-		const { token } = yield call(login, 'login', { email, password });
-		yield put({ type: AUTH_SUCCESS, payload: token });
-		localStorage.setItem('token', token);
+	   const { token, user } = yield call(login, 'login', action.user);
+		yield put({ type: AUTH_SUCCESS, payload: token, user });
+		localStorage.setItem('socialProof.token', token);
+		localStorage.setItem('socialProof.user', JSON.stringify(user));
+		action.callbackSuccess();
 	} catch (error) {
-		yield put({ type: AUTH_FAILURE, payload: error.errors.message });
+		const {errors} = error;
+		yield put({ type: AUTH_FAILURE, payload: errors.message });
 		localStorage.removeItem('token');
+		action.callbackError(errors.message);
 	}
 }
 

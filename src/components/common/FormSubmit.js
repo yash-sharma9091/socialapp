@@ -9,10 +9,10 @@ export default class FormSubmit extends Component {
     const {error, invalid, submitting, buttonSaveLoading, buttonSave} = this.props;
     return (
       <div>
-        {error &&
+        {/*error &&
         <FormGroup validationState="error">
           <HelpBlock>{error}</HelpBlock>
-        </FormGroup>}
+        </FormGroup>*/}
 
         <FormGroup className="submit">
           <Button type="submit" bsStyle="primary" disabled={invalid || submitting}>

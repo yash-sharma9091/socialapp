@@ -14,7 +14,6 @@ import reducer from './reducer';
 
 
 import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap/dist/css/bootstrap-theme.css";
 
 // create middlewares
 const history = createHistory();

@@ -12,15 +12,14 @@ export const authorize = (email, password) => ({
 });
 
 const initialState = {
-  token: localStorage.getItem('token'),
-  error: null,
-  alertVisible: false
+  token: localStorage.getItem('socialProof.token'),
+  user: localStorage.getItem('socialProof.user')
 };
 
-const authReducer = (state = initialState, { type, payload }) => {
+const authReducer = (state = initialState, { type, payload, user }) => {
   switch (type) {
     case AUTH_SUCCESS: {
-      return { ...state, token: payload };
+      return { ...state, token: payload, user };
     }
     case AUTH_FAILURE: {
       state.alertVisible = true;
