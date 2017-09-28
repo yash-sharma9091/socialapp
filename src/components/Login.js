@@ -3,10 +3,8 @@ import { Field, SubmissionError,reduxForm } from 'redux-form';
 import { Form } from 'react-bootstrap';
 import { push } from 'react-router-redux';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
 import FormField from "./common/FormField";
 import FormSubmit from "./common/FormSubmit";
-import { authorize } from '../reducer';
 import Alert from './common/Alert';
 import { AUTH_REQUEST } from '../reducer';
 
@@ -17,8 +15,8 @@ class Login extends Component {
   	}
 
   	render() {
-	    const { alertVisible, authError, error, token, user, handleSubmit, invalid, submitting} = this.props;
-	    console.log(user);
+	    const { error, handleSubmit, invalid, submitting} = this.props;
+	    
 	    return (
 	    	<div className="container">
 	    		<Alert alertVisible={error} alertMsg={error} className="danger" />

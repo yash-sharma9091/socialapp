@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
-import { FormGroup, HelpBlock, Button } from "react-bootstrap";
+import { FormGroup, Button } from "react-bootstrap";
 
 // Form submit component
 export default class FormSubmit extends Component {
   // render
   render() {
-    const {error, invalid, submitting, buttonSaveLoading, buttonSave} = this.props;
+    const { invalid, submitting, buttonSaveLoading, buttonSave} = this.props;
     return (
       <div>
         {/*error &&
