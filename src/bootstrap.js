@@ -3,7 +3,7 @@ import axios from 'axios';
 window.axios = axios;
 
 window.axios.defaults.headers.common = {'X-Requested-With': 'XMLHttpRequest'};
-window.axios.defaults.baseURL = 'http://localhost:9000/admin/';
+window.axios.defaults.baseURL = 'http://localhost:9000/api/';
 
 // Global images url
 window.IMAGE_PATH = 'http://localhost:9000';

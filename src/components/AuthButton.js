@@ -9,15 +9,15 @@ export const AuthButton = () => (
 			<LinkContainer to="/">
 	  			<NavItem eventKey={1}>Home</NavItem>
 	  		</LinkContainer>
-	  		<LinkContainer to="/pricing">
+	  		<LinkContainer to="pricing">
 	  			<NavItem eventKey={2}>Pricing</NavItem>
 	  		</LinkContainer>
 		</Nav>
 		<Nav className="loginSignUp">
-			<LinkContainer to="/login">
+			<LinkContainer to="login">
 	  			<NavItem eventKey={1}>Sign In</NavItem>
 	  		</LinkContainer>
-	  		<LinkContainer to="/register">
+	  		<LinkContainer to="register">
 	  			<NavItem eventKey={2}>Sign Up</NavItem>
 	  		</LinkContainer>	
 		</Nav>

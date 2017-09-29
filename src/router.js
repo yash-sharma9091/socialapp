@@ -14,7 +14,7 @@ export const Router = props => {
 		<div>
 			<Header/>
 			<Switch>
-				<Route path="/" exact component={Main} />
+				<Route path="/" exact={true} component={Main} />
 		    	<Route path="/login" component={Login} />
 		    	<Route path="/pricing" component={Pricing} />
 		  	</Switch>
