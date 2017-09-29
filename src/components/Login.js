@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { Component } from 'react';
 import { Field, SubmissionError,reduxForm } from 'redux-form';
 import { Form } from 'react-bootstrap';
@@ -48,25 +49,45 @@ class Login extends Component {
   			})
   		});
   	}
-}
-Login = reduxForm({
-	form: 'user_login',
-	validate: (values) => {
-		const errors = {};
-		if(!values.email) {
-			errors.email = 'Username is required';
-		}else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-    		errors.email = 'Invalid email address'
-  		}
-  		if (!values.password) {
-  		    errors.password = 'Password is Required'
-  		}
-		return errors;
-	}
-})(Login);
-const mapStateToProps = (state) => ({
- 	token: state.auth.token,
- 	user: state.auth.user
-});
+=======
+import React from 'react';
+import LoginForm from './LoginForm';
+import LoginBanner from '../images/login_banner.jpg';
 
-export default connect(mapStateToProps)(Login);
+const Login = () => {
+	const style = {
+		backgroundSize: 'cover',
+		backgroundImage: 'url(' + LoginBanner + ')',
+		backgroundPosition: 'top left',
+		backgroundRepeat: 'no-repeat'
+	};
+	return (
+		<section className="loginsection" style={style}>
+		  <div className="container">
+		    <div className="sign_con">
+		      <div className="sign_con_inner">
+		        <div className="signhd">Sign in</div>
+		        <div className="form supporfom">
+		          <LoginForm/>
+		        </div>
+		      </div>
+		      <div className="right_sign">
+		        <div className="right_sign_inner">
+		          <div className="right_sign_cell">
+		            <div className="sign_up_lay">
+		              <div className="signhd signhd_gray">Sign up</div>
+		              <p>Please enter your details to sign up and increase your
+		                website conversions.</p>
+		              <button type="button" className="btn btn-default graybtn rpl">Sign up</button>
+		            </div>  
+		          </div>
+		        </div>  
+		      </div> 
+		    </div>  
+		  </div>  
+		</section>
+	);
+>>>>>>> 213b75f6da504c347b30f5e47abff48e278133ac
+}
+
+export default Login;

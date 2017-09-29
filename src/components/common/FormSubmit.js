@@ -6,7 +6,11 @@ import { FormGroup, Button } from "react-bootstrap";
 export default class FormSubmit extends Component {
   // render
   render() {
+<<<<<<< HEAD
     const { invalid, submitting, buttonSaveLoading, buttonSave} = this.props;
+=======
+    const {invalid, submitting, buttonSaveLoading, buttonSave, className} = this.props;
+>>>>>>> 213b75f6da504c347b30f5e47abff48e278133ac
     return (
       <div>
         {/*error &&
@@ -15,7 +19,7 @@ export default class FormSubmit extends Component {
         </FormGroup>*/}
 
         <FormGroup className="submit">
-          <Button type="submit" bsStyle="primary" disabled={invalid || submitting}>
+          <Button type="submit" bsStyle="primary" className={className} disabled={invalid || submitting}>
             {submitting ?
               (buttonSaveLoading ? buttonSaveLoading : 'Saving...') :
               (buttonSave ? buttonSave : 'Save')}
