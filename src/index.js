@@ -1,4 +1,4 @@
-import './bootstrap'
+import './bootstrap';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import createHistory from 'history/createBrowserHistory';
@@ -14,6 +14,9 @@ import reducer from './reducer';
 
 
 import "bootstrap/dist/css/bootstrap.css";
+import "./stylesheets/stylesheet.css";
+import "./stylesheets/responsive.css";
+
 
 // create middlewares
 const history = createHistory();

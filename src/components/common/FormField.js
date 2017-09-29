@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
-import { FormGroup, FormControl, HelpBlock, Row, Col } from "react-bootstrap";
+import { FormGroup, FormControl, HelpBlock, Row, Col, ControlLabel } from "react-bootstrap";
 
 // Form field component
 export default class FormField extends Component {
@@ -12,7 +12,7 @@ export default class FormField extends Component {
         <FormGroup className={className}
           validationState={!meta.touched ? null : (meta.error ? 'error' : 'success')}>
           {this.content()}
-          <FormControl.Feedback/>
+          {/*<FormControl.Feedback/>*/}
           <HelpBlock>
             {meta.touched && meta.error ? meta.error : null}
           </HelpBlock>
@@ -30,8 +30,13 @@ export default class FormField extends Component {
   // the field content
   content() {
     const {theme, label} = this.props;
-    if ('other_theme' === theme) {
-      // layout for some other theme
+    if ('custom' === theme) {
+      return (
+        <div>
+        <ControlLabel>{label}</ControlLabel>
+        {this.field()}
+        </div>
+      );  
     } else {
       // default theme: 2col
       return (
@@ -45,9 +50,9 @@ export default class FormField extends Component {
 
   // the field itself
   field() {
-    const {input, componentClass, type, placeholder, children} = this.props;
+    const {input, componentClass, type, placeholder, children, className} = this.props;
     return (
-      <FormControl {...input} componentClass={componentClass} type={type} placeholder={placeholder}>
+      <FormControl {...input} componentClass={componentClass} type={type} placeholder={placeholder} className={className}>
         {children}
       </FormControl>
     );
