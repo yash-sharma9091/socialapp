@@ -1,4 +1,4 @@
-import axios from 'axios';
+/* global axios */
 export function login(url, options={}) {
 	return new Promise((resolve, reject) => {
 		axios.post(url, options)

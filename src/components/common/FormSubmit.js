@@ -6,11 +6,7 @@ import { FormGroup, Button } from "react-bootstrap";
 export default class FormSubmit extends Component {
   // render
   render() {
-<<<<<<< HEAD
-    const { invalid, submitting, buttonSaveLoading, buttonSave} = this.props;
-=======
     const {invalid, submitting, buttonSaveLoading, buttonSave, className} = this.props;
->>>>>>> 213b75f6da504c347b30f5e47abff48e278133ac
     return (
       <div>
         {/*error &&
@@ -21,8 +17,8 @@ export default class FormSubmit extends Component {
         <FormGroup className="submit">
           <Button type="submit" bsStyle="primary" className={className} disabled={invalid || submitting}>
             {submitting ?
-              (buttonSaveLoading ? buttonSaveLoading : 'Saving...') :
-              (buttonSave ? buttonSave : 'Save')}
+              (buttonSaveLoading ? buttonSaveLoading : 'Submitting...') :
+              (buttonSave ? buttonSave : 'Submit')}
           </Button>
         </FormGroup>
       </div>
@@ -35,6 +31,6 @@ FormSubmit.propTypes = {
   error: PropTypes.string,  // redux-form general `_error` message
   invalid: PropTypes.bool,  // redux-form invalid prop
   submitting: PropTypes.bool,   // redux-form invalid submitting
-  buttonSaveLoading: PropTypes.string, // save button loading text, default is "Saving..."
+  buttonSaveLoading: PropTypes.string, // save button loading text, default is "Submitting..."
   buttonSave: PropTypes.string,    // save button text, default is "Save"
 };
