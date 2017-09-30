@@ -5,3 +5,9 @@ export const style = {
 	backgroundPosition: 'top left',
 	backgroundRepeat: 'no-repeat'
 };
+
+export const ImageStyle = {
+	height: 150,
+	margin: 'auto',
+	padding: 15
+};
