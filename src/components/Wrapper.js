@@ -14,7 +14,7 @@ const Login = (props) => {
 	} else if( pathname === '/forgot-password' ) {
 		component = <ForgotPassword/>;
 	} else if( pathname.includes('/reset-password') ) {
-		component = <ResetPassword/>;
+		component = <ResetPassword token={props.match.params.token}/>;
 	} else if( pathname === '/invalid' ) {
 		component = <Invalid/>;
 	} else {

@@ -9,7 +9,7 @@ import Alert from './common/Alert';
 import { AUTH_REQUEST } from '../reducer';
 import SignUpBanner from './SignUpBanner';
 
-class LoginForm extends Component {
+class Login extends Component {
     constructor(props) {
       super(props);
       this.formSubmit = this.formSubmit.bind(this);
@@ -63,7 +63,7 @@ class LoginForm extends Component {
       });
     }
 }
-LoginForm = reduxForm({
+const LoginForm = reduxForm({
   form: 'user_login',
   validate: (values) => {
     const errors = {};
@@ -77,6 +77,6 @@ LoginForm = reduxForm({
       }
     return errors;
   }
-})(LoginForm);
+})(Login);
 
 export default LoginForm;

@@ -8,11 +8,11 @@ import {Http} from '../lib/Http';
 
 class ForgotPassword extends Component {
     constructor(props) {
-      super(props);
-      this.formSubmit = this.formSubmit.bind(this);
-      this.state = {
-      	success: ''
-      }
+      	super(props);
+      	this.formSubmit = this.formSubmit.bind(this);
+      	this.state = {
+      		success: ''
+      	}
     }
 	render() {
 		const { error, handleSubmit, invalid, submitting, submitSucceeded} = this.props;
@@ -47,7 +47,7 @@ class ForgotPassword extends Component {
 	}
 }
 
-ForgotPassword = reduxForm({
+const ForgotPasswordForm = reduxForm({
   	form: 'forgot_password',
   	validate: (values) => {
     	const errors = {};
@@ -60,4 +60,4 @@ ForgotPassword = reduxForm({
   	}
 })(ForgotPassword);
 
-export default ForgotPassword;
+export default ForgotPasswordForm;
