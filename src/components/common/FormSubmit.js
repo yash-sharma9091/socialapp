@@ -6,7 +6,7 @@ import { FormGroup, Button } from "react-bootstrap";
 export default class FormSubmit extends Component {
   // render
   render() {
-    const {invalid, submitting, buttonSaveLoading, buttonSave, className} = this.props;
+    const {invalid, submitting, buttonSaveLoading, buttonSave, className, formGroupClassName} = this.props;
     return (
       <div>
         {/*error &&
@@ -14,7 +14,7 @@ export default class FormSubmit extends Component {
           <HelpBlock>{error}</HelpBlock>
         </FormGroup>*/}
 
-        <FormGroup className="submit">
+        <FormGroup className={formGroupClassName}>
           <Button type="submit" bsStyle="primary" className={className} disabled={invalid || submitting}>
             {submitting ?
               (buttonSaveLoading ? buttonSaveLoading : 'Submitting...') :

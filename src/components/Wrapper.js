@@ -1,32 +1,15 @@
 import React from 'react';
-import LoginForm from './LoginForm';
-import ForgotPassword from './ForgotPassword';
-import ResetPassword from './ResetPassword';
-import Invalid from './Invalid';
-import NotFound from './NotFound';
 import {style} from './common/CustomStyle'; 
+import {MatchComponentPath} from './common/MatchComponentPath'; 
 
-const Login = (props) => {
-	let component, pathname = props.location.pathname;
-
-	if(  pathname === '/login' ) {
-		component = <LoginForm/>;
-	} else if( pathname === '/forgot-password' ) {
-		component = <ForgotPassword/>;
-	} else if( pathname.includes('/reset-password') ) {
-		component = <ResetPassword token={props.match.params.token}/>;
-	} else if( pathname === '/invalid' ) {
-		component = <Invalid/>;
-	} else {
-		component = <NotFound/>;
-	}
+const Wrapper = (props) => {
 	return (
 		<section className="loginsection" style={style}>
 		  	<div className="container">
-		    	{ component }
+		    	{ MatchComponentPath(props) }
 		  	</div>  
 		</section>
 	);
 }
 
-export default Login;
+export default Wrapper;

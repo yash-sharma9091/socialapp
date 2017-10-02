@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Field, SubmissionError,reduxForm } from 'redux-form';
-import { Form, Checkbox, FormGroup } from 'react-bootstrap';
+import { Form, FormGroup } from 'react-bootstrap';
 import { push } from 'react-router-redux';
 import { Link } from 'react-router-dom';
 import FormField from "./common/FormField";
@@ -27,15 +27,17 @@ class Login extends Component {
 			        	<Alert alertVisible={error} alertMsg={error} className="danger" />
 			          	<Field component={FormField} type="email" name="email" label="Email" placeholder="Email Address" theme="custom" className="input_both" doValidate={true}/>
 			          	<Field component={FormField} type="password" name="password" label="Password" placeholder="Password" theme="custom" className="input_both" doValidate={true}/>
-			          	
-			          	
 			          	<FormGroup className="clearfix">
-			          	  <Checkbox className="pull-left"> Remember me </Checkbox>
+			          	  	<div className="checkbox pull-left">
+			          	    	<label>
+			          	      		<Field name="remember_me" component="input" type="checkbox"/> Remember me
+			          	    	</label>
+			          	  	</div>
 			          	  <div className="pull-right forgot_link">
 			                <Link to="/forgot-password">Forgot Password?</Link>
 			          	  </div>  
 			          	</FormGroup>
-			          	<FormSubmit error={error} invalid={invalid} submitting={submitting} className="yellobtn" buttonSaveLoading="Processing..." buttonSave="Login"/>
+			          	<FormSubmit error={error} invalid={invalid} submitting={submitting} formGroupClassName="margin-bot10" className="yellobtn" buttonSaveLoading="Processing..." buttonSave="Login"/>
 			        </Form>
 			    </div>    
 		    </div>

@@ -6,10 +6,10 @@ import { FormGroup, FormControl, HelpBlock, Row, Col, ControlLabel } from "react
 export default class FormField extends Component {
   // render
   render() {
-    const {className, doValidate, meta} = this.props;
+    const {formGroupClassName, doValidate, meta} = this.props;
     if (doValidate) {
       return (
-        <FormGroup className={className}
+        <FormGroup className={formGroupClassName}
           validationState={!meta.touched ? null : (meta.error ? 'error' : 'success')}>
           {this.content()}
           {/*<FormControl.Feedback/>*/}
@@ -20,7 +20,7 @@ export default class FormField extends Component {
       );
     } else {
       return (
-        <FormGroup className={className}>
+        <FormGroup className={formGroupClassName}>
           {this.content()}
         </FormGroup>
       );
