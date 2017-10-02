@@ -17,7 +17,6 @@ import "bootstrap/dist/css/bootstrap.css";
 import "./stylesheets/stylesheet.css";
 import "./stylesheets/responsive.css";
 
-
 // create middlewares
 const history = createHistory();
 const sagaMiddleware = createSagaMiddleware();
