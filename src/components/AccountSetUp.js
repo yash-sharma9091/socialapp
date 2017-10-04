@@ -2,9 +2,10 @@ import React, {Component} from 'react';
 import { push } from 'react-router-redux';
 import FormSubmit from "./common/FormSubmit";
 import FormField from "./common/FormField";
+import {FormCheckbox} from "./common/FormCheckbox";
 import Alert from './common/Alert';
 import { Field, SubmissionError,reduxForm } from 'redux-form';
-import { Form, FormGroup, Checkbox, HelpBlock } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 import {Http} from '../lib/Http';
 
 class AccountSetUp extends Component {
@@ -34,7 +35,7 @@ class AccountSetUp extends Component {
 				</div>
 				<div className="clearfix">  
 				  <Field 
-				  		component={FormField} type="text"
+				  		component={FormField} type="url"
 				  		name="customer_url" label="Customer URL"
 				  		placeholder="Customer URL" theme="custom"
 				  		formGroupClassName="group46 pull-left" className="input_both" doValidate={true}/>
@@ -63,49 +64,42 @@ class AccountSetUp extends Component {
 				  		placeholder="Confirm Password" theme="custom"
 				  		formGroupClassName="group46 pull-left" className="input_both" doValidate={true}/>
 				</div>
-				<Field name="agree" component={AccountSetUp.renderTermsCondition} type="checkbox"/> 
+				<Field 
+					name="agree" className="pull-left" 
+					formGroupClassName="clearfix" checkboxText="I agree the Terms &amp; Conditions." 
+					component={FormCheckbox} type="checkbox" doValidate={true}/> 
 				<FormSubmit 
-					error={error} 
-					invalid={invalid} 
-					submitting={submitting} 
-					className="yellobtn" 
-					formGroupClassName="margin-bot10"
-					buttonSaveLoading="Processing..." 
-					buttonSave="Sign Up"/>
+					error={error} invalid={invalid}
+					submitting={submitting} className="yellobtn"
+					formGroupClassName="margin-bot10" buttonSaveLoading="Processing..." buttonSave="Sign Up"/>
 			</Form>
 		);
 	}
-	static renderTermsCondition(props) {
-		const {meta, input} = props;
-		return (
-			<FormGroup className="clearfix"
-	          	validationState={!meta.touched ? null : (meta.error ? 'error' : 'success')}>
-		        <Checkbox {...input} className="pull-left"> I agree the Terms &amp; Conditions. 
-		          	<HelpBlock>
-		            	{meta.touched && meta.error ? meta.error : null}
-		          	</HelpBlock>
-		        </Checkbox>  	
-	        </FormGroup>
-	    );    
-	}
 	formSubmit(values) {
-		const {dispatch} = this.props;
+		const {dispatch, reset} = this.props;
 
 		return new Promise((resolve, reject) => {
 			Http.post('register', values)
 			.then(({data}) => {
 				this.setState({success: data.message});
+				dispatch(reset('account_setup')); // Reset the form
 				setTimeout( () => {
 					this.setState({success: ''});
-					dispatch(push('/register?next=subscription'));	
-				},2000);
+					dispatch(push('/register?next=subscription'));	// redirect the user to next step
+				},1500);
 				
 				resolve();
 			})
 			.catch(({errors}) => {
 				let _message = {_error: errors.message};
-				if( errors.hasOwnProperty('email') ) {
+				if( errors.hasOwnProperty('email') && errors.hasOwnProperty('mobile') ) {
+					_message = {email: errors.email.message, mobile: errors.mobile.message};
+				} 
+				else if( errors.hasOwnProperty('email') ) {
 					_message = {email: errors.email.message};
+				}
+				else if( errors.hasOwnProperty('mobile') ) {
+					_message = {mobile: errors.mobile.message};
 				}
 				reject(new SubmissionError(_message));
 			});
@@ -130,6 +124,8 @@ const AccountSetUpForm = reduxForm({
     	}
     	if(!values.customer_url) {
       		errors.customer_url = 'Customer Url is required';
+    	} else if(!/^[-a-zA-Z0-9@:%_+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_+.~#?&//=]*)?$/i.test(values.customer_url)) {
+    		errors.customer_url = 'Enter a valid Url';
     	}
     	if(!values.mobile) {
       		errors.mobile = 'Mobile No is required';
