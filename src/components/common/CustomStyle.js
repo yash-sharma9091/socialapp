@@ -4,7 +4,8 @@ export const style = {
 	backgroundSize: 'cover',
 	backgroundImage: 'url(' + LoginBanner + ')',
 	backgroundPosition: 'top left',
-	backgroundRepeat: 'no-repeat'
+	backgroundRepeat: 'no-repeat',
+	backgroundAttachment: 'fixed' 
 };
 
 export const ImageStyle = {
