@@ -10,7 +10,7 @@ export default class FormField extends Component {
     if (doValidate) {
       return (
         <FormGroup className={formGroupClassName}
-          validationState={!meta.touched ? null : (meta.error ? 'error' : 'success')}>
+          validationState={!meta.touched ? null : (meta.error ? 'error' : null)}>
           {this.content()}
           {/*<FormControl.Feedback/>*/}
           <HelpBlock>

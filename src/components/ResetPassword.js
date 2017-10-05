@@ -56,6 +56,8 @@ const ResetPasswordForm = reduxForm({
     	const errors = {};
     	if(!values.password) {
       		errors.password = 'New Password is required';
+    	}  else if( !/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/i.test(values.password) ) {
+    		errors.password = 'Password must be at least 8 characters long and should contain at least one digit, one lower case and one upper case character';
     	} else if( values.confirm_password && values.password !== values.confirm_password ) {
     		errors.password = 'New Password and Confirm password should match';
     	}

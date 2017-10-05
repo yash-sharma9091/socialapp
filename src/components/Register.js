@@ -20,7 +20,7 @@ class Register extends Component {
 		            	<ul id="progressbar">
 		                	<li className={_activePathName === 'register'? "active":"complete"}>Set your account</li>
 		                	<li className={_activePathName === 'subscription'? "active":""}>Select subscription </li>
-		                	<li>confirm payment</li>
+		                	{/*<li>confirm payment</li>*/}
 		              	</ul>
 		            </div>
 		            <div className="form supporfom">
