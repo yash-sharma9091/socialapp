@@ -49,7 +49,7 @@ class AccountSetUp extends Component {
 				  	<Field 
 				  		component={FormField} type="text"
 				  		name="mobile" label="Mobile No."
-				  		placeholder="Mobile No." theme="custom"
+				  		placeholder="Mobile No. (Country code prefix)" theme="custom"
 				  		formGroupClassName="group46 pull-left" className="input_both" doValidate={true}/>
 				  	<Field 
 				  		component={FormField} type="password"
@@ -129,8 +129,8 @@ const AccountSetUpForm = reduxForm({
     	}
     	if(!values.mobile) {
       		errors.mobile = 'Mobile No is required';
-    	} else if(!/^(0|[1-9][0-9]{9})$/i.test(values.mobile)) {
-    		errors.mobile = 'Invalid phone number, must be 10 digits';
+    	} else if(!/^([0|+[0-9]{1,5}[7-9][0-9]{9})$/i.test(values.mobile)) {
+    		errors.mobile = 'Invalid phone number, must prefix with country code';
     	}
     	if(!values.password) {
       		errors.password = 'New Password is required';

@@ -54,7 +54,10 @@ class ResetPasswordOTPDialog extends Component {
 		return new Promise((resolve, reject) => {
 			Http.post(`reset_password/${values.verification_code}`, values)
 			.then(({data}) => {
-				setTimeout( () => hide() ,1500);
+				setTimeout( () =>{
+					this.setState({success: ''});
+					hide();
+				} ,1500);
 				this.setState({success: data.message})
 				resolve();
 			})

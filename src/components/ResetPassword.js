@@ -36,11 +36,15 @@ class ResetPassword extends Component {
 		);
 	}
 	formSubmit(values) {
-		const {token} = this.props;
+		const {token, dispatch, reset} = this.props;
 		return new Promise((resolve, reject) => {
 			Http.post(`reset_password/${token}`, values)
 			.then(({data}) => {
-				this.setState({success: data.message})
+				this.setState({success: data.message});
+				dispatch(reset('reset_password')); // Reset the form
+				setTimeout( () => {
+					this.setState({success: ''});
+				},1500);
 				resolve();
 			})
 			.catch(({errors}) => {
