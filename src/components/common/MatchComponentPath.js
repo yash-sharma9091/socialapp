@@ -6,7 +6,7 @@ import ResetPassword from '../ResetPassword';
 import Invalid from '../Invalid';
 import NotFound from '../NotFound';
 
-function exportPath(props) {
+export function exportPath(props) {
 	const pathname = props.location.pathname;
 	if( pathname.lastIndexOf('/') !== pathname.indexOf('/') ){
 		return pathname.substr(1, pathname.lastIndexOf('/') - 1);
