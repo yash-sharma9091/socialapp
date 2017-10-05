@@ -3,10 +3,10 @@ import axios from 'axios';
 window.axios = axios;
 
 window.axios.defaults.headers.common = {'X-Requested-With': 'XMLHttpRequest'};
-window.axios.defaults.baseURL = 'http://100.100.7.38:9000/api/';
+window.axios.defaults.baseURL = ( process.env.NODE_ENV !== 'production') ? 'http://100.100.7.38:9000/api/' : 'http://158.85.67.166:8028/api/';
 
 // Global images url
-window.IMAGE_PATH = 'http://localhost:9000';
+window.IMAGE_PATH = ( process.env.NODE_ENV !== 'production') ? 'http://100.100.7.38:9000' : 'http://158.85.67.166:8028';
 
 // Add a request interceptor
 axios.interceptors.request.use( function(config) {
