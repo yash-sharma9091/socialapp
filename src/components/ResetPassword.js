@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import FormField from "./common/FormField";
 import FormSubmit from "./common/FormSubmit";
-import Alert from './common/Alert';
+import Alert from './common/Alert'; 
 import { Field, SubmissionError,reduxForm } from 'redux-form';
 import { Form } from 'react-bootstrap';
 import {Http} from '../lib/Http';

@@ -55,13 +55,14 @@ header{background: #1974d2;padding: 15px 0px;box-shadow: 0px 3px 10px rgba(0,0,0
 .navbar-default .navbar-nav.headerLinks > li:after{content:""; position: absolute; width:1px; height: 13px; right:-15px; background:#f9fafb;top: 50%;transform: translate(0,-50%);}
 .navbar-default .navbar-nav.headerLinks > li:last-child:after{display: none;}
 .navbar-default .navbar-nav.headerLinks > li > a{padding:0;line-height: 35px;font-size: 15px;color: #f9fafb;text-transform: uppercase;position: relative;}
-.navbar-default .navbar-nav.headerLinks > li > a:hover, .navbar-default .navbar-nav > li > a:focus{color: #f9fafb;}
+.navbar-default .navbar-nav.headerLinks > li > a:hover, .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li.active > a:focus{color: #f9fafb;}
 .navbar-default .navbar-nav.headerLinks li a:after{content:""; display: none; position: absolute; bottom:-23px;left:0px; width: 100%;height:3px;background:#ffbd00;}
-.navbar-default .navbar-nav.headerLinks li a.active:after, .navbar-default .navbar-nav.headerLinks li a:hover:after{display: block;}
+.navbar-default .navbar-nav.headerLinks li.active a:after, .navbar-default .navbar-nav.headerLinks li a:hover:after{display: block;}
+.navbar-default .navbar-nav.headerLinks li.active a{background: none;}
 .navbar-default .navbar-nav.loginSignUp > li {float: left;margin-left: 12px;}
 .navbar-default .navbar-nav.loginSignUp > li > a{width:120px; display: block;font-size: 17px;background:transparent; color:#f9fafb; border: 1px solid #f9fafb;font-weight: 700;text-transform: uppercase;text-align: center;padding: 0px 10px;border-radius: 5px;}
 .navbar-default .navbar-nav.loginSignUp > li > a{line-height: 33px;}
-.navbar-default .navbar-nav.loginSignUp > li > a:hover, .navbar-default .navbar-nav.loginSignUp > li > a.active{background: #ffbd00;color: #000;border: 1px solid #ffbd00;}
+.navbar-default .navbar-nav.loginSignUp > li > a:hover, .navbar-default .navbar-nav.loginSignUp > li.active > a, .navbar-default .navbar-nav.loginSignUp > li > a:focus{background: #ffbd00;color: #000;border: 1px solid #ffbd00;}
 .navbar-default .navbar-toggle{border-color:#ffbd00; }
 .navbar-default .navbar-toggle .icon-bar{background: #ffbd00;}
 
@@ -91,8 +92,8 @@ footer ul li a:hover{color: #cacaca;}
 .signhd{font-size: 29px; margin-bottom: 40px; text-align: center;font-weight: 800; text-transform: uppercase;}
 .forgot_link > a{color:#1b8ecf; font-size: 14px; }
 .yellobtn{background:#ffbd00;color: #000; outline: none; font-size:14px;text-transform:uppercase;font-weight:600;padding:6px 30px; border-color:#ffbd00;}
-.yellobtn:hover, .yellobtn:focus{background:#ffbd00;outline: none;border-color: #ffbd00;}
-
+.yellobtn:hover, .yellobtn:focus, .yellobtn.active, .yellobtn:active:focus, .yellobtn:active{background:#ffbd00;outline: none;border-color: #ffbd00;color: #000;}
+.yellobtn[disabled]:hover, .yellobtn[disabled]:focus, .yellobtn[disabled]:active:focus,  .yellobtn.active[disabled]:hover{background:#ffbd00;outline: none;border-color: #ffbd00; color: #000;}
 .right_sign{width: calc(100% - 580px);z-index: 1; position: absolute; top:50px;bottom: 50px; right: 0; background: #252e39;border-radius:0 5px 5px 0; -webkit-border-radius:0 5px 5px 0; }
 .right_sign_inner{display: table;width: 100%; height: 100%;}
 .right_sign_cell{display: table-cell; vertical-align: middle;}
@@ -100,11 +101,11 @@ footer ul li a:hover{color: #cacaca;}
 .signhd_gray{color: #7b7b7b; margin-bottom: 10px;}
 .sign_up_lay p{color: #7b7b7b; line-height: 22px;margin-bottom: 5px;}
 .graybtn{background:none;color: #7b7b7b; outline: none; font-size:14px;text-transform:uppercase;font-weight:600;padding:6px 30px; border-color:#7b7b7b;}
-.graybtn:hover, .graybtn:focus{background:#7b7b7b;color: #fff; outline: none;border-color: #7b7b7b;}
+.graybtn:hover, .graybtn:focus, .graybtn:active, .graybtn.active, .graybtn:active:focus {background:#7b7b7b;color: #fff; outline: none;border-color: #7b7b7b;}
 .grayfillbtn{background:#7b7b7b;color: #fff; outline: none; font-size:14px;text-transform:uppercase;font-weight:600;padding:6px 30px; border-color:#7b7b7b;}
-.grayfillbtn:hover, .grayfillbtn:focus{background:#7b7b7b;color: #fff; outline: none;border-color: #7b7b7b;}
+.grayfillbtn:hover, .grayfillbtn:focus, .grayfillbtn:active, .grayfillbtn:active:focus, .grayfillbtn.active {background:#7b7b7b;color: #fff; outline: none;border-color: #7b7b7b; outline: none;}
 .FREE_btn_box{background:#fff;color: #000; display: block; width: 100%; outline: none; font-size:12px;text-transform:uppercase;font-weight:600;padding:5px 0px; border-color:#1974d2;}
-.FREE_btn_box:hover, .FREE_btn_box:focus{background:none;color: #000; outline: none;border-color: #1974d2;}
+.FREE_btn_box:hover, .FREE_btn_box:focus, , .FREE_btn_box:active, .FREE_btn_box:active:focus, .FREE_btn_box.active {background:none;color: #000; outline: none;border-color: #1974d2;}
 /******************************forgot******************************/
 .forfot_lay{margin: 0 auto;}
 .supporfom_txt{color: #202020; font-size: 14px; margin-bottom: 15px;}
@@ -115,6 +116,17 @@ footer ul li a:hover{color: #cacaca;}
 #progressbar {margin: 0 -50px 30px;overflow: hidden;counter-reset: step;}
 #progressbar li {list-style-type: none;color: #bfbfc1;text-transform: uppercase;font-size: 12px;width: 33.33%;float: left;text-align: center;position: relative; color: #bfbfc1;}
 #progressbar li:before {content: counter(step);font-weight: 600; border: 1px solid #bfbfc1; counter-increment: step;width: 33px;line-height: 31px;display: block;font-size: 17px;color: #bfbfc1;text-align: center;background: white;border-radius: 50%;margin: 5px auto 5px auto;}
+.help-block{margin-top: 3px;font-size: 12px;}
+/*****************************banner******************************/
+.slick-slider{overflow:hidden;}
+
+
+
+
+
+
+
+
 /*progressbar connectors*/
 #progressbar li:after {content: '';width: 100%;height: 1px;background: #bfbfc1;position: absolute;left: -50%;top: 21px;z-index: -1; /*put it behind the numbers*/}
 #progressbar li:first-child:after {	/*connector not needed before the first step*/	content: none; }
@@ -168,7 +180,7 @@ section{padding: 70px 0px;}
 .mainHedin span{font-weight: 700;}
 .mainPara{text-align: center;}
 .mainBtn{display: block;margin: 15px auto 0px;padding: 12px 30px;width: 173px;}
-.mainBtn:hover{background: #ffae00;border: 1px solid #ffae00;color: #000;}
+.mainBtn:hover, .mainBtn:focus{background: #ffae00;border: 1px solid #ffae00;color: #000; outline: none;}
 
 .mainSmlHdin{font-size: 22px;color: #393333;font-weight: 600;margin-top: 25px;}
 
@@ -262,7 +274,7 @@ section{padding: 70px 0px;}
 	.howItWrksVdo{width: 86%;margin: 0 auto;padding: 8px;box-shadow: 0px 0px 21px 3px rgba(0,0,0,0.16);border-radius: 5px;overflow: hidden;position:relative;}
 	.howItWrksVdoBtn{position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);}
 	.howItWrksWrap iframe{display: block;width: 100%;height: 400px}
-	.howItWrksTxt{position: absolute;left: 0px;bottom: 0px;width: 40%;background: #FFF;padding: 20px 25px;box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.1);border-left: 5px solid #ffbd00;border-radius: 5px;}
+	.howItWrksTxt{position: absolute;z-index: 5; left: 0px;bottom: 0px;width: 40%;background: #FFF;padding: 20px 25px;box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.1);border-left: 5px solid #ffbd00;border-radius: 5px;}
 	.howItWrksTxt .mainHedin{text-align: left;margin-bottom: 5px;}
 	.howItWrksTxt p{font-sixe: 16px;}
 	.videWrapr{position: fixed;top: 40px;left: 50%;transform: translate(-50%,0);width: 60%;z-index: 9;padding: 10px;box-shadow: 0px 0px 21px 2px rgba(0,0,0,0.15);background: #FFF;transition:all 2s ease; -ms-transition:all 2s ease; -webkit-transition:all 2s ease; -o-transition:all 2s ease; -moz-transition:all 2s ease;display: none;}
