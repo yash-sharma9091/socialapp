@@ -40,7 +40,7 @@ class ForgotPassword extends Component {
 				      			<Alert alertVisible={error || (success && submitSucceeded)} alertMsg={error || success} className={error ? "danger" : "success"} />
 				      			<Field 
 				      				component={FormSelect} 
-				      				name="type" label="Select" options={options}
+				      				name="type" label="Select" className="input_both" options={options}
 				      				onChange={(e) => this.toggleField(e)}
 				      				placeholder="Select"/>
 				      				{showEmailField ? 

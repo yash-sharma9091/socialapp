@@ -23,7 +23,7 @@ class ResetPasswordOTPDialog extends Component {
 					<Modal.Header closeButton>
 						<Modal.Title>Reset Password by OTP</Modal.Title>
 					</Modal.Header>	
-					<Modal.Body>
+					<Modal.Body className="supporfom">
 						<Alert alertVisible={error || (this.state.success && submitSucceeded)} alertMsg={error || this.state.success} className={error ? "danger" : "success"} />
 						<Field 
 							component={FormField} type="text" 
@@ -43,7 +43,7 @@ class ResetPasswordOTPDialog extends Component {
 					</Modal.Body>
 					<Modal.Footer>
 						<FormSubmit error={error} invalid={invalid} submitting={submitting} className="yellobtn pull-left" buttonSaveLoading="Processing..."/>
-						<Button onClick={hide}>Close</Button>
+						<Button onClick={hide} className="grayfillbtn" >Close</Button>
 					</Modal.Footer>
 				</Form>	
 			</Modal>
