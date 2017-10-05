@@ -1,8 +1,8 @@
 import React from 'react';
 import Slider from 'react-slick';
 import {SliderImages, SliderSettings} from './common/CustomStyle';
-import ScrollImage from "../images/scrool.png";
-import ScrollHoverImage from "../images/scroolHovr.png";
+/*import ScrollImage from "../images/scrool.png";
+import ScrollHoverImage from "../images/scroolHovr.png";*/
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -41,7 +41,7 @@ const HomeSlider = () => {
 	                    </div>
 	                </div>
 	            </div>  */}                   
-		        <div className="containerS1">
+		        {/*<div className="containerS1">
 		        	<div className="scrolDwnWrap">
 		                <a href="/" id="scrolDwn1">
 		                	<span className="icnWrapperL">
@@ -51,7 +51,7 @@ const HomeSlider = () => {
 		                	<span>SCROLL DOWN</span>
 		                </a>
 		            </div>
-		        </div>
+		        </div>*/}
 		    </div>
 		</section>
 	);
