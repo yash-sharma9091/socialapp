@@ -129,8 +129,8 @@ const AccountSetUpForm = reduxForm({
     	}
     	if(!values.mobile) {
       		errors.mobile = 'Mobile No is required';
-    	} else if(!/^([0|+[0-9]{1,5}[7-9][0-9]{9})$/i.test(values.mobile)) {
-    		errors.mobile = 'Invalid phone number, must prefix with country code';
+    	} else if(!/^([0|[1-9][0-9]{9})$/i.test(values.mobile)) {
+    		errors.mobile = 'Invalid phone number';
     	}
     	if(!values.password) {
       		errors.password = 'New Password is required';
