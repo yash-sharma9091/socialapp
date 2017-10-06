@@ -13,7 +13,8 @@ const Pricing = () => (
 		  </div>  
 		</section>
 		<section className="price_section">
-			<div className="price_tab">
+			<div className="price_tab positionrel">
+			<div className="price_tab_bg"></div>
 				<Tabs className="container" defaultActiveKey={1} id="uncontrolled-tab-example">
 			    	<Tab eventKey={1} title="Monthly">
 			    		<div className="tabpanel_hd">Monthly Plans</div>
