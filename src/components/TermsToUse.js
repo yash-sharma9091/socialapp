@@ -1,9 +1,11 @@
 import React from 'react';
 import {CMSStyle} from './common/CustomStyle';
 import TermsBanner from '../images/terms_banner.png';
+import ScrollToTopOnMount from './common/ScrollToTopOnMount';
 
 const TermsToUse = () => (
 	<div>
+		<ScrollToTopOnMount/>
 		<section className="inner_banner" style={CMSStyle(TermsBanner)}>
 		  <div className="container">
 		     <div className="inner_banner_txt">

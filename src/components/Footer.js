@@ -42,11 +42,12 @@ const Footer = () => {
 	          		<ul className="dotListN clearfix">
 						<li><Link to="/">Home</Link></li>
 						<li><a href="/">help</a></li>
-						<li><a href="/">PRICING</a></li>
+						<li><Link to="/pricing">PRICING</Link></li>
 						<li><Link to="/terms-to-use">TERM TO USE</Link></li>
 						<li><Link to="/register">SignUp</Link></li>
 						<li><Link to="/privacy-policy">Privacy Policy</Link></li>
 						<li><Link to="/login">SignIn</Link></li>
+						<li><Link to="/contact-us">Contact Us</Link></li>
 	          		</ul>
 	          	</div>
       		</div>  	

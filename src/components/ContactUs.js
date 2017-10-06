@@ -3,9 +3,10 @@ import {CMSStyle} from './common/CustomStyle';
 import mapImage from "../images/map_contct.png";
 import locationIcon from "../images/loc_icon.png";
 import ContactBanner from '../images/contact_banner.png';
-
+import ScrollToTopOnMount from './common/ScrollToTopOnMount';
 const ContactUs = () => (
 	<div>
+		<ScrollToTopOnMount/>
 		<section className="inner_banner" style={CMSStyle(ContactBanner)}>
 		  <div className="container">
 		     <div className="inner_banner_txt">

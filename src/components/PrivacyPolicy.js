@@ -1,9 +1,11 @@
 import React from 'react';
 import {CMSStyle} from './common/CustomStyle';
 import PrivacyBanner from '../images/privacy_banner.png';
+import ScrollToTopOnMount from './common/ScrollToTopOnMount';
 
 const PrivacyPolicy = () => (
 	<div>
+		<ScrollToTopOnMount/>
 		<section className="inner_banner" style={CMSStyle(PrivacyBanner)}>
       		<div className="container">
          		<div className="inner_banner_txt">

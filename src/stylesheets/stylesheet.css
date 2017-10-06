@@ -30,6 +30,7 @@ h1,h2,h3,h4,h5,h6{margin: 0;}
 .fr {float:right;}
 .marTp15{margin-top: 15px;}
 .margin-bot10{margin-bottom: 10px!important;}
+.positionrel { position: relative; }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: #3f464b;

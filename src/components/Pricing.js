@@ -5,8 +5,10 @@ import ProPlan from '../images/basic_img2.png';
 import BusinessPlan from '../images/basic_img3.png';
 import PriceBanner from '../images/price_banner.png';
 import {Tabs, Tab} from 'react-bootstrap';
+import ScrollToTopOnMount from './common/ScrollToTopOnMount';
 const Pricing = () => (
 	<div>
+		<ScrollToTopOnMount/>
 		<section className="inner_banner" style={CMSStyle(PriceBanner)}>
 		  <div className="container">
 		     <div className="inner_banner_txt">PRICING</div>
