@@ -1,5 +1,6 @@
 import LoginBanner from '../../images/login_banner.jpg';
 import HomeBanner from '../../images/banner1.jpg';
+
 export const style = {
 	backgroundSize: 'cover',
 	backgroundImage: 'url(' + LoginBanner + ')',
@@ -42,4 +43,13 @@ export const SliderSettings = {
         slidesToScroll: 1,
       }
     }]
+};
+
+export const CMSStyle = (bannerName) => {
+	return {
+		backgroundSize: 'cover',
+		backgroundImage: 'url(' + bannerName + ')',
+		backgroundPosition: 'top center',
+		backgroundRepeat: 'no-repeat'	
+	}
 };

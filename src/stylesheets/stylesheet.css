@@ -307,4 +307,88 @@ section{padding: 70px 0px;}
 
 /* Top Banner Starts */
 
+/*****************************terms-of-use*******************************/
+
+.inner_banner{padding: 0;}
+
+.inner_banner_txt{font-weight: 600;font-family: 'proxima_nova_rgbold'; font-size: 48px; color: #fff; padding: 125px 0; text-align: center; text-transform: uppercase;}
+
+.inner_banner_txt span{color: #ffbd00;}
+
+.terms_panel h2{font-size: 32px; font-weight: 600; color: #333; margin: 10px 0;}
+
+.terms_panel h3{font-size: 22px; color: #333; margin: 10px 0;}
+
+.paragraph-6 {font-size: 15px; line-height: 25px;}
+
+/************************contact us**********************************/
+
+.contactpanel_inner{background: #fff;box-shadow: 0 0 12px 0px rgba(0,0,0,0.2); -webkit-box-shadow: 0 0 12px 0px rgba(0,0,0,0.2);}
+
+.conctleft {width: 375px;float: left;}
+
+.conctright {width: calc(100% - 375px); float: right;}
+
+.map_cicle {position: absolute;top: 30%;left: 35%;width: 50px;height: 50px;border: 3px solid #ffbd00;border-radius: 50%;-webkit-border-radius: 50%;}
+
+.map_cicle:after{position: absolute; content: ''; top:0; left: 0; right: 0; bottom: 0; margin: auto; width: 14px; height: 14px; background: #ffbd00; border: 3px solid #ffbd00; border-radius: 50%; -webkit-border-radius: 50%;}
+
+.absdress {position: absolute;width: 305px;height: 215px;background: #fff;left: 70px;top: -20px;;margin: auto;}
+
+.absdress:after{content:''; position:absolute; top:36px; width: 0;height: 0;border-style: solid;border-width: 7.5px 10px 7.5px 0;border-color: transparent #ffffff transparent transparent;right: 100%;margin: auto;}
+
+.absdresslist > li{display:table; width:100%; height:auto; border-bottom:1px solid #ddd; padding:20px;}
+
+.absdresslist > li:last-child{border-bottom:0;}
+
+.absdresslist > li .contact_icon{display:table-cell; width:43px; border-right:1px solid #ddd;  vertical-align:middle; }
+
+.absdresslist > li .contact_icon .glyphicon {font-size: 24px; color: #737a7a;}
+
+.absdresslist > li .contact_icontxt{display:table-cell; padding:0 0 0 15px; font-size:14px; color:#737a7a; font-weight:600; vertical-align:middle; }
+
+.absdresslist > li .contact_icontxt a{color:#00b3d9; text-decoration:underline;}
+
+.loc_icon{position: absolute;top: -42px;}
+
+.contcthd {padding: 20px;border-bottom: 1px solid #dddddd;font-size: 16px;color: #333;text-transform: uppercase;font-weight: 400;}
+
+.contct_form {padding: 20px;}
+
+.gray_bg{background: #f6f6f6;}
+
+/**************************************price section********************************/
+
+.price_section{padding: 0 0 90px 0;}
+
+.price_tab{background: #d1e3f6;}
+
+.price_tab .nav-tabs > li > a{font-size: 19px; position: relative; color: #97a4b2; border-radius: 0; border: 0;padding: 10px 0px; margin-right: 50px;}
+
+.price_tab .nav-tabs > li > a:after{position: absolute; display: none; content: ''; width: 100%; height: 4px; bottom: 0; left: 0; right: 0; background: #ffbd00;}
+
+.price_tab .nav-tabs > li.active > a, .price_tab .nav-tabs > li > a:hover, .price_tab .nav-tabs > li > a:focus{background: none; color: #000;border: 0;}
+
+.price_tab .nav-tabs > li.active > a:after, .price_tab .nav-tabs > li > a:hover:after{display: block;}
+
+.tab-content{background: #f6fafd;padding: 20px; border: 1px solid #d7e7f7; margin-top: 8px;}
+
+.tabpanel_hd{font-size: 18px; font-weight: 600; color: #000; margin-bottom: 80px;}
+
+.tab-content .plansub_lay_list > li{padding: 50px 20px;}
+
+.tab-content .plansub_lay_list > li:nth-child(2){padding: 110px 20px; margin-top: -60px;}
+
+.tab-content .plansub_lay_list > li h4 { font-size: 25px;}
+
+.tab-content .plansub_lay_list > li .price {font-size: 60px;line-height: 60px;}
+
+.tab-content .plansub_lay_list > li .price span{font-size: 20px; font-weight: 400; margin-top: -10px;}
+
+.tab-content .plansub_lay_list > li .plansub_tag_list > li{font-size: 14px;padding: 11px 0;}
+
+.tab-content .FREE_btn{width: 100%; max-width: 193px; margin: 0 auto;}
+
+.tab-content .FREE_btn_box{font-size: 17px;}
+
 .pad-10 {padding: 10px;}	

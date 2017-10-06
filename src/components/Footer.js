@@ -3,13 +3,13 @@ import LocationIcon from "../images/locationIcn.png";
 import FaxIcon from "../images/faxIcn.png";
 import PhoneIcon from "../images/phnIcn.png";
 import MailIcon from "../images/mailIcn.png";
-
+import {Link} from 'react-router-dom';
 const Footer = () => {
 	return (
 		<footer>
-	      	<div className="container clearfix">
+      		<div className="container clearfix">
 	     	  	<div className="ftrLftWrap pull-left">
-	       		<h4 className="ftrHedin">CONTACT</h4>
+	       			<h4 className="ftrHedin">CONTACT</h4>
 	              	<ul className="icnListN">
 	                  	<li>
 	                  		<a href="/">
@@ -35,23 +35,22 @@ const Footer = () => {
 	                  			<span>info@yourdomain.com</span>
 	                  		</a>
 	                  	</li>
-	              </ul>
-	          </div>
-	          <div className="ftrRghtWrap pull-right">
-	       		<h4 className="ftrHedin">COMPANY</h4>
-	              <ul className="dotListN clearfix">
-	                  <li className="active"><a href="/">Home</a></li>
-	                  <li><a href="/">help</a></li>
-	                  <li><a href="/">PRICING</a></li>
-	                  <li><a href="/">TERM TO USE</a></li>
-	                  <li><a href="/">SIGN uP</a></li>
-	                  <li><a href="/">Privacy Policy</a></li>
-	                  <li><a href="/">sign in</a></li>
-	              </ul>
-	          </div>
-	      </div>
-	          	
-	  </footer>
+	              	</ul>
+	          	</div>
+				<div className="ftrRghtWrap pull-right">
+	       			<h4 className="ftrHedin">COMPANY</h4>
+	          		<ul className="dotListN clearfix">
+						<li><Link to="/">Home</Link></li>
+						<li><a href="/">help</a></li>
+						<li><a href="/">PRICING</a></li>
+						<li><Link to="/terms-to-use">TERM TO USE</Link></li>
+						<li><Link to="/register">SignUp</Link></li>
+						<li><Link to="/privacy-policy">Privacy Policy</Link></li>
+						<li><Link to="/login">SignIn</Link></li>
+	          		</ul>
+	          	</div>
+      		</div>  	
+  		</footer>
 	);
 };
 
