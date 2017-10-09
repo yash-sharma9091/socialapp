@@ -1,6 +1,8 @@
 import axios from 'axios';
+import lodash from 'lodash';
 
 window.axios = axios;
+window._ = lodash;
 
 window.axios.defaults.headers.common = {'X-Requested-With': 'XMLHttpRequest'};
 window.axios.defaults.baseURL = ( process.env.NODE_ENV !== 'production') ? 'http://100.100.7.38:9000/api/' : 'http://158.85.67.166:8028/api/';

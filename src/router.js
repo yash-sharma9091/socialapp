@@ -6,9 +6,10 @@ import Pricing from './components/Pricing';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Wrapper from './components/Wrapper';
-import TermsToUse from './components/TermsToUse';
-import PrivacyPolicy from './components/PrivacyPolicy';
+// import TermsToUse from './components/TermsToUse';
+// import PrivacyPolicy from './components/PrivacyPolicy';
 import ContactUs from './components/ContactUs';
+import CMS from './components/CMS';
 
 export const Router = props => {
 	const { history } = props;
@@ -26,9 +27,8 @@ export const Router = props => {
 		    	<Route path="/reset-password/:token" component={Wrapper} />
 		    	<Route path="/invalid" component={Wrapper} />
 		    	<Route path="/pricing" component={Pricing} />
-		    	<Route path="/terms-to-use" component={TermsToUse} />
-		    	<Route path="/privacy-policy" component={PrivacyPolicy} />
 		    	<Route path="/contact-us" component={ContactUs} />
+		    	<Route path="/:slug" component={CMS} />
 		    	<Route path="*" component={Wrapper} />
 		  	</Switch>
 		  	<Footer/>

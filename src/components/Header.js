@@ -10,7 +10,7 @@ const Header = () => (
 	    	<Navbar.Header>
 	      		<Navbar.Brand>
 	      			<LinkContainer to="/">
-	      				<img src={logo} alt="SocialProof" />
+	      				<img className="cursor" src={logo} alt="SocialProof" />
 	        		</LinkContainer>
 	      		</Navbar.Brand>
 	      		<Navbar.Toggle />
