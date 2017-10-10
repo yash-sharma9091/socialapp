@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
 import {Nav, NavItem} from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
-import { AUTH_LOGOUT_REQUEST } from '../reducer';
+import { AUTH_LOGOUT_REQUEST } from '../constant';
 
 class AuthButton extends Component {
   	render() {

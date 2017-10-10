@@ -6,7 +6,7 @@ import Pricing from './components/Pricing';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Wrapper from './components/Wrapper';
-// import TermsToUse from './components/TermsToUse';
+// import Dashboard from './components/Dashboard';
 // import PrivacyPolicy from './components/PrivacyPolicy';
 import ContactUs from './components/ContactUs';
 import CMS from './components/CMS';
@@ -28,6 +28,7 @@ export const Router = props => {
 		    	<Route path="/invalid" component={Wrapper} />
 		    	<Route path="/pricing" component={Pricing} />
 		    	<Route path="/contact-us" component={ContactUs} />
+		    	
 		    	<Route path="/:slug" component={CMS} />
 		    	<Route path="*" component={Wrapper} />
 		  	</Switch>

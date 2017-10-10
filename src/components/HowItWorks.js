@@ -7,11 +7,16 @@ class HowItWorks extends Component {
 		super();
 		this.state = {
 			showVideo: false,
-			src:""
+			src:"",
+			tmpSrc:""
 		}
+	}
+	componentDidMount() {
+		this.setState({tmpSrc: this.props.site.settings.how_it_works.video_url});
 	}
 	render() {
 		const {showVideo, src} = this.state;
+		
 		return (
 			<section className="hotItWrksSection">
 				<div className="container">
@@ -19,7 +24,7 @@ class HowItWorks extends Component {
 
 			    		<div className={showVideo ? "hidden":"howItWrksTxt"}>
 			            	<h1 className="mainHedin">How it <span>Works</span></h1>
-			                <p>Lorem Ipsum is simply dummy text of the printing and typesettin industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown. </p>
+			                <p>{this.props.site.settings.how_it_works.video_text}</p>
 			            </div>
 			        	<div className="howItWrksVdo">
 			            	<img className={showVideo ? "hidden" : ""} src={VideoFrame} alt="VideoFrame"/>
@@ -37,7 +42,7 @@ class HowItWorks extends Component {
 	}	
 
 	showVideo() {
-		this.setState({showVideo: true, src: "https://www.youtube.com/embed/4pV9kXhxFY4?autoplay=1"});
+		this.setState({showVideo: true, src: `${this.state.tmpSrc}?autoplay=1`});
 	}
 };
 

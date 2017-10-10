@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import FormField from "./common/FormField";
 import FormSubmit from "./common/FormSubmit";
 import Alert from './common/Alert';
-import { AUTH_REQUEST } from '../reducer';
+import { AUTH_REQUEST } from '../constant';
 import SignUpBanner from './SignUpBanner';
 
 class Login extends Component {
