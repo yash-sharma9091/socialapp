@@ -1,10 +1,14 @@
 /* global _ */
 import React, {Component} from 'react';
 import FooterLinks from './FooterLinks';
-import {connect} from 'react-redux';
 import Address from './Address';
+import {connect} from 'react-redux';
+import { FETCH_SITE_SETTINGS } from '../constant';
 
 class Footer extends Component {
+	componentDidMount()  {
+		this.props.dispatch({type: FETCH_SITE_SETTINGS});
+	}
 	render () {
 		const{site, token} = this.props;
 		if( !_.isEmpty(site.settings) ){
