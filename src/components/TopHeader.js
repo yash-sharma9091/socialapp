@@ -1,9 +1,9 @@
 import React from 'react';
 
-const TopHeader = () => {
-	
+const TopHeader = (props) => {
+	console.log(props);
 	return (
-
+		<header>{props.children}</header>
 	);
 }	
 

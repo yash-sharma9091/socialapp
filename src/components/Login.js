@@ -58,7 +58,7 @@ class Login extends Component {
             reject(new SubmissionError({_error: error}));
           },
           callbackSuccess: () => {
-            dispatch(push('/'));
+            dispatch(push('/dashboard'));
             resolve();
           }
         })

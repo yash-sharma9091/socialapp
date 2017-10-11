@@ -58,7 +58,7 @@ const ContactUs = () => (
 		                  </li>
 		                  <li>
 		                    <div className="contact_icon"><span className="glyphicon glyphicon-envelope"></span></div>
-		                      <div className="contact_icontxt"><a href="#">help@test.com</a></div>
+		                      <div className="contact_icontxt"><a href="/">help@test.com</a></div>
 		                  </li>
 		                </ul>
 		              </div>

@@ -6,13 +6,13 @@ import Address from './Address';
 
 class Footer extends Component {
 	render () {
-		const{site} = this.props;
+		const{site, token} = this.props;
 		if( !_.isEmpty(site.settings) ){
 			return (
 				<footer>
 		      		<div className="container clearfix">
 			     	  	<Address site={site.settings.site}/>
-						<FooterLinks links={site.links}/>
+						<FooterLinks token={token} links={site.links}/>
 		      		</div>  	
 		  		</footer>
 			);
@@ -24,7 +24,8 @@ class Footer extends Component {
 
 function mapStateToProps(state) {
   	return {
-    	site: state.settings
+    	site: state.settings,
+    	token: state.auth.token
   	};
 }
 export default connect(mapStateToProps)(Footer);
