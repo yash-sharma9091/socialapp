@@ -49,7 +49,7 @@ class AccountSetUp extends Component {
 				  	<Field 
 				  		component={FormField} type="text"
 				  		name="mobile" label="Mobile No."
-				  		placeholder="Mobile No. (Country code prefix)" theme="custom"
+				  		placeholder="Mobile No." theme="custom"
 				  		formGroupClassName="group46 pull-left" className="input_both" doValidate={true}/>
 				  	<Field 
 				  		component={FormField} type="password"

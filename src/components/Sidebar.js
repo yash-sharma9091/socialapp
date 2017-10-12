@@ -1,13 +1,17 @@
+/* global IMAGE_PATH */
 import React from 'react';
-import UserPic from "../images/user_dp_bigl.png";
+//import UserPic from "../images/user_dp_bigl.png";
 import {NavItem} from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
-const Sidebar = () => {
+import {connect} from 'react-redux';
+
+const Sidebar = (props) => {
+	const { user } = props;
 	return (
 		<div className="left_dash pull-left">
 		    <div className="profile_img text-center">
-		        <img src={UserPic} alt="Username"/>
-		        <span>David Robien</span>   
+		        <img src={`${IMAGE_PATH}/${user.profile_image.path}`} alt={user.customer_name}/>
+		        <span>{user.customer_name}</span>   
 		    </div>  
 		    <ul className="left_dash_menu">
 		        <LinkContainer to="/profile">
@@ -21,4 +25,7 @@ const Sidebar = () => {
 	);
 }
 
-export default Sidebar;
+const mapStateToProps = (state) => ({
+	user: state.auth.user
+});	
+export default connect(mapStateToProps)(Sidebar);

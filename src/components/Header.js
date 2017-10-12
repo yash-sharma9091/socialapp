@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 
 class Header extends Component {
 	render() {
-		const { token, dispatch } = this.props;
+		const { token, dispatch, user } = this.props;
 		return (
 			<header className={token ? "dash_head" : null}>
 				<Navbar fluid collapseOnSelect>
@@ -30,7 +30,7 @@ class Header extends Component {
 		   				  			<NavItem eventKey={2}>Pricing</NavItem>
 		   				  		</LinkContainer>
 		   					</Nav>
-			   				<AuthButton token={token} dispatch={dispatch} />
+			   				<AuthButton token={token} dispatch={dispatch} user={user}/>
 			   			</div>
 				    </Navbar.Collapse>	
 			 	</Navbar>
@@ -40,7 +40,8 @@ class Header extends Component {
 }	
 
 const mapStateToProps = (state) => ({
- 	token: state.auth.token
+ 	token: state.auth.token,
+ 	user: state.auth.user
 });	
 // Pure false is used to remove the active class from the / route
 export default connect(mapStateToProps, null, null, {pure:false})(Header);
