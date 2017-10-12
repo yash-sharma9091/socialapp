@@ -603,4 +603,9 @@ section{padding: 70px 0px;}
 .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus{background-color: #1b8ecf;border-color: #1b8ecf;}
 
 .pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus{  background-color: #1b8ecf;border-color: #1b8ecf; color: #fff;}
-.user_dp_small{display: inline-block; padding-right: 5px; max-width: 30px;}
+.user_dp_small{display: inline-block; padding-right: 5px;}
+.user_dp_small img { 
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+}
