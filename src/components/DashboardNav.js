@@ -1,7 +1,7 @@
 import React from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
 import {NavItem} from 'react-bootstrap';
-import {MatchSettingPath} from './common/MatchSettingPath';
+import {MatchSettingsPath} from './common/MatchPath';
 
 const DashboardNav = () => (
 	<section className="dashboard_nav">
@@ -20,7 +20,7 @@ const DashboardNav = () => (
 	                        <span className="txtmob"> my subscriptions</span>
 	                    </NavItem>
 	                </LinkContainer>
-	                <LinkContainer to="/profile" isActive={MatchSettingPath}>
+	                <LinkContainer to="/profile" isActive={MatchSettingsPath}>
 	                    <NavItem eventKey={3}>
 	                        <span className="glyphicon glyphicon-cog"></span>
                         	<span className="txtmob"> Setting</span>

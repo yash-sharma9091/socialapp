@@ -1,8 +1,8 @@
 /* global axios */
 export class Http {
-	static post(url, data) {
+	static post(url, data, config = null) {
 		return new Promise((resolve, reject) => {
-			axios.post(url, data)
+			axios.post(url, data, config)
 			.then(({data}) => {
 				resolve({data: data.records });
 			})

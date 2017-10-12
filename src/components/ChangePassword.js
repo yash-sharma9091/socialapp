@@ -3,8 +3,9 @@ import { Form } from 'react-bootstrap';
 import FormField from "./common/FormField";
 import Alert from './common/Alert';
 import {connect} from 'react-redux';
-import { Field,reduxForm } from 'redux-form';
+import { Field,reduxForm, SubmissionError } from 'redux-form';
 import FormSubmit from "./common/FormSubmit";
+import {Http} from '../lib/Http';
 
 class ChangePassword extends Component {
 	constructor(props) {
@@ -25,15 +26,15 @@ class ChangePassword extends Component {
 			        	<Alert alertVisible={error || (success && submitSucceeded)} alertMsg={error || success} className={error ? "danger" : "success"} />
 			            <Field 
 			            	component={FormField} type="password" 
-			            	name="password"
-			            	placeholder="Old Password" theme="custom" 
+			            	name="password" label="Current Password"
+			            	placeholder="Current Password" theme="custom" 
 			            	className="input_both" doValidate={true}/>
 			            <Field 
-			            	component={FormField} type="password" 
+			            	component={FormField} type="password" label="New Password"
 			            	name="new_password" placeholder="New Password" 
 			            	theme="custom" className="input_both" doValidate={true}/>
 				      	<Field 
-				      		component={FormField} type="password" 
+				      		component={FormField} type="password" label="Confirm Password"
 				      		name="confirm_password" placeholder="Confirm Password" 
 				      		theme="custom" className="input_both" doValidate={true}/>
 				      	<FormSubmit 
@@ -45,15 +46,29 @@ class ChangePassword extends Component {
 		);
 	}
 	formSubmit(values) {
-		console.log(values);
+		const {dispatch, reset, user} = this.props;
+		return new Promise((resolve, reject) => {
+			Http.post(`change_password/${user._id}`, values)
+			.then(({data}) => {
+				this.setState({success: data.message});
+				dispatch(reset('update_password_form')); // Reset the form
+				setTimeout( () => {
+					this.setState({success: ''});
+				},1500);
+				resolve();
+			})
+			.catch(({errors}) => {
+				reject(new SubmissionError({_error: errors.message}));
+			});
+		});
 	}
 }
 const ChangePasswordForm = reduxForm({
-  	form: 'settings_form',
+  	form: 'update_password_form',
   	validate: (values) => {
     	const errors = {};
     	if(!values.password) {
-      		errors.password = 'New Password is required';
+      		errors.password = 'old Password is required';
     	}
     	if(!values.new_password) {
       		errors.new_password = 'New Password is required';
@@ -71,6 +86,6 @@ const ChangePasswordForm = reduxForm({
 })(ChangePassword);
 
 const mapStateToProps = (state) => ({
-	
+	user: state.auth.user
 });	
 export default connect(mapStateToProps)(ChangePasswordForm);

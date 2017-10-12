@@ -4,6 +4,7 @@ import React from 'react';
 import {NavItem} from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import {connect} from 'react-redux';
+import {MatchProfilePath, MatchChangePasswordPath} from './common/MatchPath';
 
 const Sidebar = (props) => {
 	const { user } = props;
@@ -14,10 +15,10 @@ const Sidebar = (props) => {
 		        <span>{user.customer_name}</span>   
 		    </div>  
 		    <ul className="left_dash_menu">
-		        <LinkContainer to="/profile">
+		        <LinkContainer to="/profile" isActive={MatchProfilePath}>
 	            	<NavItem eventKey={1}> Profile </NavItem>
 	            </LinkContainer>
-	            <LinkContainer to="/change-password">
+	            <LinkContainer to="/change-password" isActive={MatchChangePasswordPath}>
 	            	<NavItem eventKey={1}> Change Password </NavItem>
 	            </LinkContainer>
 		    </ul>  

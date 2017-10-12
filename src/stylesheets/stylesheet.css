@@ -437,7 +437,7 @@ section{padding: 70px 0px;}
 
 .profile_img{padding: 35px 10px; background: #303030;}
 
-.profile_img img{margin-bottom: 10px; border-radius: 5px;}
+.profile_img img{ margin: 0 auto; margin-bottom: 10px; border-radius: 5px; max-width: 200px;}
 
 .profile_img span{display: block; color: #fff; font-size: 17px;}
 
@@ -603,3 +603,4 @@ section{padding: 70px 0px;}
 .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus{background-color: #1b8ecf;border-color: #1b8ecf;}
 
 .pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus{  background-color: #1b8ecf;border-color: #1b8ecf; color: #fff;}
+.user_dp_small{display: inline-block; padding-right: 5px; max-width: 30px;}
