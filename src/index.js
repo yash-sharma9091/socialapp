@@ -10,6 +10,7 @@ import {store, history} from './store';
 import "bootstrap/dist/css/bootstrap.css";
 import "./stylesheets/stylesheet.css";
 import "./stylesheets/responsive.css";
+import "./stylesheets/spinner.css";
 
 ReactDOM.render(
   	<Provider store={store}>

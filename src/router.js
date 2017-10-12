@@ -6,9 +6,13 @@ import Pricing from './components/Pricing';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Wrapper from './components/Wrapper';
-import TermsToUse from './components/TermsToUse';
-import PrivacyPolicy from './components/PrivacyPolicy';
+import Dashboard from './components/Dashboard';
+import PrivateRoute from './router/PrivateRoute';
+import BeforeAuthRoute from './router/BeforeAuthRoute';
 import ContactUs from './components/ContactUs';
+import CMS from './components/CMS';
+import Profile from './components/Profile';
+import MySubscriptions from './components/MySubscriptions';
 
 export const Router = props => {
 	const { history } = props;
@@ -19,16 +23,18 @@ export const Router = props => {
 			<Header/>
 			<Switch>
 				<Route path="/" exact={true} component={Home} />
-		    	<Route path="/login" component={Wrapper} />
-		    	<Route path="/register" component={Wrapper} />
-		    	<Route path="/forgot-password" component={Wrapper} />
-		    	<Route path="/reset-password/:token" component={Wrapper} />
-		    	<Route path="/reset-password/:token" component={Wrapper} />
+		    	<BeforeAuthRoute path="/login" component={Wrapper} />
+		    	<BeforeAuthRoute path="/register" component={Wrapper} />
+		    	<BeforeAuthRoute path="/forgot-password" component={Wrapper} />
+		    	<BeforeAuthRoute path="/reset-password/:token" component={Wrapper} />
 		    	<Route path="/invalid" component={Wrapper} />
 		    	<Route path="/pricing" component={Pricing} />
-		    	<Route path="/terms-to-use" component={TermsToUse} />
-		    	<Route path="/privacy-policy" component={PrivacyPolicy} />
 		    	<Route path="/contact-us" component={ContactUs} />
+		    	<PrivateRoute path="/dashboard" component={Dashboard} />
+		    	<PrivateRoute path="/profile" component={Profile} />
+		    	<PrivateRoute path="/change-password" component={Profile} />
+		    	<PrivateRoute path="/my-subscriptions" component={MySubscriptions} />
+		    	<Route path="/:slug" component={CMS} />
 		    	<Route path="*" component={Wrapper} />
 		  	</Switch>
 		  	<Footer/>

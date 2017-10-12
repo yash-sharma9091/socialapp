@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import FormField from "./common/FormField";
 import FormSubmit from "./common/FormSubmit";
 import Alert from './common/Alert';
-import { AUTH_REQUEST } from '../reducer';
+import { AUTH_REQUEST } from '../constant';
 import SignUpBanner from './SignUpBanner';
 
 class Login extends Component {
@@ -58,7 +58,7 @@ class Login extends Component {
             reject(new SubmissionError({_error: error}));
           },
           callbackSuccess: () => {
-            dispatch(push('/'));
+            dispatch(push('/dashboard'));
             resolve();
           }
         })

@@ -523,7 +523,7 @@
 			"file": "index.js",
 			"settings":
 			{
-				"buffer_size": 1079,
+				"buffer_size": 815,
 				"line_ending": "Unix"
 			}
 		},
@@ -531,7 +531,7 @@
 			"file": "/home/yash/social_proof_notification/package.json",
 			"settings":
 			{
-				"buffer_size": 796,
+				"buffer_size": 1040,
 				"line_ending": "Unix"
 			}
 		}
@@ -951,11 +951,6 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
-	"expanded_folders":
-	[
-		"/home/yash/social_proof_notification",
-		"/home/yash/social_proof_notification/src"
-	],
 	"file_history":
 	[
 		"/home/yash/social_proof_notification/package.json",
@@ -1311,7 +1306,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1079,
+						"buffer_size": 815,
 						"regions":
 						{
 						},
@@ -1327,7 +1322,9 @@
 							"incomplete_sync": null,
 							"remote_loading": false,
 							"synced": false,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1342,15 +1339,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 796,
+						"buffer_size": 1040,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								177,
-								177
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1955,7 +1952,7 @@
 		[
 			[
 				"",
-				"~/BHBackend/BHBackend.sublime-project"
+				"~/social_proof_notification_backend/socialproofbackend.sublime-project"
 			]
 		],
 		"width": 380.0

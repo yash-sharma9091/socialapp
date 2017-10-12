@@ -49,7 +49,7 @@ class AccountSetUp extends Component {
 				  	<Field 
 				  		component={FormField} type="text"
 				  		name="mobile" label="Mobile No."
-				  		placeholder="Mobile No. (Country code prefix)" theme="custom"
+				  		placeholder="Mobile No." theme="custom"
 				  		formGroupClassName="group46 pull-left" className="input_both" doValidate={true}/>
 				  	<Field 
 				  		component={FormField} type="password"
@@ -124,7 +124,7 @@ const AccountSetUpForm = reduxForm({
     	}
     	if(!values.customer_url) {
       		errors.customer_url = 'Customer Url is required';
-    	} else if(!/^[-a-zA-Z0-9@:%_+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_+.~#?&//=]*)?$/i.test(values.customer_url)) {
+    	} else if(!/^https?:\/\/(www\.)?[-a-zA-Z0-9@:%_+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_+.~#?&//=]*)?$/i.test(values.customer_url)) {
     		errors.customer_url = 'Enter a valid Url';
     	}
     	if(!values.mobile) {

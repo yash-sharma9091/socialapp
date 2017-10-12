@@ -3,7 +3,7 @@ import BasicPlan from '../images/basic_img.png';
 import ProPlan from '../images/basic_img2.png';
 import BusinessPlan from '../images/basic_img3.png';
 import { Form, FormGroup, Radio, HelpBlock } from 'react-bootstrap';
-import { Field, SubmissionError,reduxForm } from 'redux-form';
+import { Field,reduxForm } from 'redux-form';
 
 class Subscription extends Component {
 	 constructor(props) {
@@ -11,7 +11,7 @@ class Subscription extends Component {
       	this.formSubmit = this.formSubmit.bind(this);
     }
 	render() {
-		const { error, handleSubmit} = this.props;
+		const { handleSubmit} = this.props;
 		return(
 			<div>
 				<Form onSubmit={handleSubmit(this.formSubmit)}>
