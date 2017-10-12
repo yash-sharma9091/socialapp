@@ -92,8 +92,8 @@ footer ul li a:hover{color: #cacaca;}
 .sign_con_inner{width: 100%; max-width:580px; position: relative; z-index: 2; background:#fff;padding:90px 20px; border-radius: 5px; -webkit-border-radius: 5px; border: 5px solid #dbdbdb;}
 .signhd{font-size: 29px; margin-bottom: 40px; text-align: center;font-weight: 800; text-transform: uppercase;}
 .forgot_link > a{color:#1b8ecf; font-size: 14px; }
-.yellobtn{background:#ffbd00;color: #000; outline: none; font-size:14px;text-transform:uppercase;font-weight:600;padding:6px 30px; border-color:#ffbd00;}
-.yellobtn:hover, .yellobtn:focus, .yellobtn.active, .yellobtn:active:focus, .yellobtn:active{background:#ffbd00;outline: none;border-color: #ffbd00;color: #000;}
+.yellobtn, .yellobtn_small{background:#ffbd00;color: #000; outline: none; font-size:14px;text-transform:uppercase;font-weight:600;padding:6px 30px; border-color:#ffbd00;outline: none;}
+.yellobtn:hover, .yellobtn:active, .yellobtn:focus,.yellobtn:active:focus, .yellobtn_small:active:focus, .yellobtn_small:active, .yellobtn_small:hover, .yellobtn_small:focus{background:#ffbd00;outline: none;border-color: #ffbd00;}
 .yellobtn[disabled]:hover, .yellobtn[disabled]:focus, .yellobtn[disabled]:active:focus,  .yellobtn.active[disabled]:hover{background:#ffbd00;outline: none;border-color: #ffbd00; color: #000;}
 .right_sign{width: calc(100% - 580px);z-index: 1; position: absolute; top:50px;bottom: 50px; right: 0; background: #252e39;border-radius:0 5px 5px 0; -webkit-border-radius:0 5px 5px 0; }
 .right_sign_inner{display: table;width: 100%; height: 100%;}
