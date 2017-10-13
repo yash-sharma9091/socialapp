@@ -38,15 +38,15 @@ class ConfirmPayment extends Component {
 				<Alert alertVisible={error || (this.state.success && submitSucceeded)} alertMsg={error || this.state.success} className={error ? "danger" : "success"} />
 					<FormGroup>
 						<ControlLabel>Card number</ControlLabel>
-						<CardNumberElement {...createOptions(this.props.fontSize)} />
+						<CardNumberElement onChange={() => this.handleChange()} {...createOptions(this.props.fontSize)} />
 					</FormGroup>
 					<FormGroup>
 						<ControlLabel>Expiration date</ControlLabel>
-						<CardExpiryElement {...createOptions(this.props.fontSize)} />
+						<CardExpiryElement onChange={() => this.handleChange()} {...createOptions(this.props.fontSize)} />
 					</FormGroup>	
 					<FormGroup>
 						<ControlLabel>CVC</ControlLabel>
-						<CardCVCElement {...createOptions(this.props.fontSize)} />
+						<CardCVCElement onChange={() => this.handleChange()} {...createOptions(this.props.fontSize)} />
 					</FormGroup>	
 				<FormSubmit 
 					error={error}
@@ -55,18 +55,20 @@ class ConfirmPayment extends Component {
 			</Form>
 		);
 	}
+	handleChange() {
+		const{dispatch, clearSubmitErrors} = this.props;
+		dispatch(clearSubmitErrors('confirm_payment_form'));
+	}
 	formSubmit(values) {
 		const{stripe} = this.props;
-		console.log(this.props);
 		return new Promise((resolve, reject) => {
 			stripe.createToken()
 			.then(payload => {
 				if( payload.error ) {
-					console.log(payload.error.message);
 					reject(new SubmissionError({_error: payload.error.message}));
 				} else {
-					resolve()
-					console.log(payload)
+					resolve();
+					console.log(payload);
 				}
 			});
 		});

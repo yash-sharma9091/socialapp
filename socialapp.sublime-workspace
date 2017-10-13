@@ -4,7 +4,86 @@
 		"selected_items":
 		[
 			[
-<<<<<<< HEAD
+				"Sc",
+				"ScrollHoverImage"
+			],
+			[
+				"sc",
+				"ScrollImage"
+			],
+			[
+				"S",
+				"Step_3"
+			],
+			[
+				"St",
+				"Step_1"
+			],
+			[
+				"V",
+				"VideoFrame"
+			],
+			[
+				"Ho",
+				"HowItWorks"
+			],
+			[
+				"vi",
+				"VideoButton"
+			],
+			[
+				"Lo",
+				"LocationIcon"
+			],
+			[
+				"lo",
+				"location"
+			],
+			[
+				"re",
+				"reject"
+			],
+			[
+				"pa",
+				"pathname"
+			],
+			[
+				"B",
+				"BusinessPlan"
+			],
+			[
+				"P",
+				"ProPlan"
+			],
+			[
+				"bas",
+				"BasicPlan"
+			],
+			[
+				"H",
+				"HelpBlock"
+			],
+			[
+				"render",
+				"renderTermsCondition"
+			],
+			[
+				"con",
+				"Conditions"
+			],
+			[
+				"customer_u",
+				"customer_url"
+			],
+			[
+				"cus",
+				"customer_name"
+			],
+			[
+				"Pas",
+				"Password"
+			],
+			[
 				"rende",
 				"renderLeftInput"
 			],
@@ -25,14 +104,6 @@
 				"input"
 			],
 			[
-				"lo",
-				"log\tconsole.log"
-			],
-			[
-				"con",
-				"confirm_password"
-			],
-			[
 				"SubM",
 				"SubmissionError"
 			],
@@ -45,31 +116,8 @@
 				"SignUpBanner"
 			],
 			[
-=======
-<<<<<<< HEAD
-				"Con",
-				"contact"
-			],
-			[
-				"A",
-				"About"
-			],
-			[
-				"Pr",
-				"PrivateRoute"
-=======
->>>>>>> 450305005949166fc430e23deef2347078dd2546
-				"pa",
-				"payload"
->>>>>>> develop
-			],
-			[
 				"au",
 				"authError"
-			],
-			[
-				"P",
-				"ProgressBar"
 			],
 			[
 				"fe",
@@ -126,10 +174,6 @@
 			[
 				"For",
 				"FormGroup"
-			],
-			[
-				"render",
-				"renderUsername"
 			],
 			[
 				"Fo",
@@ -224,10 +268,6 @@
 				"fun\tFunction"
 			],
 			[
-				"re",
-				"rejection"
-			],
-			[
 				"log",
 				"logout"
 			],
@@ -266,10 +306,6 @@
 			[
 				"e",
 				"err"
-			],
-			[
-				"sc",
-				"success"
 			],
 			[
 				"em",
@@ -478,217 +514,26 @@
 			[
 				"ne",
 				"next"
-			],
-			[
-				"li",
-				"li_algo"
-			],
-			[
-				"r",
-				"request"
-			],
-			[
-<<<<<<< HEAD
-				"pa",
-				"paging"
-			],
-			[
-=======
->>>>>>> develop
-				"fr",
-				"first"
-			],
-			[
-				"url",
-				"urldecode"
-			],
-			[
-				"le",
-				"length"
-			],
-			[
-				"qu",
-				"query"
-			],
-			[
-				"jsn",
-				"json_encode"
-			],
-			[
-				"json",
-				"json_encode"
-			],
-			[
-				"key",
-				"keyword"
-			],
-			[
-				"exp",
-				"explode"
-			],
-			[
-				"Se",
-				"Search"
-			],
-			[
-				"Search",
-				"SearchResult"
-			],
-			[
-				"get",
-				"get_search_results"
-<<<<<<< HEAD
-=======
-			],
-			[
-				"ec",
-				"echo"
-			],
-			[
-				"ke",
-				"keyword"
-			],
-			[
-				"desc",
-				"desc_1"
-			],
-			[
-				"print",
-				"print_r"
-<<<<<<< HEAD
-=======
-			],
-			[
-				"m",
-				"msgs"
-			],
-			[
-				"lo",
-				"log\tconsole.log"
-			],
-			[
-				"roo",
-				"roomName"
->>>>>>> develop
->>>>>>> 450305005949166fc430e23deef2347078dd2546
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-<<<<<<< HEAD
-			"file": "src/components/ResetPassword.js",
-=======
-<<<<<<< HEAD
-			"file": "src/components/App.js",
+			"file": "src/reducer/index.js",
 			"settings":
 			{
-				"buffer_size": 194,
-=======
-			"file": "src/api/login.js",
->>>>>>> 450305005949166fc430e23deef2347078dd2546
-			"settings":
-			{
-				"buffer_size": 2773,
+				"buffer_size": 1185,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/components/AccountSetUp.js",
+			"file": "src/bootstrap.js",
 			"settings":
 			{
-				"buffer_size": 4507,
+				"buffer_size": 997,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/components/common/FormField.js",
-			"settings":
-			{
-				"buffer_size": 2169,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/components/Register.js",
-			"settings":
-			{
-<<<<<<< HEAD
-				"buffer_size": 1439,
-=======
-				"buffer_size": 2522,
->>>>>>> develop
->>>>>>> 450305005949166fc430e23deef2347078dd2546
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/components/common/FormSubmit.js",
-			"settings":
-			{
-<<<<<<< HEAD
-				"buffer_size": 1241,
-=======
-<<<<<<< HEAD
-				"buffer_size": 889,
-=======
-				"buffer_size": 1195,
->>>>>>> develop
->>>>>>> 450305005949166fc430e23deef2347078dd2546
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-<<<<<<< HEAD
-			"contents": "<form>\n \n</form>",
-=======
-<<<<<<< HEAD
-			"contents": "<<<<<<< HEAD\nimport { connect } from 'react-redux';\nimport { push } from 'react-router-redux';\nimport {Nav, NavItem} from 'react-bootstrap';\nimport {LinkContainer} from 'react-router-bootstrap';\n\nconst AuthButton = ({ token }) => (\n  \ttoken ? (\n  \t\t<Nav pullRight>\n\t    \t<LinkContainer to=\"/profile\">\n\t\t\t\t<NavItem eventKey={1}>Profile</NavItem>\n\t        </LinkContainer>\n    \t\t<NavItem onClick={() => push('/')} eventKey={1}>Logout</NavItem>\n    \t</Nav>\t\n  \t) : (\n  \t\t<Nav pullRight>\n\t    \t<LinkContainer to=\"/login\">\n\t\t\t\t<NavItem eventKey={1}>Login</NavItem>\n\t        </LinkContainer>\n\t    </Nav>    \n  \t)\n);\n\nconst mapStateToProps = (state) => ({\n  token: state.auth.token\n=======",
-			"settings":
-			{
-				"buffer_size": 682,
-=======
-			"file": "src/saga/index.js",
->>>>>>> 450305005949166fc430e23deef2347078dd2546
-			"settings":
-			{
-				"buffer_size": 16,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/components/Wrapper.js",
-			"settings":
-			{
-<<<<<<< HEAD
-				"buffer_size": 355,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/yash/socialappdesign/home/yash/Social_Proof_Notification_HTML/signupHTML/signup.html",
-			"settings":
-			{
-				"buffer_size": 7929,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/router.js",
-			"settings":
-			{
-				"buffer_size": 1004,
-				"encoding": "UTF-8",
-=======
-				"buffer_size": 1204,
->>>>>>> develop
->>>>>>> 450305005949166fc430e23deef2347078dd2546
 				"line_ending": "Unix"
 			}
 		}
@@ -844,32 +689,48 @@
 	[
 		"/home/yash/socialapp",
 		"/home/yash/socialapp/src",
-<<<<<<< HEAD
-		"/home/yash/socialapp/src/components",
-		"/home/yash/socialapp/src/reducer",
-		"/home/yash/socialapp/src/router",
-=======
-		"/home/yash/socialapp/src/api",
-		"/home/yash/socialapp/src/components",
-		"/home/yash/socialapp/src/components/common",
-<<<<<<< HEAD
-		"/home/yash/socialapp/src/saga",
-		"/home/yash/socialapp/src/stylesheets"
+		"/home/yash/socialapp/src/reducer"
 	],
 	"file_history":
 	[
+		"/home/yash/socialapp/src/components/Home.js",
+		"/home/yash/socialappdesign/home/yash/Social_Proof_Notification_HTML/signupHTML/index.html",
+		"/home/yash/socialapp/src/components/Slider.js",
+		"/home/yash/socialapp/src/components/common/CustomStyle.js",
+		"/home/yash/my-react-app/src/components/testimonials/TestimonialSlider.js",
+		"/home/yash/socialapp/src/index.js",
+		"/home/yash/socialapp/src/components/Steps.js",
+		"/home/yash/socialapp/src/router.js",
+		"/home/yash/socialapp/src/components/Footer.js",
+		"/home/yash/socialapp/src/components/Wrapper.js",
+		"/home/yash/socialapp/src/components/Trail.js",
 		"/home/yash/socialapp/src/components/Login.js",
+		"/home/yash/socialapp/src/components/KnowMore.js",
+		"/home/yash/my-react-app/src/components/home/Banner.js",
+		"/home/yash/socialapp/src/components/HowItWorks.js",
+		"/home/yash/my-react-app/src/components/home/Home.js",
+		"/home/yash/socialapp/src/components/Header.js",
+		"/home/yash/my-react-app/src/components/blogs/BlogSingle.js",
+		"/home/yash/socialapp/src/components/ResetPassword.js",
+		"/home/yash/socialapp/src/components/AccountSetUp.js",
+		"/home/yash/socialapp/src/components/AuthButton.js",
 		"/home/yash/socialapp/src/components/common/MatchComponentPath.js",
+		"/home/yash/socialapp/src/components/Subscription.js",
+		"/home/yash/socialapp/src/components/Register.js",
+		"/home/yash/socialappdesign/home/yash/Social_Proof_Notification_HTML/signupHTML/confirm-payment.html",
+		"/home/yash/socialappdesign/home/yash/Social_Proof_Notification_HTML/signupHTML/select-subscription.html",
+		"/home/yash/socialapp/src/components/common/FormSubmit.js",
+		"/home/yash/socialapp/src/components/common/FormField.js",
+		"/home/yash/mimic/user/signup/views/signup.html",
+		"/home/yash/socialappdesign/home/yash/Social_Proof_Notification_HTML/login.html",
+		"/home/yash/socialappdesign/home/yash/Social_Proof_Notification_HTML/signupHTML/signup.html",
 		"/home/yash/socialapp/src/stylesheets/stylesheet.css",
 		"/home/yash/socialapp/src/components/SignUpBanner.js",
-		"/home/yash/socialapp/src/components/AuthButton.js",
 		"/home/yash/socialapp/public/index.html",
 		"/home/yash/socialappdesign/home/yash/Social_Proof_Notification_HTML/signupHTML/css/stylesheet.css",
 		"/home/yash/socialappdesign/home/yash/Social_Proof_Notification_HTML/signupHTML/css/responsive.css",
 		"/home/yash/socialapp/src/stylesheets/responsive.css",
 		"/home/yash/socialapp/src/components/ForgotPassword.js",
-		"/home/yash/socialapp/src/components/common/CustomStyle.js",
-		"/home/yash/socialapp/src/components/ResetPassword.js",
 		"/home/yash/socialapp/src/components/Invalid.js",
 		"/home/yash/socialapp/src/components/NotFound.js",
 		"/home/yash/socialapp/src/lib/Http.js",
@@ -879,41 +740,9 @@
 		"/home/yash/socialapp/src/components/LoginForgot.js",
 		"/home/yash/socialapp/src/components/common/StyleBanner.js",
 		"/home/yash/socialappdesign/home/yash/Social_Proof_Notification_HTML/signupHTML/forgot.html",
-		"/home/yash/socialapp/src/router.js",
 		"/home/yash/socialapp/src/saga/index.js",
 		"/home/yash/socialapp/src/reducer/index.js",
-=======
-		"/home/yash/socialapp/src/reducer",
->>>>>>> develop
-		"/home/yash/socialapp/src/saga"
-	],
-	"file_history":
-	[
-<<<<<<< HEAD
-		"/home/yash/socialapp/src/router.js",
-		"/home/yash/socialapp/src/router/PrivateRoute.js",
-		"/home/yash/socialapp/src/reducer/index.js",
-		"/home/yash/socialapp/src/bootstrap.js",
-		"/home/yash/socialapp/src/components/Header.js",
 		"/home/yash/socialapp/src/components/Main.js",
-		"/home/yash/socialapp/src/components/Profile.js",
-		"/home/yash/socialapp/src/components/Contact.js",
-		"/home/yash/socialapp/src/components/About.js",
-		"/home/yash/socialapp/src/components/Login.js",
-		"/home/yash/socialapp/src/components/common/FormSubmit.js",
-		"/home/yash/socialapp/package.json",
-		"/home/yash/socialapp/src/api/login.js",
-		"/home/yash/socialapp/src/components/common/Alert.js",
-		"/home/yash/socialapp/src/saga/index.js",
-		"/home/yash/my-react-app/server.js",
-		"/home/yash/socialapp/src/index.js",
-		"/home/yash/my-react-app/core/user_router.js",
-		"/home/yash/my-react-app/src/lib/Http.js",
-=======
->>>>>>> 450305005949166fc430e23deef2347078dd2546
-		"/home/yash/socialapp/src/components/Main.js",
-		"/home/yash/socialapp/src/components/Header.js",
-		"/home/yash/socialapp/src/components/common/FormSubmit.js",
 		"/home/yash/socialapp/README.md",
 		"/home/yash/socialapp/social_proof.sublime-workspace",
 		"/home/yash/socialapp/package.json",
@@ -923,14 +752,8 @@
 		"/home/yash/my-react-app/server.js",
 		"/home/yash/my-react-app/src/components/header/Header.js",
 		"/home/yash/my-react-app/src/components/UnauthenticatedRoute.js",
-		"/home/yash/socialapp/src/index.js",
 		"/home/yash/my-react-app/core/user_router.js",
 		"/home/yash/my-react-app/src/lib/Http.js",
-<<<<<<< HEAD
-=======
-		"/home/yash/socialapp/src/bootstrap.js",
->>>>>>> develop
->>>>>>> 450305005949166fc430e23deef2347078dd2546
 		"/home/yash/my-react-app/src/index.js",
 		"/home/yash/my-react-app/src/bootstrap.js",
 		"/home/yash/my-redux-app/src/components/UserListElement.js",
@@ -943,17 +766,8 @@
 		"/home/yash/my-redux-app/src/reducers/users.js",
 		"/home/yash/my-redux-app/src/pages/UserEdit.js",
 		"/home/yash/my-redux-app/src/api/users.js",
-<<<<<<< HEAD
-		"/home/yash/my-react-app/src/components/header/Header.js",
 		"/home/yash/my-react-app/src/components/AboutUs/AboutSingle.js",
-		"/home/yash/my-react-app/src/components/blogs/BlogSingle.js",
 		"/home/yash/my-react-app/src/components/blogs/BlogListSlider.js",
-		"/home/yash/my-react-app/src/router/index.js",
-=======
-		"/home/yash/my-react-app/src/components/AboutUs/AboutSingle.js",
-		"/home/yash/my-react-app/src/components/blogs/BlogSingle.js",
-		"/home/yash/my-react-app/src/components/blogs/BlogListSlider.js",
->>>>>>> develop
 		"/home/yash/my-react-app/src/components/blogs/Blog.js",
 		"/home/yash/my-react-app/src/components/AboutUs/About.js",
 		"/home/yash/my-react-app/.gitignore",
@@ -966,12 +780,9 @@
 		"/home/yash/my-react-app/src/components/blogs/blogcontent.js",
 		"/home/yash/my-react-app/src/components/AboutUs/Abouts.js",
 		"/home/yash/my-react-app/src/components/blogs/blog.js",
-		"/home/yash/my-react-app/src/components/home/Home.js",
 		"/home/yash/my-react-app/src/components/home/Help.js",
 		"/home/yash/my-react-app/src/components/Login/logout.js",
 		"/home/yash/my-react-app/package.json",
-		"/home/yash/my-react-app/src/components/home/Banner.js",
-		"/home/yash/my-react-app/src/components/testimonials/TestimonialSlider.js",
 		"/home/yash/my-react-app/src/components/home/HomeAbout.js",
 		"/home/yash/my-react-app/ecosystem.config.js",
 		"/home/yash/my-react-app/core/env/production.js",
@@ -1009,70 +820,11 @@
 		"/home/yash/my-react-app/gulpfile.js",
 		"/home/yash/my-react-app/src/components/Abouts/Aboutcontent.js",
 		"/home/yash/my-react-app/controllers/User/faqCtrl.js",
-		"/home/yash/my-react-app/controllers/User/blogCtrl.js",
-		"/media/yash/Backups/public/admin/tpl/admin.header.html",
-		"/home/yash/my-react-app/admin/faq/controllers/faqCtrl.js",
-		"/home/yash/my-react-app/admin/faq/views/edit_faq.html",
-		"/home/yash/my-react-app/admin/faq/routes/faqRouter.js",
-		"/home/yash/my-react-app/admin/faq/views/new_faq.html",
-		"/home/yash/my-react-app/admin/faq/views/view_faq.html",
-		"/home/yash/my-react-app/admin/faq/controllers/faqCreateCtrl.js",
-		"/home/yash/my-react-app/admin/blog/views/view_blog.html",
-		"/home/yash/my-react-app/admin/cms/views/view_cms.html",
-		"/home/yash/my-react-app/admin/faq/controllers/faqEditCtrl.js",
-		"/home/yash/my-react-app/admin/faq/controllers/faqViewCtrl.js",
-		"/home/yash/my-react-app/models/FAQ.js",
-		"/home/yash/my-react-app/controllers/Admin/cmsCtrl.js",
-		"/home/yash/my-react-app/admin/faq/factories/faqSvr.js",
-		"/home/yash/my-react-app/admin/faq/views/edit_cms.html",
-		"/home/yash/my-react-app/controllers/Admin/blogCtrl.js",
-		"/home/yash/my-react-app/models/Cms.js",
-<<<<<<< HEAD
-		"/home/yash/my-react-app/models/User.js"
+		"/home/yash/my-react-app/controllers/User/blogCtrl.js"
 	],
 	"find":
 	{
 		"height": 48.0
-=======
-		"/home/yash/my-react-app/models/User.js",
-		"/home/yash/my-react-app/controllers/Admin/userCtrl.js",
-		"/home/yash/my-react-app/admin/cms/views/cms.html",
-		"/home/yash/my-react-app/admin/users/views/userListing.html",
-		"/home/yash/my-react-app/admin/blog/views/blog.html",
-		"/home/yash/my-react-app/controllers/User/userCtrl.js",
-		"/home/yash/my-react-app/core/env/development.js",
-		"/home/yash/my-react-app/src/lib/Auth.js",
-<<<<<<< HEAD
-		"/home/yash/my-react-app/src/components/UnauthenticatedRoute.js",
-=======
->>>>>>> develop
-		"/home/yash/my-react-app/src/components/Login/login.js",
-		"/home/yash/my-react-app/src/components/blogs/BlogList.js",
-		"/home/yash/my-react-app/node_modules/har-schema/lib/header.json",
-		"/home/yash/my-react-app/assets/images/bg1.jpg",
-		"/home/yash/my-react-app/admin/core/admin.config.js",
-		"/home/yash/my-react-app/admin/blog/views/new_blog.html",
-		"/home/yash/my-react-app/admin/blog/views/edit_blog.html",
-		"/home/yash/my-react-app/core/env/index.js",
-		"/home/yash/my-vue-app/package.json",
-<<<<<<< HEAD
-		"/home/yash/my-react-app/admin/users/views/edit_user.html"
-	],
-	"find":
-	{
-		"height": 48.0
-=======
-		"/home/yash/my-react-app/admin/users/views/edit_user.html",
-		"/home/yash/my-react-app/admin/users/controllers/userEditCtrl.js",
-		"/home/yash/my-react-app/src/components/Abouts/Abouts.js",
-		"/home/yash/my-react-app/admin/users/views/view_user.html",
-		"/home/yash/my-react-app/admin/table-ajax.js"
-	],
-	"find":
-	{
-		"height": 30.0
->>>>>>> develop
->>>>>>> 450305005949166fc430e23deef2347078dd2546
 	},
 	"find_in_files":
 	{
@@ -1098,7 +850,32 @@
 		"case_sensitive": true,
 		"find_history":
 		[
-<<<<<<< HEAD
+			"scrolDwn1",
+			"backgroundImage: 'url(' + HomeBanner + ')',",
+			"class",
+			"HowItWorks",
+			"1",
+			"class",
+			"javascript:void(0)",
+			"class",
+			"Main",
+			"checked",
+			"pathname",
+			"_activeClassName",
+			"class",
+			"AccountSetUp",
+			"Subscription",
+			"class",
+			"customer",
+			"customer_url",
+			"customer_name",
+			"email",
+			"Customer Name",
+			"Business Name",
+			"Customer Name",
+			"Name",
+			"name",
+			"New Password",
 			"for=",
 			"Field",
 			"id=",
@@ -1118,14 +895,6 @@
 			"LoginForgotReset",
 			"ForgotPassword",
 			"class",
-=======
-<<<<<<< HEAD
-			"About",
-			"Main",
-			"Login",
-=======
->>>>>>> develop
->>>>>>> 450305005949166fc430e23deef2347078dd2546
 			"login",
 			"options",
 			"Api",
@@ -1208,60 +977,7 @@
 			"blog",
 			"Blog",
 			"blog",
-			"contentData",
-			"Blog",
-			"title",
-			"type",
-			"title",
-			"type",
-			"title",
-			"cms",
-			"CMS",
-			"cms",
-			"Cms",
-			"CMS",
-			"cms",
-			"newFaqForm",
-			"Question",
-			"question",
-			"Question",
-			"question",
-			"title",
-			"newCmsForm",
-			"Cms",
-			"cms",
-			"cmsSvr",
-			"cms",
-			"dd/mm/yyyy",
-			"mom",
-<<<<<<< HEAD
-			"Date"
-=======
-			"Date",
-			"childProps",
-			"isAuthenticating",
-			"childProps",
-			"userHasAuthenticated",
-			"logout",
-			"login",
-			"records.",
-			"auth.token",
-			"userHasAuthenticated",
-			"isLoggedIn",
-			"Login",
-			"Router",
-			"Rou",
-			"slick-track",
-			".item",
-<<<<<<< HEAD
-			"blog"
-=======
-			"blog",
-			"aboutContent",
-			"stat",
-			"public"
->>>>>>> develop
->>>>>>> 450305005949166fc430e23deef2347078dd2546
+			"contentData"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1279,232 +995,54 @@
 	"groups":
 	[
 		{
-<<<<<<< HEAD
-			"selected": 1,
-=======
-<<<<<<< HEAD
 			"selected": 0,
-=======
-			"selected": 5,
->>>>>>> develop
->>>>>>> 450305005949166fc430e23deef2347078dd2546
 			"sheets":
 			[
 				{
 					"buffer": 0,
-<<<<<<< HEAD
-					"file": "src/components/ResetPassword.js",
+					"file": "src/reducer/index.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2773,
-=======
-<<<<<<< HEAD
-					"file": "src/components/App.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 194,
-=======
-					"file": "src/api/login.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 306,
->>>>>>> develop
->>>>>>> 450305005949166fc430e23deef2347078dd2546
+						"buffer_size": 1185,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-<<<<<<< HEAD
-								1327,
-								1327
-=======
-<<<<<<< HEAD
-								27,
-								27
-=======
-								200,
-								200
->>>>>>> develop
->>>>>>> 450305005949166fc430e23deef2347078dd2546
+								792,
+								792
 							]
 						],
 						"settings":
 						{
-<<<<<<< HEAD
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"translate_tabs_to_spaces": false
-=======
-<<<<<<< HEAD
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
-=======
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
->>>>>>> develop
->>>>>>> 450305005949166fc430e23deef2347078dd2546
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 599.0,
+						"translation.x": 0.0,
 						"translation.y": 345.0,
 						"zoom_level": 1.0
 					},
-<<<<<<< HEAD
-					"stack_index": 1,
-=======
-<<<<<<< HEAD
 					"stack_index": 0,
-=======
-					"stack_index": 6,
->>>>>>> develop
->>>>>>> 450305005949166fc430e23deef2347078dd2546
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-<<<<<<< HEAD
-					"file": "src/components/AccountSetUp.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4507,
-=======
-<<<<<<< HEAD
-					"file": "src/components/AuthButton.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 889,
-=======
 					"file": "src/bootstrap.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 845,
->>>>>>> develop
->>>>>>> 450305005949166fc430e23deef2347078dd2546
+						"buffer_size": 997,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-<<<<<<< HEAD
-								3115,
-								3115
-=======
-<<<<<<< HEAD
-								27,
-								27
-=======
-								190,
-								190
->>>>>>> develop
->>>>>>> 450305005949166fc430e23deef2347078dd2546
-							]
-						],
-						"settings":
-						{
-<<<<<<< HEAD
-							"open_with_edit": true,
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 1323.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "src/components/common/FormField.js",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 2169,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1521,
-								1521
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-=======
-<<<<<<< HEAD
-							"open_with_edit": true,
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-=======
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
->>>>>>> 450305005949166fc430e23deef2347078dd2546
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 897.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "src/components/Register.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1439,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1077,
-								1077
-							]
-						],
-						"settings":
-						{
-							"open_with_edit": true,
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 207.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "src/components/common/FormSubmit.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1241,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								130,
-								130
+								375,
+								375
 							]
 						],
 						"settings":
@@ -1517,162 +1055,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 16,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								7,
-								7
-							]
-						],
-						"settings":
-						{
-							"default_dir": "/home/yash/socialapp",
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "src/components/Wrapper.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 355,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								26,
-								26
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-<<<<<<< HEAD
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "/home/yash/socialappdesign/home/yash/Social_Proof_Notification_HTML/signupHTML/signup.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7929,
-=======
->>>>>>> develop
 					"stack_index": 1,
-					"type": "text"
-				},
-				{
-<<<<<<< HEAD
-					"buffer": 2,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 682,
-=======
-					"buffer": 5,
-					"file": "src/saga/index.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 755,
->>>>>>> develop
->>>>>>> 450305005949166fc430e23deef2347078dd2546
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-<<<<<<< HEAD
-								2017,
-								2017
-=======
-<<<<<<< HEAD
-								682,
-								682
-=======
-								0,
-								0
->>>>>>> 450305005949166fc430e23deef2347078dd2546
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 966.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "src/router.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1004,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-<<<<<<< HEAD
-								577,
-								577
-=======
-								79,
-								79
->>>>>>> develop
->>>>>>> 450305005949166fc430e23deef2347078dd2546
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
 					"type": "text"
 				}
 			]
@@ -1717,11 +1100,7 @@
 	"project": "socialapp.sublime-project",
 	"replace":
 	{
-<<<<<<< HEAD
-		"height": 92.0
-=======
 		"height": 56.0
->>>>>>> develop
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1731,7 +1110,34 @@
 		"selected_items":
 		[
 			[
-<<<<<<< HEAD
+				"boot",
+				"src/bootstrap.js"
+			],
+			[
+				"wrapp",
+				"src/components/Wrapper.js"
+			],
+			[
+				"login",
+				"src/components/Login.js"
+			],
+			[
+				"header",
+				"src/components/Header.js"
+			],
+			[
+				"auth",
+				"src/components/AuthButton.js"
+			],
+			[
+				"matchc",
+				"src/components/common/MatchComponentPath.js"
+			],
+			[
+				"wrapper",
+				"src/components/Wrapper.js"
+			],
+			[
 				"authb",
 				"src/components/AuthButton.js"
 			],
@@ -1740,22 +1146,6 @@
 				"src/router.js"
 			],
 			[
-=======
-<<<<<<< HEAD
-				"login",
-				"src/components/Login.js"
-			],
-			[
-				"pa",
-				"package.json"
-			],
-			[
-				"login.js",
-				"src/components/Login.js"
-			],
-			[
-=======
->>>>>>> 450305005949166fc430e23deef2347078dd2546
 				"boo",
 				"src/bootstrap.js"
 			],
@@ -1764,19 +1154,10 @@
 				"src/api/login.js"
 			],
 			[
-				"header",
-				"src/components/Header.js"
-			],
-			[
-				"login",
-				"src/components/Login.js"
-			],
-			[
 				"login.js",
 				"src/api/login.js"
 			],
 			[
->>>>>>> develop
 				"menu",
 				"src/components/Menu.js"
 			],
@@ -1809,13 +1190,6 @@
 				".gitignore"
 			],
 			[
-<<<<<<< HEAD
-				"header",
-				"src/components/header/Header.js"
-			],
-			[
-=======
->>>>>>> develop
 				"headre",
 				"src/components/header/Header.js"
 			],
@@ -1856,13 +1230,6 @@
 				"src/bootstrap.js"
 			],
 			[
-<<<<<<< HEAD
-				"boo",
-				"src/bootstrap.js"
-			],
-			[
-=======
->>>>>>> develop
 				"http",
 				"src/lib/Http.js"
 			],
@@ -2253,26 +1620,6 @@
 			[
 				"form",
 				"node_modules/react-bootstrap/es/Form.js"
-			],
-			[
-				"applyt",
-				"src/components/Apply/ApplyTabs.js"
-			],
-			[
-				"custom.css",
-				"src/assets/css/custom.css"
-			],
-			[
-				"sty",
-				"node_modules/colors/lib/styles.js"
-			],
-			[
-				"bloglistslider",
-				"src/components/blogs/BlogListSlider.js"
-			],
-			[
-				"blog",
-				"src/components/blogs/BlogList.js"
 			]
 		],
 		"width": 0.0
@@ -2285,19 +1632,7 @@
 		[
 			[
 				"",
-<<<<<<< HEAD
 				"~/my-redux-app/redux.sublime-project"
-=======
-<<<<<<< HEAD
-				"~/my-react-app/onlinerti.sublime-project"
-			],
-			[
-				"on",
-				"~/my-react-app/onlinerti.sublime-project"
-=======
-				"~/react-router-redux-bootstrap-saga/react-redux-saga.sublime-project"
->>>>>>> develop
->>>>>>> 450305005949166fc430e23deef2347078dd2546
 			]
 		],
 		"width": 380.0
