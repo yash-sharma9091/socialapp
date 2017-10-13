@@ -34,7 +34,7 @@ const ContactUs = () => (
 		            </div>
 		            <div className="form-group">
 		              <label htmlFor="Message">Message</label>
-		                <input type="text" className="form-control input_both" id="Message" placeholder="Enter Message" />
+		                <textarea row="3" className="form-control input_both" id="Message" placeholder="Enter Message" ></textarea>
 		            </div>
 		            <div className="form-group margin-bot10">
 		                  <button type="button" className="btn btn-default yellobtn">SUBMIT</button>
