@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
 import AccountSetUp from './AccountSetUp';
 import Subscription from './Subscription';
+import ConfirmPayment from './ConfirmPayment';
+import {Elements} from 'react-stripe-elements';
 
 class Register extends Component {
 	render() {
@@ -24,7 +26,7 @@ class Register extends Component {
 		              	</ul>
 		            </div>
 		            <div className="form supporfom">
-		              	{_activePathName === 'register' && <AccountSetUp/>}
+		              	{_activePathName === 'register' && <Elements><ConfirmPayment/></Elements>}
 		              	{_activePathName === 'subscription' && <Subscription/>}
 		            </div>
 		        </div>

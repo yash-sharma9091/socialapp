@@ -19,3 +19,10 @@ export const MatchChangePasswordPath = (match, location) => {
 	}
 	return exportPath(props) === 'change-password';
 }
+
+export const MatchDashboardPath = (match, location) => {
+	const props = {
+		location: location
+	}
+	return exportPath(props) === 'dashboard' || exportPath(props) === 'client-list';
+}

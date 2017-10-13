@@ -2,6 +2,7 @@ import './bootstrap';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import {StripeProvider} from 'react-stripe-elements';
 //import registerServiceWorker from './registerServiceWorker';
 
 import App from './components/App';
@@ -14,7 +15,9 @@ import "./stylesheets/spinner.css";
 
 ReactDOM.render(
   	<Provider store={store}>
-    	<App history={history} />
+  		<StripeProvider apiKey="pk_test_oepFeMSkBsgwzeHRWpZKdrCa">
+    		<App history={history} />
+    	</StripeProvider>	
   	</Provider>,
   	document.getElementById('root')
 );

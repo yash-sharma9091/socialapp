@@ -13,6 +13,7 @@ import ContactUs from './components/ContactUs';
 import CMS from './components/CMS';
 import Profile from './components/Profile';
 import MySubscriptions from './components/MySubscriptions';
+import ViewClientList from './components/ViewClientList';
 
 export const Router = props => {
 	const { history } = props;
@@ -34,6 +35,7 @@ export const Router = props => {
 		    	<PrivateRoute path="/profile" component={Profile} />
 		    	<PrivateRoute path="/change-password" component={Profile} />
 		    	<PrivateRoute path="/my-subscriptions" component={MySubscriptions} />
+		    	<PrivateRoute path="/client-list" component={ViewClientList} />
 		    	<Route path="/:slug" component={CMS} />
 		    	<Route path="*" component={Wrapper} />
 		  	</Switch>

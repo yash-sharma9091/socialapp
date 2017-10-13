@@ -3,14 +3,20 @@ import DashboardNav from './DashboardNav';
 import AddNewWebsite from './AddNewWebsite';
 import ScriptCode from './ScriptCode';
 import DashboardListElement from './DashboardListElements';
+import {Pagination} from 'react-bootstrap';
 
 class Dashboard extends Component {
 	constructor() {
 		super();
 		this.state = {
 			showNewWebsiteDialog: false,
-			showScriptCodeDialog: false
+			showScriptCodeDialog: false,
+			activePage: 1
 		}
+	}
+	handleSelect(eventKey) {
+		console.log(eventKey);
+		this.setState({activePage: eventKey});
 	}
 	render(){
 		return (
@@ -40,31 +46,16 @@ class Dashboard extends Component {
 				            </div> 
 				            <div className="table_pagination clearfix">
 				                <nav className="pull-right" aria-label="Page navigation">
-				                    <ul className="pagination">
-				                        <li className="hidden-xs">
-				                          <a href="/" aria-label="First">
-				                            <span aria-hidden="true">First</span>
-				                          </a>
-				                        </li>
-				                        <li>
-				                          <a href="/" aria-label="Previous">
-				                            <span aria-hidden="true">Previous</span>
-				                          </a>
-				                        </li>
-				                        <li className="active"><a href="/">1</a></li>
-				                        <li><a href="/">2</a></li>
-				                        <li><a href="/">3</a></li>
-				                        <li>
-				                          <a href="/" aria-label="Next">
-				                            <span aria-hidden="true">Next</span>
-				                          </a>
-				                        </li>
-				                        <li className="hidden-xs">
-				                          <a href="/" aria-label="Last">
-				                            <span aria-hidden="true">Last</span>
-				                          </a>
-				                        </li>
-				                     </ul>
+				            		<Pagination
+										bsSize="medium"
+										items={10}
+										activePage={this.state.activePage}
+										boundaryLinks={true}
+										prev="Previous"
+										next="Next"
+										first="First"
+										last="Last"
+										onSelect={(e) => this.handleSelect(e)} />
 				                </nav>
 				            </div>    
 				        </div>
