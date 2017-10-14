@@ -14,12 +14,13 @@ class Home extends Component {
 		this.props.dispatch({type: FETCH_SITE_SETTINGS});
 	}
 	render() {
-		let confirmDialog = new URLSearchParams(this.props.location.search).get('emailVerified');
-		const{site} = this.props;
+		const{site, location, dispatch} = this.props;
+		let confirmDialog = new URLSearchParams(location.search).get('emailVerified');
+		
 		if( !_.isEmpty(site.settings) ) {
 			return (
 				<div>
-					<Slider site={site}/>
+					<Slider dispatch={dispatch} site={site}/>
 					<Trail/>
 					<KnowMore/>
 					<Steps site={site}/>

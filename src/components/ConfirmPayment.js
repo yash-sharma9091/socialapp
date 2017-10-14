@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import FormSubmit from "./common/FormSubmit";
-import FormField from "./common/FormField";
 import Alert from './common/Alert';
-import { Field,reduxForm, SubmissionError } from 'redux-form';
+import { reduxForm, SubmissionError } from 'redux-form';
 import { Form, FormGroup, ControlLabel } from 'react-bootstrap';
 import {CardNumberElement, CardExpiryElement, CardCVCElement, injectStripe} from 'react-stripe-elements';
+import {Http} from '../lib/Http';
+import { push } from 'react-router-redux';
 const createOptions = (fontSize: string) => {
   return {
     style: {
@@ -12,7 +13,7 @@ const createOptions = (fontSize: string) => {
         fontSize,
         color: '#424770',
         letterSpacing: '0.025em',
-        fontFamily: 'Source Code Pro, monospace',
+        fontFamily: 'Open Sans, sans-serif',
         '::placeholder': {
           color: '#aab7c4',
         },
@@ -32,21 +33,21 @@ class ConfirmPayment extends Component {
       	}
     }
 	render() {
-		const { error, handleSubmit, invalid, submitting, submitSucceeded} = this.props;
+		const { error, handleSubmit, submitting, submitSucceeded} = this.props;
 		return(
 			<Form onSubmit={handleSubmit(this.formSubmit)}>
 				<Alert alertVisible={error || (this.state.success && submitSucceeded)} alertMsg={error || this.state.success} className={error ? "danger" : "success"} />
 					<FormGroup>
 						<ControlLabel>Card number</ControlLabel>
-						<CardNumberElement {...createOptions(this.props.fontSize)} />
+						<CardNumberElement onChange={() => this.handleChange()} {...createOptions(this.props.fontSize)} />
 					</FormGroup>
 					<FormGroup>
 						<ControlLabel>Expiration date</ControlLabel>
-						<CardExpiryElement {...createOptions(this.props.fontSize)} />
+						<CardExpiryElement onChange={() => this.handleChange()} {...createOptions(this.props.fontSize)} />
 					</FormGroup>	
 					<FormGroup>
 						<ControlLabel>CVC</ControlLabel>
-						<CardCVCElement {...createOptions(this.props.fontSize)} />
+						<CardCVCElement onChange={() => this.handleChange()} {...createOptions(this.props.fontSize)} />
 					</FormGroup>	
 				<FormSubmit 
 					error={error}
@@ -55,32 +56,42 @@ class ConfirmPayment extends Component {
 			</Form>
 		);
 	}
+	handleChange() {
+		const { dispatch, clearSubmitErrors } = this.props;
+		dispatch(clearSubmitErrors('confirm_payment_form'));
+	}
 	formSubmit(values) {
-		const{stripe} = this.props;
-		console.log(this.props);
+		console.log(values);return;
+		const{stripe, dispatch} = this.props;
 		return new Promise((resolve, reject) => {
 			stripe.createToken()
 			.then(payload => {
 				if( payload.error ) {
-					console.log(payload.error.message);
-					reject(new SubmissionError({_error: payload.error.message}));
+					reject({message: payload.error.message});
 				} else {
-					resolve()
-					console.log(payload)
+					resolve({token: payload.token});
 				}
 			});
-		});
+		})
+		.then(({token}) => {
+			return new Promise((resolve, reject) => {
+				Http.post('customer', {token: token.id, email: values.email})
+				.then(({data}) => {
+					this.setState({success: data.message});
+					setTimeout(() => dispatch(push('/login')), 2000);
+				})
+				.catch(({errors}) => reject({message: errors.message}));
+			});
+		})
+		.catch(error => {throw new SubmissionError({_error: error.message}) });
 		
 	}
 }
 
 const ConfirmPaymentForm = reduxForm({
-  	form: 'confirm_payment_form',
-  	validate: (values) => {
-    	const errors = {};
-    	
-    	return errors;
-  	}
+  	form: 'signupForm',
+  	destroyOnUnmount: false, // <------ preserve form data
+  	forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
 })(ConfirmPayment);
 
 export default injectStripe(ConfirmPaymentForm);

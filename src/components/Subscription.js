@@ -1,67 +1,75 @@
 import React, {Component} from 'react';
 import BasicPlan from '../images/basic_img.png';
-import ProPlan from '../images/basic_img2.png';
-import BusinessPlan from '../images/basic_img3.png';
+/*import ProPlan from '../images/basic_img2.png';
+import BusinessPlan from '../images/basic_img3.png';*/
 import { Form, FormGroup, Radio, HelpBlock } from 'react-bootstrap';
-import { Field,reduxForm } from 'redux-form';
+import { Field,reduxForm, SubmissionError} from 'redux-form';
+import {Http} from '../lib/Http';
+import Alert from './common/Alert';
+//import FormField from './common/FormField';
 
 class Subscription extends Component {
-	 constructor(props) {
+	constructor(props) {
       	super(props);
       	this.formSubmit = this.formSubmit.bind(this);
+      	this.state = {
+      		plan: [],
+      		selectedPlanId:"",
+      		success: ''
+      	}
+    }
+    componentDidMount() {
+    	this.switchPlan('monthly');
+    }
+    switchPlan(name) {
+    	Http.get(`plans_list?type=${name}`)
+    	.then(({data}) => this.setState({plan: data}))
+    	.catch(errors => console.log(errors));
+    }
+    handleChange(e) {
+    	const name = e.target.value;
+    	this.switchPlan(name);
+    }
+    handleClick(planId) {
+    	this.setState({selectedPlanId: planId})
     }
 	render() {
-		const { handleSubmit} = this.props;
+		const { handleSubmit, submitting, error, submitSucceeded } = this.props;
+		const { plan, success } = this.state;
 		return(
 			<div>
 				<Form onSubmit={handleSubmit(this.formSubmit)}>
+					<Alert alertVisible={error || (success && submitSucceeded)} alertMsg={error || success} className={error ? "danger" : "success"} />
 					<div className="clearfix radio_month text-center">  
 		            	<Field
-							name="subscription_plan"
+		            		onChange={(e) => this.handleChange(e)}
+							name="plan_type"
 							component={Subscription.renderInlineRadioGroup}
 		            	/>
 					</div>
 					<div className="plansub_lay">
 					   <ul className="plansub_lay_list clearfix">
-							<li>
-					      		<h4>Basic plan</h4>
-					      		<div className="basic_img"><img src={BasicPlan} alt="Basic Plan"/></div>
-					      		<div className="price"><sup>$</sup>22 <span>per month</span></div>
-					      		<ul className="plansub_tag_list">
-					        		<li>Lorem Ipsum</li>
-					        		<li>Lorem Ipsum Dummy</li>
-					        		<li>Lorem Ipsum</li>
-					      		</ul>
-					      		<div className="FREE_btn">
-					      			<button type="submit" className="btn btn-default FREE_btn_box">START FOR FREE</button>
-					      		</div>
-					    	</li>
-					    	<li>
-					      		<h4>Pro plan</h4>
-					      		<div className="basic_img"><img src={ProPlan} alt="Pro Plan"/></div>
-					      		<div className="price"><sup>$</sup>42 <span>per month</span></div>
-					      		<ul className="plansub_tag_list">
-					        		<li>Lorem Ipsum</li>
-					        		<li>Lorem Ipsum Dummy</li>
-					        		<li>Lorem Ipsum</li>
-					      		</ul>
-					      		<div className="FREE_btn">
-					      			<button type="submit" className="btn btn-default FREE_btn_box">START FOR FREE</button>
-					      		</div>
-					    	</li>
-					    	<li>
-					      		<h4>business plan</h4>
-					      		<div className="basic_img"><img src={BusinessPlan} alt="Business Plan"/></div>
-					      		<div className="price"><sup>$</sup>96 <span>per month</span></div>
-					      		<ul className="plansub_tag_list">
-					        		<li>Lorem Ipsum</li>		
-					        		<li>Lorem Ipsum Dummy</li>
-					        		<li>Lorem Ipsum</li>
-					      		</ul>
-					      		<div className="FREE_btn">
-					      			<button type="submit" className="btn btn-default FREE_btn_box">START FOR FREE</button>
-					      		</div>
-					    	</li>
+					   		{plan.length > 0 ? 
+					   			(plan.map((value, index) => {
+					   				return (
+				   						<li key={index}>
+				   				      		<h4>{value.name}</h4>
+				   				      		<div className="basic_img"><img src={BasicPlan} alt="Basic Plan"/></div>
+				   				      		<div className="price"><sup>$</sup>{value.price} <span>per month</span></div>
+				   				      		<ul className="plansub_tag_list">
+				   				      			{value.features.map((val, i) => <li key={i}>{val}</li>)}
+				   				      		</ul>
+				   				      		<div className="FREE_btn">
+				   				      			<button 
+				   				      				type="submit" disabled={submitting} 
+				   				      				onClick={() => this.handleClick(value._id)} 
+				   				      				className="btn btn-default FREE_btn_box">START FOR FREE </button>
+				   				      		</div>
+				   				    	</li>	
+				   				    );	
+					   			}))
+						    	: null
+						   	}
 					   	</ul> 
 					</div>  
 				</Form>	
@@ -82,16 +90,40 @@ class Subscription extends Component {
 		);
 	}
 	formSubmit(values) {
-		console.log(values);
+		console.log(values);return;
+		if( !values ) {
+			return;
+		}	
+		const {onSubmit} = this.props;
+		const {selectedPlanId} = this.state;
+
+		return new Promise((resolve, reject) => {
+			Http.post('trail', {email: values.email, planId: selectedPlanId, duration: values.plan_type})
+			.then(({data}) => {
+				this.setState({success: data.message});
+				setTimeout( () => {
+					this.setState({success: ''});
+					onSubmit({plan_type:values.plan_type, planId: this.state.selectedPlanId});	
+				},1500);
+				
+				resolve();
+			})
+			.catch(({errors}) => {
+				reject(new SubmissionError({_error: errors.message}));
+			});
+		});
+		 
 	}
 }
 
 const SubscriptionForm = reduxForm({
-  	form: 'subscription_form',
+  	form: 'signupForm',
+  	destroyOnUnmount: false, // <------ preserve form data
+  	forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
   	validate: (values) => {
     	const errors = {};
-    	if( !values.subscription_plan ) {
-    		errors.subscription_plan = 'You must select one option between monthly and yearly';
+    	if( !values.plan_type ) {
+    		errors.plan_type = 'You must select one option between monthly and yearly';
     	}
     	return errors;
     }

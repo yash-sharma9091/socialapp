@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { push } from 'react-router-redux';
 import FormSubmit from "./common/FormSubmit";
 import FormField from "./common/FormField";
 import {FormCheckbox} from "./common/FormCheckbox";
@@ -76,16 +75,16 @@ class AccountSetUp extends Component {
 		);
 	}
 	formSubmit(values) {
-		const {dispatch, reset} = this.props;
+		const {onSubmit} = this.props;
 
 		return new Promise((resolve, reject) => {
 			Http.post('register', values)
 			.then(({data}) => {
 				this.setState({success: data.message});
-				dispatch(reset('account_setup')); // Reset the form
+				
 				setTimeout( () => {
 					this.setState({success: ''});
-					dispatch(push('/register?next=subscription'));	// redirect the user to next step
+					onSubmit(values);	// redirect the user to next step
 				},1500);
 				
 				resolve();
@@ -108,7 +107,9 @@ class AccountSetUp extends Component {
 }
 
 const AccountSetUpForm = reduxForm({
-  	form: 'account_setup',
+  	form: 'signupForm',
+  	destroyOnUnmount: false, // <------ preserve form data
+  	forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
   	validate: (values) => {
     	const errors = {};
     	if(!values.email) {
