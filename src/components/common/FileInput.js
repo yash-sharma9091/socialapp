@@ -19,6 +19,7 @@ class FileInput extends React.Component {
     		<FormGroup>
     			<ControlLabel>{label}</ControlLabel>
     			<input type="file" className={className} onChange={this.onChange}  />
+          <span className="brseBtnNW yellobtn">Browse</span>
     		</FormGroup>
     	);
   	}

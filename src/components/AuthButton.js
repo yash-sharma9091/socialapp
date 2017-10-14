@@ -21,7 +21,7 @@ class AuthButton extends Component {
 					<DropdownWithoutActiveProps className="userMenu" id="dropdown-custom-1" componentClass="li">
 						<Dropdown.Toggle useAnchor={true}>
 							<span className="user_dp_small"><img src={`${IMAGE_PATH}/${user.profile_image.path}`} alt={user.customer_name}/> </span>
-							{user.customer_name}
+							<span className="hidden-xs">{user.customer_name}</span>
 						</Dropdown.Toggle>
 						<Dropdown.Menu>
 							<LinkContainer to="/profile">

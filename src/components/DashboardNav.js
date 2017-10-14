@@ -23,7 +23,7 @@ const DashboardNav = () => (
 	                <LinkContainer to="/profile" isActive={MatchSettingsPath}>
 	                    <NavItem eventKey={3}>
 	                        <span className="glyphicon glyphicon-cog"></span>
-                        	<span className="txtmob"> Setting</span>
+                        	<span className="txtmob"> Settings</span>
                         </NavItem>
 	                </LinkContainer>
 	            </ul>

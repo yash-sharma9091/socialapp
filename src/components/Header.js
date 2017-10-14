@@ -30,9 +30,10 @@ class Header extends Component {
 		   				  			<NavItem eventKey={2}>Pricing</NavItem>
 		   				  		</LinkContainer>
 		   					</Nav>
-			   				<AuthButton token={token} dispatch={dispatch} user={user}/>
+			   				
 			   			</div>
 				    </Navbar.Collapse>	
+				    <AuthButton token={token} dispatch={dispatch} user={user}/>
 			 	</Navbar>
 		 	</header>
 		);

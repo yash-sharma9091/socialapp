@@ -26,15 +26,19 @@ class Setting extends Component {
 			    <div className="form_dash supporfom">
 			        <Form onSubmit={handleSubmit(this.formSubmit)}>
 			        	<Alert alertVisible={error || (success && submitSucceeded)} alertMsg={error || success} className={error ? "danger" : "success"} />
-        	            <Field 
-              				component={FileInput} type="file"
-              				label="Profile Image" className="customFileInput" // This class is just for designing purpose
-              				name="image"/>
+        	            <div className="relativeNW">
+                        <Field 
+                				component={FileInput} type="file"
+                				label="Profile Image" className="customFileInput" // This class is just for designing purpose
+                				name="image"/>
+                        
+                      </div>
 			            <Field 
 		      				component={FormField} type="text"
 		      				name="customer_name"  label="Name" 
 		      				placeholder="Name" theme="custom" 
 		      				className="input_both" doValidate={true}/>
+
 			            <Field 
 		            		component={FormField} type="url"
 		            		name="customer_url" label="Customer URL" 
