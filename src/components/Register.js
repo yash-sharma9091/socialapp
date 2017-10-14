@@ -50,7 +50,8 @@ class Register extends Component {
 		              	{step === 3 && (
 		              		<Elements>
 		              			<ConfirmPayment
-		              			previousStep={this.previousStep} />
+		              			previousStep={this.previousStep} 
+	            				onSubmit={onSubmit}/>
 		              		</Elements>
 		              	)}
 		            </div>

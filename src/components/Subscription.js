@@ -90,7 +90,7 @@ class Subscription extends Component {
 		);
 	}
 	formSubmit(values) {
-		console.log(values);return;
+		console.log("suv", values);
 		if( !values ) {
 			return;
 		}	

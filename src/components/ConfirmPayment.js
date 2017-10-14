@@ -58,10 +58,10 @@ class ConfirmPayment extends Component {
 	}
 	handleChange() {
 		const { dispatch, clearSubmitErrors } = this.props;
-		dispatch(clearSubmitErrors('confirm_payment_form'));
+		dispatch(clearSubmitErrors('signupForm'));
 	}
+
 	formSubmit(values) {
-		console.log(values);return;
 		const{stripe, dispatch} = this.props;
 		return new Promise((resolve, reject) => {
 			stripe.createToken()
@@ -70,7 +70,7 @@ class ConfirmPayment extends Component {
 					reject({message: payload.error.message});
 				} else {
 					resolve({token: payload.token});
-				}
+				} 
 			});
 		})
 		.then(({token}) => {
