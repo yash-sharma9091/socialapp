@@ -72,7 +72,7 @@ class Subscription extends Component {
 				   						<li key={index}>
 				   				      		<h4>{value.name}</h4>
 				   				      		<div className="basic_img"><img src={`${IMAGE_PATH}/${value.image.path}`} alt="Basic Plan"/></div>
-				   				      		<div className="price"><sup>$</sup>{value.price} <span>per month</span></div>
+				   				      		<div className="price"><sup>$</sup>{value.price} <span>per { value.type === 'monthly' ? 'month' : 'year' }</span></div>
 				   				      		<ul className="plansub_tag_list">
 				   				      			{value.features.map((val, i) => <li key={i}>{val}</li>)}
 				   				      		</ul>

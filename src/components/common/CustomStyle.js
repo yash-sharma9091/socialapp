@@ -12,7 +12,8 @@ export const style = {
 export const ImageStyle = {
 	height: 150,
 	margin: 'auto',
-	padding: 15
+	padding: 15,
+	display: 'block'
 };
 
 export const SliderImages = [{

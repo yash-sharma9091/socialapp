@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import {Http} from '../lib/Http';
 import {CMSStyle} from './common/CustomStyle';
 import ScrollToTopOnMount from './common/ScrollToTopOnMount';
+import Wrapper from './Wrapper';
 class CMS extends Component {
 	constructor() {
 		super();
@@ -18,6 +19,7 @@ class CMS extends Component {
 	}
 	render() {
 		const {page} = this.state;
+		
 		if( !_.isEmpty(page) ) {
 			return (
 				<div>
@@ -38,7 +40,12 @@ class CMS extends Component {
 				</div>
 			);
 		} else {
-			return <div className="loader">Loading ...</div>;
+			if(!_.isNull(page)){
+				return <div className="loader">Loading ...</div>;	
+			} else {
+				return <Wrapper {...this.props}/>
+			}
+			
 		}	
 	}
 }
