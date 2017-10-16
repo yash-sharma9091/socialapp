@@ -6,6 +6,7 @@ import Alert from './common/Alert';
 import { Field, SubmissionError,reduxForm } from 'redux-form';
 import { Form } from 'react-bootstrap';
 import {Http} from '../lib/Http';
+import {Storage} from '../lib/Storage';
 
 class AccountSetUp extends Component {
 	 constructor(props) {
@@ -75,17 +76,19 @@ class AccountSetUp extends Component {
 		);
 	}
 	formSubmit(values) {
-		const {onSubmit} = this.props;
+		const {goNext, handleSubmit, dispatch, reset} = this.props;
 
 		return new Promise((resolve, reject) => {
 			Http.post('register', values)
 			.then(({data}) => {
 				this.setState({success: data.message});
-				
+				dispatch(reset('signupForm'));
+				// save the required data
+				Storage.set('tmpSignup', {email: btoa(values.email), step: 2});
 				setTimeout( () => {
 					this.setState({success: ''});
-					onSubmit(values);	// redirect the user to next step
-				},1500);
+					goNext(handleSubmit);	// redirect the user to next step
+				},3000);
 				
 				resolve();
 			})

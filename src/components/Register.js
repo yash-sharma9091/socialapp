@@ -4,6 +4,7 @@ import AccountSetUp from './AccountSetUp';
 import Subscription from './Subscription';
 import ConfirmPayment from './ConfirmPayment';
 import {Elements} from 'react-stripe-elements';
+import {Storage} from '../lib/Storage';
 
 class Register extends Component {
 	constructor(props) {
@@ -11,24 +12,20 @@ class Register extends Component {
 		this.nextStep = this.nextStep.bind(this);
 		this.previousStep = this.previousStep.bind(this);
 		this.state = {
-			step: 1
+			step: Storage.get('tmpSignup') ? Storage.get('tmpSignup').step : 1
 		}
 	}
 	nextStep() {
-		this.setState({ step: this.state.step + 1 });
+		if( this.state.step < 3 ) {
+			this.setState({ step: this.state.step + 1 });	
+		}
 	}
 	previousStep() {
-		this.setState({ step: this.state.step - 1 });
+		this.setState({ step: this.state.step - 1 });	
 	}
+	
 	render() {
-		const {pathname, location, onSubmit} = this.props;
 		const { step } = this.state
-		/*let _activePathName = '';
-		if( location.search !== "" ){
-			_activePathName = new URLSearchParams(location.search).get('next');
-		} else if(pathname === 'register') {
-			_activePathName = 'register';
-		}*/
 		return(
 		    <div className="sign_con clearfix">
 		        <div className="sign_con_inner pull-right">
@@ -41,17 +38,13 @@ class Register extends Component {
 		              	</ul>
 		            </div>
 		            <div className="form supporfom">
-		            	{step === 1 && <AccountSetUp onSubmit={this.nextStep} />}
+		            	{step === 1 && <AccountSetUp goNext={this.nextStep} />}
 		            	{step === 2 && (
-	            			<Subscription 
-	            			previousStep={this.previousStep} 
-	            			onSubmit={this.nextStep} />
+	            			<Subscription goNext={this.nextStep} />
 	            		)}
 		              	{step === 3 && (
 		              		<Elements>
-		              			<ConfirmPayment
-		              			previousStep={this.previousStep} 
-	            				onSubmit={onSubmit}/>
+		              			<ConfirmPayment prevStep={this.previousStep} />
 		              		</Elements>
 		              	)}
 		            </div>

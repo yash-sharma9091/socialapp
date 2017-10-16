@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import FormSubmit from "./common/FormSubmit";
 import Alert from './common/Alert';
-import { reduxForm, SubmissionError } from 'redux-form';
-import { Form, FormGroup, ControlLabel } from 'react-bootstrap';
+import { reduxForm } from 'redux-form';
+import { FormGroup, ControlLabel, Button } from 'react-bootstrap';
 import {CardNumberElement, CardExpiryElement, CardCVCElement, injectStripe} from 'react-stripe-elements';
 import {Http} from '../lib/Http';
 import { push } from 'react-router-redux';
+import {Storage} from '../lib/Storage';
 const createOptions = (fontSize: string) => {
   return {
     style: {
@@ -29,39 +30,55 @@ class ConfirmPayment extends Component {
       	super(props);
       	this.formSubmit = this.formSubmit.bind(this);
       	this.state = {
-      		success: ''
+      		success: '',
+      		error: '',
+      		processing: false
       	}
     }
 	render() {
-		const { error, handleSubmit, submitting, submitSucceeded} = this.props;
+		const { error, success, processing} = this.state;
+		const { prevStep, fontSize } = this.props;
 		return(
-			<Form onSubmit={handleSubmit(this.formSubmit)}>
-				<Alert alertVisible={error || (this.state.success && submitSucceeded)} alertMsg={error || this.state.success} className={error ? "danger" : "success"} />
-					<FormGroup>
-						<ControlLabel>Card number</ControlLabel>
-						<CardNumberElement onChange={() => this.handleChange()} {...createOptions(this.props.fontSize)} />
-					</FormGroup>
-					<FormGroup>
-						<ControlLabel>Expiration date</ControlLabel>
-						<CardExpiryElement onChange={() => this.handleChange()} {...createOptions(this.props.fontSize)} />
-					</FormGroup>	
-					<FormGroup>
-						<ControlLabel>CVC</ControlLabel>
-						<CardCVCElement onChange={() => this.handleChange()} {...createOptions(this.props.fontSize)} />
-					</FormGroup>	
-				<FormSubmit 
-					error={error}
-					submitting={submitting} className="yellobtn"
-					formGroupClassName="margin-bot10" buttonSaveLoading="Please Wait..." buttonSave="Activate"/>
-			</Form>
+			<form onSubmit={this.formSubmit}>
+				<Alert alertVisible={error || success} alertMsg={error || success} className={error ? "danger" : "success"} />
+				<FormGroup>
+					<ControlLabel>Card number</ControlLabel>
+					<CardNumberElement onChange={() => this.handleChange()} {...createOptions(fontSize)} />
+				</FormGroup>
+				<FormGroup>
+					<ControlLabel>Expiration date</ControlLabel>
+					<CardExpiryElement onChange={() => this.handleChange()} {...createOptions(fontSize)} />
+				</FormGroup>	
+				<FormGroup>
+					<ControlLabel>CVC</ControlLabel>
+					<CardCVCElement onChange={() => this.handleChange()} {...createOptions(fontSize)} />
+				</FormGroup>	
+					
+				<div className="row margin-bot10">	
+					<div className="col-md-12">	
+						<FormSubmit 
+							error={error}
+							submitting={processing} className="yellobtn pull-left"
+							buttonSaveLoading="Please Wait..." buttonSave="Activate"/>
+						<Button onClick={prevStep} style={{marginTop: -26}} className="grayfillbtn pull-right" >Back</Button>
+					</div>	
+				</div>
+			</form>
 		);
 	}
+	
 	handleChange() {
-		const { dispatch, clearSubmitErrors } = this.props;
-		dispatch(clearSubmitErrors('signupForm'));
+		this.setState({error:''});
 	}
 
-	formSubmit(values) {
+	formSubmit(ev) {
+		ev.preventDefault();
+		let element = document.getElementsByTagName('form')[0].elements;
+		console.log(element.length);
+		if( element.length === 0 ) {
+			return;
+		}
+		this.setState({processing: true});
 		const{stripe, dispatch} = this.props;
 		return new Promise((resolve, reject) => {
 			stripe.createToken()
@@ -71,27 +88,33 @@ class ConfirmPayment extends Component {
 				} else {
 					resolve({token: payload.token});
 				} 
-			});
+			});		
 		})
 		.then(({token}) => {
 			return new Promise((resolve, reject) => {
-				Http.post('customer', {token: token.id, email: values.email})
-				.then(({data}) => {
-					this.setState({success: data.message});
-					setTimeout(() => dispatch(push('/login')), 2000);
-				})
-				.catch(({errors}) => reject({message: errors.message}));
+				let _storage = Storage.get('tmpSignup');
+				if( _storage ) {
+					console.log(_storage.email);
+					Http.post('customer', {token: token.id, ip: token.client_ip, email: atob(_storage.email)})
+					.then(({data}) => {
+						this.setState({success: data.message});
+						Storage.remove('tmpSignup');
+						this.setState({processing: false});
+						setTimeout(() => dispatch(push('/login')), 2500);
+					})
+					.catch(({errors}) => reject({message: errors.message}));
+				} else {
+					Storage.remove('tmpSignup');
+				}	
 			});
 		})
-		.catch(error => {throw new SubmissionError({_error: error.message}) });
+		.catch(error => this.setState({error: error.message, processing: false}) );
 		
 	}
 }
 
 const ConfirmPaymentForm = reduxForm({
-  	form: 'signupForm',
-  	destroyOnUnmount: false, // <------ preserve form data
-  	forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
+  	form: 'signupForm'
 })(ConfirmPayment);
 
 export default injectStripe(ConfirmPaymentForm);

@@ -1,12 +1,14 @@
+/* global _ */
 import React, {Component} from 'react';
 import BasicPlan from '../images/basic_img.png';
 /*import ProPlan from '../images/basic_img2.png';
 import BusinessPlan from '../images/basic_img3.png';*/
-import { Form, FormGroup, Radio, HelpBlock } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 import { Field,reduxForm, SubmissionError} from 'redux-form';
 import {Http} from '../lib/Http';
 import Alert from './common/Alert';
-//import FormField from './common/FormField';
+import {connect} from 'react-redux';
+import {Storage} from '../lib/Storage';
 
 class Subscription extends Component {
 	constructor(props) {
@@ -40,12 +42,30 @@ class Subscription extends Component {
 			<div>
 				<Form onSubmit={handleSubmit(this.formSubmit)}>
 					<Alert alertVisible={error || (success && submitSucceeded)} alertMsg={error || success} className={error ? "danger" : "success"} />
+					
 					<div className="clearfix radio_month text-center">  
-		            	<Field
-		            		onChange={(e) => this.handleChange(e)}
-							name="plan_type"
-							component={Subscription.renderInlineRadioGroup}
-		            	/>
+		            	<div className="radio">
+			            	<label>
+				            	<Field
+				            		onChange={(e) => this.handleChange(e)}
+									name="plan_type"
+									component="input"
+									type="radio"
+									value="monthly"
+								/>{' '} Monthly 
+							</label>
+						</div>	
+						<div className="radio">
+							<label >
+								<Field
+									onChange={(e) => this.handleChange(e)}
+									name="plan_type"
+									component="input"
+									type="radio"
+									value="yearly"
+								/>{' '} Yearly
+							</label>	
+						</div>	
 					</div>
 					<div className="plansub_lay">
 					   <ul className="plansub_lay_list clearfix">
@@ -73,37 +93,30 @@ class Subscription extends Component {
 					   	</ul> 
 					</div>  
 				</Form>	
-				{/*<div class="form-group margin-bot10 clearfix">
-				    <button type="button" class="btn btn-default yellobtn pull-left">Back</button>
-				</div>*/}
 			</div>
 		);
 	}
-	static renderInlineRadioGroup(props) {
-		const {meta, input} = props;
-		return (
-			<FormGroup validationState={!meta.touched ? null : (meta.error ? 'error' : null)}>
-		        <Radio {...input} value="monthly" > Monthly </Radio>
-		        <Radio {...input} value="yearly" > Yearly </Radio>
-	        	<HelpBlock> {meta.touched && meta.error ? meta.error : null} </HelpBlock>
-	        </FormGroup>
-		);
-	}
 	formSubmit(values) {
-		console.log("suv", values);
+		
 		if( !values ) {
 			return;
 		}	
-		const {onSubmit} = this.props;
+		let _storage = Storage.get('tmpSignup');
+		if( !_storage ) {
+			Storage.remove('tmpSignup')
+		}
+		const {goNext} = this.props;
 		const {selectedPlanId} = this.state;
-
+		
 		return new Promise((resolve, reject) => {
-			Http.post('trail', {email: values.email, planId: selectedPlanId, duration: values.plan_type})
+			Http.post('trail', {email: atob(_storage.email), planId: selectedPlanId, duration: values.plan_type})
 			.then(({data}) => {
 				this.setState({success: data.message});
 				setTimeout( () => {
 					this.setState({success: ''});
-					onSubmit({plan_type:values.plan_type, planId: this.state.selectedPlanId});	
+					let _values = _.assign(values, {plan_type:values.plan_type, planId: this.state.selectedPlanId});
+					Storage.set('tmpSignup', _.merge(Storage.get('tmpSignup'), {step: 3}));
+					goNext(_values);	
 				},1500);
 				
 				resolve();
@@ -129,4 +142,10 @@ const SubscriptionForm = reduxForm({
     }
 })(Subscription);
 
-export default SubscriptionForm;
+const mapStateToProps = (state) => ({
+ 	initialValues: {
+ 		plan_type: 'monthly'
+ 	}
+});	
+
+export default connect(mapStateToProps)(SubscriptionForm);
