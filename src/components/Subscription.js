@@ -1,8 +1,5 @@
-/* global _ */
+/* global _, IMAGE_PATH */
 import React, {Component} from 'react';
-import BasicPlan from '../images/basic_img.png';
-/*import ProPlan from '../images/basic_img2.png';
-import BusinessPlan from '../images/basic_img3.png';*/
 import { Form } from 'react-bootstrap';
 import { Field,reduxForm, SubmissionError} from 'redux-form';
 import {Http} from '../lib/Http';
@@ -74,7 +71,7 @@ class Subscription extends Component {
 					   				return (
 				   						<li key={index}>
 				   				      		<h4>{value.name}</h4>
-				   				      		<div className="basic_img"><img src={BasicPlan} alt="Basic Plan"/></div>
+				   				      		<div className="basic_img"><img src={`${IMAGE_PATH}/${value.image.path}`} alt="Basic Plan"/></div>
 				   				      		<div className="price"><sup>$</sup>{value.price} <span>per month</span></div>
 				   				      		<ul className="plansub_tag_list">
 				   				      			{value.features.map((val, i) => <li key={i}>{val}</li>)}
