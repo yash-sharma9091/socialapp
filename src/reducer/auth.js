@@ -1,7 +1,9 @@
 import { AUTH_SUCCESS, AUTH_FAILURE, AUTH_LOGOUT, PROFILE_UPDATE } from '../constant';
+import {Storage} from '../lib/Storage';
+import {Cookie} from '../lib/Cookie';
 const initialState = {
-  	token: localStorage.getItem('socialProof.token'),
-  	user: localStorage.getItem('socialProof.user') ? JSON.parse(localStorage.getItem('socialProof.user')) : localStorage.getItem('socialProof.user')
+  	token: Storage.get('token'),
+  	user: Storage.get('user') ? Storage.get('user') : Cookie.get('rememberMe')
 };
 
 export const authReducer = (state = initialState, { type, payload, user }) => {
@@ -13,7 +15,7 @@ export const authReducer = (state = initialState, { type, payload, user }) => {
       		return { ...state, error: payload }
     	}
     	case AUTH_LOGOUT: {
-      		return { ...state, token: null, user: null }
+      		return { ...state, token: null, user: Cookie.check('rememberMe') ? Cookie.get('rememberMe') : null }
     	}
     	case PROFILE_UPDATE: {
     		return { ...state, user }

@@ -8,22 +8,22 @@ import {Http} from '../lib/Http';
 import { push } from 'react-router-redux';
 import {Storage} from '../lib/Storage';
 const createOptions = (fontSize: string) => {
-  return {
-    style: {
-      base: {
-        fontSize,
-        color: '#424770',
-        letterSpacing: '0.025em',
-        fontFamily: 'Open Sans, sans-serif',
-        '::placeholder': {
-          color: '#aab7c4',
-        },
-      },
-      invalid: {
-        color: '#9e2146',
-      },
-    },
-  };
+  	return {
+    	style: {
+      		base: {
+        		fontSize,
+        		color: '#424770',
+        		letterSpacing: '0.025em',
+        		fontFamily: 'Open Sans, sans-serif',
+        		'::placeholder': {
+          			color: '#aab7c4',
+        		},
+      		},
+      		invalid: {
+        		color: '#9e2146',
+      		},
+		},
+  	};
 };
 class ConfirmPayment extends Component {
 	 constructor(props) {
@@ -74,7 +74,7 @@ class ConfirmPayment extends Component {
 	formSubmit(ev) {
 		ev.preventDefault();
 		let element = document.getElementsByTagName('form')[0].elements;
-		console.log(element.length);
+		//console.log(element.length);
 		if( element.length === 0 ) {
 			return;
 		}
@@ -94,7 +94,6 @@ class ConfirmPayment extends Component {
 			return new Promise((resolve, reject) => {
 				let _storage = Storage.get('tmpSignup');
 				if( _storage ) {
-					console.log(_storage.email);
 					Http.post('customer', {token: token.id, ip: token.client_ip, email: atob(_storage.email)})
 					.then(({data}) => {
 						this.setState({success: data.message});

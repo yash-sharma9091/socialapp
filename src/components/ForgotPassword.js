@@ -41,6 +41,8 @@ class ForgotPassword extends Component {
 				      			<Field 
 				      				component={FormSelect} 
 				      				name="type" label="Select" className="input_both" options={options}
+				      				displayKey={"key"}
+				      				displayLabel={"value"}
 				      				onChange={(e) => this.toggleField(e)}
 				      				placeholder="Select"/>
 				      				{showEmailField ? 

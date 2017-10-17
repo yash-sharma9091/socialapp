@@ -8,6 +8,7 @@ import Slider from './Slider';
 import AlertModalDialog from './AlertModalDialog';
 import {connect} from 'react-redux';
 import { FETCH_SITE_SETTINGS } from '../constant';
+import {Loader} from './common/Loader';
 
 class Home extends Component {
 	componentDidMount()  {
@@ -29,7 +30,7 @@ class Home extends Component {
 				</div>
 			);	
 		} else {
-			return <div className="marginTop10"><div className="loader">Loading ...</div></div>;
+			return <Loader/>;
 		}
 		
 	}	

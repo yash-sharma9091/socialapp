@@ -6,6 +6,7 @@ import {Tabs, Tab} from 'react-bootstrap';
 import ScrollToTopOnMount from './common/ScrollToTopOnMount';
 import {Http} from '../lib/Http';
 import { LinkContainer } from 'react-router-bootstrap';
+import {Loader} from './common/Loader';
 class Pricing extends Component {
 	constructor(props) {
       	super(props);
@@ -81,7 +82,7 @@ class Pricing extends Component {
 				</div>
 			);
 		}  else {
-			return <div className="loader">Loading ...</div>;	
+			return <Loader/>;	
 		}	
 	}
 	

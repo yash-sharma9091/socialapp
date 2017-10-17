@@ -8,6 +8,7 @@ import FormSubmit from "./common/FormSubmit";
 import Alert from './common/Alert';
 import { AUTH_REQUEST } from '../constant';
 import SignUpBanner from './SignUpBanner';
+import {connect} from 'react-redux';
 
 class Login extends Component {
     constructor(props) {
@@ -46,39 +47,45 @@ class Login extends Component {
       );
     }
     formSubmit(values) {
-      const { dispatch } = this.props;
-      return new Promise((resolve, reject) => {
-        dispatch({
-          type: AUTH_REQUEST,
-          user: {
-            email: values.email,
-            password: values.password
-          },
-          callbackError: (error) => {
-            reject(new SubmissionError({_error: error}));
-          },
-          callbackSuccess: () => {
-            dispatch(push('/dashboard'));
-            resolve();
-          }
-        })
-      });
+      	const { dispatch } = this.props;
+      	return new Promise((resolve, reject) => {
+        	dispatch({
+          		type: AUTH_REQUEST,
+          		user: values,
+          		callbackError: (error) => {
+            		reject(new SubmissionError({_error: error}));
+          		},
+          		callbackSuccess: () => {
+            		dispatch(push('/dashboard'));
+            		resolve();
+          		}
+        	})
+      	});
     }
 }
 const LoginForm = reduxForm({
-  form: 'user_login',
-  validate: (values) => {
-    const errors = {};
-    if(!values.email) {
-      errors.email = 'Email is required';
-    }else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-        errors.email = 'Invalid email address'
-      }
-      if (!values.password) {
-          errors.password = 'Password is Required'
-      }
-    return errors;
-  }
+  	form: 'user_login',
+  	validate: (values) => {
+    	const errors = {};
+    	if(!values.email) {
+      		errors.email = 'Email is required';
+    	}else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+        	errors.email = 'Invalid email address'
+      	}
+      	if (!values.password) {
+        	errors.password = 'Password is Required'
+      	}
+    	return errors;
+  	}
 })(Login);
 
-export default LoginForm;
+const mapStateToProps = (state) => {
+	if( state.auth.user ) {
+		return ({
+		 	initialValues: state.auth.user
+		});	
+	}
+	return ({});
+}
+
+export default connect(mapStateToProps)(LoginForm);

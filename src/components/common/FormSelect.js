@@ -4,9 +4,10 @@ import { FormGroup, HelpBlock, ControlLabel, FormControl } from 'react-bootstrap
 export class FormSelect extends Component {
 	render() {
 		const {meta, input, label, formGroupClassName, className, doValidate} = this.props;
+		
 		if (doValidate) {
 			return (
-		        <FormGroup className={formGroupClassName} validationState={!meta.touched ? null : (meta.error ? 'error' : 'success')}>
+		        <FormGroup className={formGroupClassName} validationState={!meta.touched ? null : (meta.error ? 'error' : null)}>
 					<ControlLabel>{label}</ControlLabel>
 					<FormControl componentClass="select" {...input} className={className}>
 		                {this.empty()}
@@ -31,15 +32,15 @@ export class FormSelect extends Component {
 	}	
 
 	options() {
-		const { options } = this.props;
+		const { options, displayKey, displayLabel } = this.props;
 		return options ? 
-			options.map((values, index) => <option key={index} value={values.key}>{values.value}</option>)
+			options.map((values, index) => <option key={index} value={values[displayKey]}>{values[displayLabel]}</option>)
 			: null;
 	}
 
 	empty() {
 		const {empty, label} = this.props;
-		return empty ? (<option>{label}</option>) : null;
+		return empty ? (<option value="">{label}</option>) : null;
 	}
 }
 
@@ -53,4 +54,6 @@ FormSelect.propTypes = {
 	placeholder: PropTypes.string,    // input placeholder (empty string by default)
 	className: PropTypes.string,  // the class name (empty string by default)
 	options: PropTypes.array,  // the select options array (empty string by default)
+	displayKey: PropTypes.string,
+	displayLabel: PropTypes.string
 }

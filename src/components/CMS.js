@@ -4,6 +4,7 @@ import {Http} from '../lib/Http';
 import {CMSStyle} from './common/CustomStyle';
 import ScrollToTopOnMount from './common/ScrollToTopOnMount';
 import Wrapper from './Wrapper';
+import {Loader} from './common/Loader';
 class CMS extends Component {
 	constructor() {
 		super();
@@ -41,7 +42,7 @@ class CMS extends Component {
 			);
 		} else {
 			if(!_.isNull(page)){
-				return <div className="loader">Loading ...</div>;	
+				return <Loader/>;	
 			} else {
 				return <Wrapper {...this.props}/>
 			}
