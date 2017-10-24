@@ -4,6 +4,8 @@ import AddNewWebsite from './AddNewWebsite';
 import ScriptCode from './ScriptCode';
 import DashboardListElement from './DashboardListElements';
 import {Pagination} from 'react-bootstrap';
+import {Http} from '../lib/Http';
+import {connect} from 'react-redux';
 
 class Dashboard extends Component {
 	constructor() {
@@ -11,14 +13,37 @@ class Dashboard extends Component {
 		this.state = {
 			showNewWebsiteDialog: false,
 			showScriptCodeDialog: false,
-			activePage: 1
+			activePage: 1,
+			list: [],
+			paging: {},
+			processing: false
 		}
 	}
+	componentDidMount() {
+		this.list();
+	}
+	componentDidUpdate(prevProps, prevState) {
+		
+		const { showNewWebsiteDialog } = prevState;
+		if( showNewWebsiteDialog ) {
+			this.list();
+		}
+	}
+	list() {
+		const {activePage} = this.state;
+		const {_id} = this.props.user;
+		this.setState({processing: true});
+		Http.post(`website_list?page=${activePage}`, {_id})
+		.then(({data, paging}) => this.setState({list: data, paging, processing: false}) )
+		.catch(error => console.log(error));
+	}
 	handleSelect(eventKey) {
-		console.log(eventKey);
 		this.setState({activePage: eventKey});
+		setTimeout(() =>  this.list());
 	}
 	render(){
+		const {list, activePage, showNewWebsiteDialog, showScriptCodeDialog, paging, processing} = this.state;
+		
 		return (
 			<div>
 				<DashboardNav/>
@@ -29,27 +54,49 @@ class Dashboard extends Component {
 				                <button className="btn pull-right yellobtn_small" onClick={() => this.showDialog('showNewWebsiteDialog')}  type="button">ADD NEW WEBSITE</button>
 				            </div>
 				            <div className="clearfix table-responsive">
-				                <table className="table dash_table">
-				                  <thead>
-				                    <tr>
-				                      <th>Website-URL</th>
-				                      <th>Plan Name</th>
-				                      <th>Plan Price</th>
-				                      <th width="20%">Expires On</th>
-				                      <th>Action</th>
-				                    </tr>
-				                  </thead>
-				                  <tbody>
-				                    <DashboardListElement show={() => this.showDialog('showScriptCodeDialog')} hideDialog={() => this.hideDialog('showScriptCodeDialog')} />
-				                  </tbody>
+				                <table className="table dash_table table-bordered">
+				                  	<thead>
+				                    	<tr>
+											<th>Website-URL</th>
+											<th>Plan Name</th>
+											<th>Plan Price</th>
+											<th width="20%">Expires On</th>
+											<th>Action</th>
+				                    	</tr>
+				                  	</thead>
+				                  	<tbody>
+				                  		{list.length > 0 
+				                  			? list.map((value, index) => 
+				                  				<DashboardListElement
+				                  				key={index}
+					                    		list={value}
+					                    		show={() => this.showDialog('showScriptCodeDialog')} 
+					                    		hideDialog={() => this.hideDialog('showScriptCodeDialog')} />)
+					                    		
+					                    	: (processing) 
+					                    		? <tr>
+													<td colSpan="5" className="text-center">
+														<span className="loader loader-small">No Records</span>
+													</td>
+												</tr>
+					                    		: (
+													<tr>
+														<td colSpan="5" className="text-center">
+															<span>No Records</span>
+														</td>
+													</tr>	
+												)
+				                  		}
+				                  	</tbody>
 				                </table>
 				            </div> 
 				            <div className="table_pagination clearfix">
 				                <nav className="pull-right" aria-label="Page navigation">
 				            		<Pagination
 										bsSize="medium"
-										items={10}
-										activePage={this.state.activePage}
+										items={paging.pages}
+										activePage={activePage}
+										maxButtons={10}
 										boundaryLinks={true}
 										prev="Previous"
 										next="Next"
@@ -61,8 +108,8 @@ class Dashboard extends Component {
 				        </div>
 				    </div>
 				</section>
-				<AddNewWebsite show={this.state.showNewWebsiteDialog} hideDialog={() => this.hideDialog('showNewWebsiteDialog')} />
-				<ScriptCode show={this.state.showScriptCodeDialog} hideDialog={() => this.hideDialog('showScriptCodeDialog')} />
+				<AddNewWebsite show={showNewWebsiteDialog} hideDialog={() => this.hideDialog('showNewWebsiteDialog')} />
+				<ScriptCode show={showScriptCodeDialog} hideDialog={() => this.hideDialog('showScriptCodeDialog')} />
 			</div>
 		);
 	}
@@ -75,4 +122,8 @@ class Dashboard extends Component {
 	}
 }
 
-export default Dashboard;
+const mapStateToProps = (state) => ({
+	user: state.auth.user
+});
+
+export default connect(mapStateToProps)(Dashboard);

@@ -1,8 +1,10 @@
 import axios from 'axios';
 import lodash from 'lodash';
-
+import moment from 'moment';
+import {Cookie} from './lib/Cookie';
 window.axios = axios;
 window._ = lodash;
+window.moment = moment;
 
 window.axios.defaults.headers.common = {'X-Requested-With': 'XMLHttpRequest'};
 window.axios.defaults.baseURL = ( process.env.NODE_ENV !== 'production') ? 'http://100.100.7.38:9000/api/' : 'http://158.85.67.166:8028/api/';
@@ -13,7 +15,7 @@ window.IMAGE_PATH = ( process.env.NODE_ENV !== 'production') ? 'http://100.100.7
 // Add a request interceptor
 axios.interceptors.request.use( function(config) {
   	// Do something before request is sent
-    const token = localStorage.getItem('socialProof.token'); 
+    const token = Cookie.get('token'); 
     if( token ) {
       config.headers = {
         Authorization: `Bearer ${token}`

@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 import { Form } from 'react-bootstrap';
 import FormField from "./common/FormField";
 import Alert from './common/Alert';
-import {connect} from 'react-redux';
 import { Field,reduxForm, SubmissionError } from 'redux-form';
 import FormSubmit from "./common/FormSubmit";
 import {Http} from '../lib/Http';
+import PropTypes from 'prop-types';
 
 class ChangePassword extends Component {
 	constructor(props) {
@@ -85,7 +85,8 @@ const ChangePasswordForm = reduxForm({
   	}
 })(ChangePassword);
 
-const mapStateToProps = (state) => ({
-	user: state.auth.user
-});	
-export default connect(mapStateToProps)(ChangePasswordForm);
+ChangePassword.propTypes = {
+	user: PropTypes.object.isRequired 
+};
+
+export default ChangePasswordForm;

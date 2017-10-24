@@ -461,9 +461,9 @@ section{padding: 70px 0px;}
 
 .table > tbody > tr > td, .table > thead > tr > th{vertical-align: middle;}
 
-.dash_table.table > thead > tr > th{background: #999999; color: #fff;  padding: 10px;}
+.dash_table.table > thead > tr > th{background: #999999; color: #fff;  padding: 10px;border:none;}
 
-.dash_table.table > tbody > tr > td {color: #3d3d3d; padding: 10px;}
+.dash_table.table > tbody > tr > td {color: #3d3d3d; padding: 10px;border:none;}
 
 .bluecolor{color: #126bdb;}
 
@@ -478,6 +478,9 @@ section{padding: 70px 0px;}
 .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus{background-color: #1b8ecf;border-color: #1b8ecf;}
 
 .pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus{  background-color: #1b8ecf;border-color: #1b8ecf; color: #fff;}
+
+.user_dp_small{display: inline-block; padding-right: 5px;}
+.user_dp_small img { height: 30px;width: 30px;border-radius: 50%;}
 
 
 /*****************************************subscription*************************************/
@@ -581,30 +584,6 @@ section{padding: 70px 0px;}
 .set_hd_inner{font-size: 17px; color: #222; font-weight: 600; margin-bottom: 10px; background: #e8f3fa; padding: 14px 15px;}
 
 .form_dash{padding: 15px 205px 15px 15px;}
-
-/***********************dashboard home******************************/
-
-.table > tbody > tr > td, .table > thead > tr > th{vertical-align: middle;}
-
-.dash_table.table > thead > tr > th{background: #999999; color: #fff;  padding: 10px;}
-
-.dash_table.table > tbody > tr > td {color: #3d3d3d; padding: 10px;}
-
-.bluecolor{color: #126bdb;}
-
-.dash_table > tbody > tr:nth-of-type(even) {background-color: #e8f3fa;}
-
-.table_btn{background: #f3f7f8; color: #3d3d3d; font-size: 11px; padding: 7px 10px; margin-bottom: 5px; border: 1px solid #e2e2e2; margin-right: 10px;}
-
-.table_btn:hover, .table_btn:focus, .table_btn.active, .table_btn:active{background: #1b8ecf;  border: 1px solid #3182af; color: #fff;}
-
-.pagination > li > a, .pagination > li > span{border-color:#1b8ecf;  }
-
-.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus{background-color: #1b8ecf;border-color: #1b8ecf;}
-
-.pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus{  background-color: #1b8ecf;border-color: #1b8ecf; color: #fff;}
-.user_dp_small{display: inline-block; padding-right: 5px;}
-.user_dp_small img { height: 30px;width: 30px;border-radius: 50%;}
 
 
 /***************** New CSS 13 Oct 2017 **************/

@@ -100,6 +100,7 @@ class ConfirmPayment extends Component {
 						Storage.remove('tmpSignup');
 						this.setState({processing: false});
 						setTimeout(() => dispatch(push('/login')), 2500);
+						resolve();
 					})
 					.catch(({errors}) => reject({message: errors.message}));
 				} else {

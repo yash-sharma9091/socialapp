@@ -2,12 +2,12 @@ import React, {Component} from 'react';
 import { Form } from 'react-bootstrap';
 import FormField from "./common/FormField";
 import Alert from './common/Alert';
-import {connect} from 'react-redux';
 import { Field,reduxForm, SubmissionError } from 'redux-form';
 import FormSubmit from "./common/FormSubmit";
 import FileInput from "./common/FileInput";
 import {FormGroup, FormControl, ControlLabel} from 'react-bootstrap';
 import {PROFILE_UPDATE_REQUEST} from '../constant';
+import PropTypes from 'prop-types';
 
 class Setting extends Component {
 	constructor(props) {
@@ -114,7 +114,7 @@ const SettingForm = reduxForm({
   	}
 })(Setting);
 
-const mapStateToProps = (state) => ({
-	initialValues: state.auth.user
-});	
-export default connect(mapStateToProps)(SettingForm);
+Setting.propTypes = {
+	initialValues: PropTypes.object.isRequired 
+};
+export default SettingForm;

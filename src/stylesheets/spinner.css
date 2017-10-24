@@ -4,9 +4,12 @@
   width: 8em;
   height: 8em;
 }
-.loader {
+.loader-small { font-size: 5px; overflow: hidden; text-align: center;}
+.loader-default { font-size: 10px; }
+.loader, .loader-small, .loader-default {
+  display: block;
+  overflow: hidden;
   margin: 60px auto;
-  font-size: 10px;
   position: relative;
   text-indent: -9999em;
   border-top: 0.9em solid rgba(200, 200, 200, 0.5);

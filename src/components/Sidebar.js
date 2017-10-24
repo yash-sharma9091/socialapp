@@ -21,6 +21,9 @@ const Sidebar = (props) => {
 	            <LinkContainer to="/change-password" isActive={MatchChangePasswordPath}>
 	            	<NavItem eventKey={1}> Change Password </NavItem>
 	            </LinkContainer>
+	            <LinkContainer to="/saved-card">
+	            	<NavItem eventKey={1}> Saved Card </NavItem>
+	            </LinkContainer>
 		    </ul>  
 		</div> 
 	);

@@ -2,10 +2,11 @@ import { AUTH_SUCCESS, AUTH_FAILURE, AUTH_LOGOUT, PROFILE_UPDATE } from '../cons
 import {Storage} from '../lib/Storage';
 import {Cookie} from '../lib/Cookie';
 const initialState = {
-  	token: Storage.get('token'),
-  	user: Storage.get('user') ? Storage.get('user') : Cookie.get('rememberMe')
+  	token: Cookie.get('token'),
+  	user: Cookie.check('user') ? Cookie.get('user') : Cookie.get('rememberMe')
 };
-
+Storage.remove('token');
+Storage.remove('user');
 export const authReducer = (state = initialState, { type, payload, user }) => {
     switch (type) {
     	case AUTH_SUCCESS: {

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import { FormGroup, FormControl, HelpBlock, Row, Col, ControlLabel } from "react-bootstrap";
+import InputMask from 'react-input-mask';
 
 // Form field component
 export default class FormField extends Component {
@@ -50,12 +51,18 @@ export default class FormField extends Component {
 
   // the field itself
   field() {
-    const {input, componentClass, type, placeholder, children, className} = this.props;
-    return (
-      <FormControl {...input} componentClass={componentClass} type={type} placeholder={placeholder} className={className}>
-        {children}
-      </FormControl>
-    );
+    const {input, componentClass, type, placeholder, children, className, mask} = this.props;
+    if(mask) {
+      return (
+        <InputMask {...input} type={type} placeholder={placeholder} className={`form-control ${className}`} mask="+1\ 999-999-9999" maskChar="_" />
+      );
+    } else {
+      return (
+        <FormControl {...input} componentClass={componentClass} type={type} placeholder={placeholder} className={className}>
+          {children}
+        </FormControl>
+      );  
+    }
   }
 }
 

@@ -3,8 +3,8 @@ export class Http {
 	static post(url, data, config = null) {
 		return new Promise((resolve, reject) => {
 			axios.post(url, data, config)
-			.then(({data}) => {
-				resolve({data: data.records });
+			.then(({data, paging}) => {
+				resolve({data: data.records, paging: data.paging });
 			})
 			.catch(error => {
 				reject((error.response) ? error.response.data : error);

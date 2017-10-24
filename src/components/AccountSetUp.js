@@ -1,3 +1,4 @@
+/* global _ */
 import React, {Component} from 'react';
 import FormSubmit from "./common/FormSubmit";
 import FormField from "./common/FormField";
@@ -7,6 +8,7 @@ import { Field, SubmissionError,reduxForm } from 'redux-form';
 import { Form } from 'react-bootstrap';
 import {Http} from '../lib/Http';
 import {Storage} from '../lib/Storage';
+
 
 class AccountSetUp extends Component {
 	 constructor(props) {
@@ -22,10 +24,12 @@ class AccountSetUp extends Component {
 			<Form onSubmit={handleSubmit(this.formSubmit)}>
 				<Alert alertVisible={error || (this.state.success && submitSucceeded)} alertMsg={error || this.state.success} className={error ? "danger" : "success"} />
 				<div className="clearfix">  
+
 				  	<Field 
 				  		component={FormField} type="text"
 				  		name="customer_name" label="Customer Name"
 				  		placeholder="Customer Name" theme="custom"
+
 				  		formGroupClassName="group46 pull-left" className="input_both" doValidate={true}/>
 				  	<Field 
 				  		component={FormField} type="text"
@@ -36,20 +40,20 @@ class AccountSetUp extends Component {
 				<div className="clearfix">  
 				  <Field 
 				  		component={FormField} type="url"
-				  		name="customer_url" label="Customer URL"
+				  		name="customer_url" label="Customer URL (http://www.yoursite.com)"
 				  		placeholder="Customer URL" theme="custom"
 				  		formGroupClassName="group46 pull-left" className="input_both" doValidate={true}/>
 				  	<Field 
 				  		component={FormField} type="email"
-				  		name="email" label="Email Id"
-				  		placeholder="Email Id" theme="custom"
+				  		name="email" label="Email Address"
+				  		placeholder="Email Address" theme="custom"
 				  		formGroupClassName="group46 pull-right" className="input_both" doValidate={true}/>
 				</div>
 				<div className="clearfix">  
 				  	<Field 
 				  		component={FormField} type="text"
 				  		name="mobile" label="Mobile No."
-				  		placeholder="Mobile No." theme="custom"
+				  		placeholder="Mobile No." theme="custom" mask={true}
 				  		formGroupClassName="group46 pull-left" className="input_both" doValidate={true}/>
 				  	<Field 
 				  		component={FormField} type="password"
@@ -131,9 +135,10 @@ const AccountSetUpForm = reduxForm({
     	} else if(!/^https?:\/\/(www\.)?[-a-zA-Z0-9@:%_+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_+.~#?&//=]*)?$/i.test(values.customer_url)) {
     		errors.customer_url = 'Enter a valid Url';
     	}
+    	
     	if(!values.mobile) {
       		errors.mobile = 'Mobile No is required';
-    	} else if(!/^([0|[1-9][0-9]{9})$/i.test(values.mobile)) {
+    	} else if(!/^([0|[1-9][0-9]{9})$/i.test(_.replace(values.mobile, /-|\s|\+1/g, ""))) {
     		errors.mobile = 'Invalid phone number';
     	}
     	if(!values.password) {
