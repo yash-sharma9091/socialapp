@@ -23,14 +23,13 @@ class Header extends Component {
 			   		<Navbar.Collapse>
 			   			<div className="navbar-right headerRight">
 		   					<Nav className="headerLinks">
-		   						<LinkContainer to="/" exact={true}>
+		   						<LinkContainer to={token ? "/dashboard" : "/"} exact={true}>
 		   				  			<NavItem eventKey={1}>Home</NavItem>
 		   				  		</LinkContainer>
 		   				  		<LinkContainer to="/pricing">
 		   				  			<NavItem eventKey={2}>Pricing</NavItem>
 		   				  		</LinkContainer>
 		   					</Nav>
-			   				
 			   			</div>
 				    </Navbar.Collapse>	
 				    <AuthButton token={token} dispatch={dispatch} user={user}/>

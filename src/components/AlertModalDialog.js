@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Modal, Button} from 'react-bootstrap';
+import { push } from 'react-router-redux';
 
 class AlertModalDialog extends Component {
 	constructor(props) {
@@ -11,11 +12,17 @@ class AlertModalDialog extends Component {
     componentWillMount() {
     	this.showDialog();
     }
+    onExited() {
+		const {dispatch, redirect} = this.props;
+		if( redirect ) {
+			dispatch(push(redirect));
+		}
+	}
 	render() {
 		let { alertMsg, title} = this.props;
 		
 		return(
-			<Modal show={this.state.show} onHide={() => this.hideDialog()}>
+			<Modal show={this.state.show} onHide={() => this.hideDialog()} onExited={() => this.onExited()}>
 				<Modal.Header closeButton>
 					<Modal.Title>{title || 'Confirmation ?'}</Modal.Title>
 				</Modal.Header>	

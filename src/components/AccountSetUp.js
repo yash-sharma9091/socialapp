@@ -18,6 +18,10 @@ class AccountSetUp extends Component {
       		success: ''
       	}
     }
+    componentDidMount() {
+    	const {dispatch, reset} = this.props;
+    	dispatch(reset('signupForm'));
+    }
 	render() {
 		const { error, handleSubmit, invalid, submitting, submitSucceeded} = this.props;
 		return(

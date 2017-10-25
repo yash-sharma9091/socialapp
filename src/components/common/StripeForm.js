@@ -91,7 +91,8 @@ class StripeForm extends Component {
 }	
 
 const StripePaymentForm = reduxForm({
-  	form: 'StripePaymentForm'
+  	form: 'StripePaymentForm',
+  	pure: false
 })(StripeForm);
 
 export default injectStripe(StripePaymentForm);

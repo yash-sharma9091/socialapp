@@ -17,7 +17,6 @@ class Home extends Component {
 	render() {
 		const{site, location, dispatch} = this.props;
 		let confirmDialog = new URLSearchParams(location.search).get('emailVerified');
-		
 		if( !_.isEmpty(site.settings) ) {
 			return (
 				<div>
@@ -26,7 +25,12 @@ class Home extends Component {
 					<KnowMore/>
 					<Steps site={site}/>
 					<HowItWorks site={site}/>
-					{confirmDialog ? <AlertModalDialog title="Email Verification" alertMsg="Thanks, Your email is verified successfully you can now login."/> : null }
+					{confirmDialog
+						? <AlertModalDialog 
+							dispatch={dispatch} redirect="/" 
+							title="Email Verification" alertMsg={ confirmDialog === 'true' ? "Thanks, Your email is verified successfully you can now login." : "Email verification link has been expired."}/> 
+						: null 
+					}
 				</div>
 			);	
 		} else {
