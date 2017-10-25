@@ -20,6 +20,7 @@ class Header extends Component {
 			      		</Navbar.Brand>
 			      		<Navbar.Toggle />
 			   		</Navbar.Header>
+			   		<AuthButton token={token} dispatch={dispatch} user={user}/>
 			   		<Navbar.Collapse>
 			   			<div className="navbar-right headerRight">
 		   					<Nav className="headerLinks">
@@ -32,7 +33,6 @@ class Header extends Component {
 		   					</Nav>
 			   			</div>
 				    </Navbar.Collapse>	
-				    <AuthButton token={token} dispatch={dispatch} user={user}/>
 			 	</Navbar>
 		 	</header>
 		);
