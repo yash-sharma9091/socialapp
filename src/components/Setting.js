@@ -104,7 +104,9 @@ const SettingForm = reduxForm({
     	}
     	if(!values.customer_name) {
       		errors.customer_name = 'Customer Name is required';
-    	}
+    	} else if(values.customer_name.length > 20) {
+            errors.customer_name = 'Customer Name must be less then 20 characters.';
+        }
     	if(!values.customer_url) {
       		errors.customer_url = 'Customer Url is required';
     	} else if(!/^https?:\/\/(www\.)?[-a-zA-Z0-9@:%_+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_+.~#?&//=]*)?$/i.test(values.customer_url)) {

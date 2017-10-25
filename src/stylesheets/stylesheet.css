@@ -596,7 +596,9 @@ section{padding: 70px 0px;}
   border-left: 7px solid transparent;border-bottom-color: rgba(0, 0, 0, 0.2);content: '';}
 header .navbar-default .container-fluid{position: relative;}
 header .navbar-default .navbar-collapse{padding-right: 290px;}
-.dash_head .navbar-default .navbar-collapse{padding-right: 215px;}
+.dash_head .navbar-default .navbar-collapse{padding-right: 10px;}
+.dash_head  .afterlogin.navbar-nav{position: relative!important; top: auto!important; right:auto!important; transform: inherit!important;margin-top: 15px;float: right;}
+.dash_head .navbar-default .navbar-collapse{float: right;}
 header .navbar-default .container-fluid > .navbar-nav{position: absolute; right: 15px; top: 50%; transform: translate(0,-50%); z-index: 99;}
 .relativeNW{position: relative;}
 .brseBtnNW.yellobtn{display: block;width: 110px;text-align: center;padding: 6px 20px; border-radius: 2px;transition:all 0.3s ease; -ms-transition:all 0.3s ease; -webkit-transition:all 0.3s ease; -o-transition:all 0.3s ease; -moz-transition:all 0.3s ease;}

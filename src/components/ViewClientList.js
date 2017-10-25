@@ -1,11 +1,8 @@
 import React, {Component} from 'react';
-import ClientList from "../images/client_list_img.png";
-import ClientList_1 from "../images/client_list_img1.png";
-import ClientList_2 from "../images/client_list_img2.png";
-import ClientList_3 from "../images/client_list_img3.png";
 import TableUser from "../images/table_user.png";
 import DashboardNav from './DashboardNav';
 import {LinkContainer} from 'react-router-bootstrap';
+import ViewClientListInfo from './ViewClientListInfo';
 
 class ViewClientList extends Component {
 	render() {
@@ -14,30 +11,7 @@ class ViewClientList extends Component {
 				<DashboardNav/>
 				<section className="gray_bg dash_mibble">
 					<div className="container ">
-				        <div className="dash_mibble_inner">
-				          <div className="set_hd set_hd_bottom">View <strong>Client List</strong></div>
-				          <div className="client_list">
-				            <ul className="clearfix">
-				              <li>
-				                <img src={ClientList} alt="ClientList"/>
-				                <h4>Web Site Name</h4>
-				                <a className="bluecolor" href="/">www.fieyru.com</a>
-				              </li>
-				              <li>
-				                <img src={ClientList_1} alt="ClientList"/>
-				                <h4>Subscription <strong>Plan Name</strong><br/> Business</h4>
-				              </li>
-				              <li>
-				                <img src={ClientList_2} alt="ClientList"/>
-				                <h4>Subscription <strong>Plan Price</strong><br/> $129</h4>
-				              </li>
-				              <li>
-				                <img src={ClientList_3} alt="ClientList"/>
-				                <h4>Subscription <strong>Expire On</strong><br/> Mar 20, 2019</h4>
-				              </li>
-				            </ul>
-				          </div>  
-				        </div>  
+				        <ViewClientListInfo/>
 				        <div className="dash_mibble_inner_top">
 				        	  <div className="sub_serch sub_serch_right">
 				              <form>

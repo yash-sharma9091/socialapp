@@ -130,6 +130,8 @@ const AccountSetUpForm = reduxForm({
       	}
       	if(!values.customer_name) {
       		errors.customer_name = 'Customer Name is required';
+    	} else if(values.customer_name.length > 20) {
+    		errors.customer_name = 'Customer Name must be less then 20 characters.';
     	}
     	if(!values.business_name) {
       		errors.business_name = 'Business Name is required';

@@ -136,7 +136,11 @@ header .navbar-default .navbar-collapse, .dash_head .navbar-default .navbar-coll
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus{background: #1974d2;border-color: #1974d2;}
 .navbar-default .navbar-toggle:hover .icon-bar, .navbar-default .navbar-toggle:focus .icon-bar {background: #FFF;}
 
+
 .SampleModal .modal-footer .text-right, .SampleModal .modal-footer .text-left{text-align: center; margin-top: 10px; }
+
+.dash_head  .afterlogin.navbar-nav{position: absolute!important; top: 50%!important; right:75px!important;-webkit-transform: translate(0,-50%);-ms-transform: translate(0,-50%); transform: translate(0,-50%)!important;margin-top: 15px;float: none;}
+
 }
 
 @media(max-width:479px){
