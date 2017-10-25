@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import DashboardNav from './DashboardNav';
 import AddNewWebsite from './AddNewWebsite';
+import SampleCSVPrompt from './SampleCSVPrompt';
 import ScriptCode from './ScriptCode';
 import DashboardListElement from './DashboardListElements';
 import {Pagination} from 'react-bootstrap';
@@ -10,12 +11,15 @@ import {connect} from 'react-redux';
 class Dashboard extends Component {
 	constructor() {
 		super();
+		this.showSampleCSVPrompt = this.showSampleCSVPrompt.bind(this);
 		this.state = {
 			showNewWebsiteDialog: false,
 			showScriptCodeDialog: false,
+			showSampleCSVPrompt: false,
 			activePage: 1,
 			list: [],
 			paging: {},
+			client: {},
 			processing: false
 		}
 	}
@@ -42,7 +46,7 @@ class Dashboard extends Component {
 		setTimeout(() =>  this.list());
 	}
 	render(){
-		const {list, activePage, showNewWebsiteDialog, showScriptCodeDialog, paging, processing} = this.state;
+		const {list, activePage, showNewWebsiteDialog, showScriptCodeDialog, paging, processing, showSampleCSVPrompt, client} = this.state;
 		
 		return (
 			<div>
@@ -71,6 +75,7 @@ class Dashboard extends Component {
 				                  				key={index}
 					                    		list={value}
 					                    		show={() => this.showDialog('showScriptCodeDialog')} 
+					                    		showSampleCSVPrompt={this.showSampleCSVPrompt}
 					                    		hideDialog={() => this.hideDialog('showScriptCodeDialog')} />)
 					                    		
 					                    	: (processing) 
@@ -110,8 +115,12 @@ class Dashboard extends Component {
 				</section>
 				<AddNewWebsite show={showNewWebsiteDialog} hideDialog={() => this.hideDialog('showNewWebsiteDialog')} />
 				<ScriptCode show={showScriptCodeDialog} hideDialog={() => this.hideDialog('showScriptCodeDialog')} />
+				<SampleCSVPrompt show={showSampleCSVPrompt} client={client} hideDialog={() => this.hideDialog('showSampleCSVPrompt')} />
 			</div>
 		);
+	}
+	showSampleCSVPrompt(list) {
+		this.setState({showSampleCSVPrompt: true, client: list});
 	}
 
 	showDialog(dialog) {

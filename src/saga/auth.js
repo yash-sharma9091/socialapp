@@ -1,7 +1,6 @@
 import { call, put } from 'redux-saga/effects';
 import {login} from '../api/login';
 import {  AUTH_SUCCESS, AUTH_FAILURE, AUTH_LOGOUT } from '../constant';
-//import {Storage} from '../lib/Storage';
 import {Cookie} from '../lib/Cookie';
 
 export function* authorize(action) {
