@@ -9,6 +9,7 @@ import AlertModalDialog from './AlertModalDialog';
 import {connect} from 'react-redux';
 import { FETCH_SITE_SETTINGS } from '../constant';
 import {Loader} from './common/Loader';
+import URLSearchParams from 'url-search-params';
 
 class Home extends Component {
 	componentDidMount()  {

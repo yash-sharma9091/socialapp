@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Http} from '../lib/Http';
-import {connect} from 'react-redux';
+//import {connect} from 'react-redux';
 
 class ImportClientList extends Component {
 	handleOnChange(e) {
@@ -26,8 +26,5 @@ class ImportClientList extends Component {
 	}
 }
 
-const mapStateToProps = (state) => ({
-	user: state.auth.user
-});
 
-export default connect(mapStateToProps)(ImportClientList);
+export default ImportClientList;

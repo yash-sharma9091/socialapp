@@ -36,7 +36,7 @@ export const Router = props => {
 		    	<PrivateRoute path="/change-password" component={Profile} />
 		    	<PrivateRoute path="/saved-card" component={Profile} />
 		    	<PrivateRoute path="/my-subscriptions" component={MySubscriptions} />
-		    	<PrivateRoute path="/client-list" component={ViewClientList} />
+		    	<PrivateRoute path="/client-list/:id" component={ViewClientList} />
 		    	<Route path="/:slug" component={CMS} />
 		    	<Route path="*" component={Wrapper} />
 		  	</Switch>

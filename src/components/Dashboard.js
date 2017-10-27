@@ -4,14 +4,14 @@ import AddNewWebsite from './AddNewWebsite';
 import SampleCSVPrompt from './SampleCSVPrompt';
 import ScriptCode from './ScriptCode';
 import DashboardListElement from './DashboardListElements';
-import {Pagination} from 'react-bootstrap';
 import {Http} from '../lib/Http';
 import {connect} from 'react-redux';
+import {Paginator} from './common/Paginator';
 
 class Dashboard extends Component {
 	constructor() {
 		super();
-		this.showSampleCSVPrompt = this.showSampleCSVPrompt.bind(this);
+		this.showDialog = this.showDialog.bind(this);
 		this.state = {
 			showNewWebsiteDialog: false,
 			showScriptCodeDialog: false,
@@ -47,7 +47,7 @@ class Dashboard extends Component {
 	}
 	render(){
 		const {list, activePage, showNewWebsiteDialog, showScriptCodeDialog, paging, processing, showSampleCSVPrompt, client} = this.state;
-		
+		const {user} = this.props;
 		return (
 			<div>
 				<DashboardNav/>
@@ -74,8 +74,7 @@ class Dashboard extends Component {
 				                  				<DashboardListElement
 				                  				key={index}
 					                    		list={value}
-					                    		show={() => this.showDialog('showScriptCodeDialog')} 
-					                    		showSampleCSVPrompt={this.showSampleCSVPrompt}
+					                    		show={this.showDialog} 
 					                    		hideDialog={() => this.hideDialog('showScriptCodeDialog')} />)
 					                    		
 					                    	: (processing) 
@@ -95,36 +94,28 @@ class Dashboard extends Component {
 				                  	</tbody>
 				                </table>
 				            </div> 
-				            <div className="table_pagination clearfix">
-				                <nav className="pull-right" aria-label="Page navigation">
-				            		<Pagination
-										bsSize="medium"
-										items={paging.pages}
-										activePage={activePage}
-										maxButtons={10}
-										boundaryLinks={true}
-										prev="Previous"
-										next="Next"
-										first="First"
-										last="Last"
-										onSelect={(e) => this.handleSelect(e)} />
-				                </nav>
-				            </div>    
+				            <Paginator paging={paging} activePage={activePage} handleSelect={(e) => this.handleSelect(e)}/>  
 				        </div>
 				    </div>
 				</section>
-				<AddNewWebsite show={showNewWebsiteDialog} hideDialog={() => this.hideDialog('showNewWebsiteDialog')} />
-				<ScriptCode show={showScriptCodeDialog} hideDialog={() => this.hideDialog('showScriptCodeDialog')} />
-				<SampleCSVPrompt show={showSampleCSVPrompt} client={client} hideDialog={() => this.hideDialog('showSampleCSVPrompt')} />
+				<AddNewWebsite show={showNewWebsiteDialog} user={user} hideDialog={() => this.hideDialog('showNewWebsiteDialog')} />
+				<ScriptCode show={showScriptCodeDialog} client={client} user={user} hideDialog={() => this.hideDialog('showScriptCodeDialog')} />
+				<SampleCSVPrompt show={showSampleCSVPrompt} client={client} user={user} hideDialog={() => this.hideDialog('showSampleCSVPrompt')} />
 			</div>
 		);
 	}
-	showSampleCSVPrompt(list) {
+	
+	/*showSampleCSVPrompt(list) {
 		this.setState({showSampleCSVPrompt: true, client: list});
-	}
+	}*/
 
-	showDialog(dialog) {
-		this.setState({[dialog]: true});
+	showDialog(dialog, data = {}) {
+		const {client} = data;
+		if(client){
+			this.setState({[dialog]: true, client: client});	
+		} else {
+			this.setState({[dialog]: true,});	
+		}
 	}
 	hideDialog(dialog) {
 		this.setState({[dialog]: false});

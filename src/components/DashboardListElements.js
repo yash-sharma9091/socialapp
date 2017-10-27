@@ -2,7 +2,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-const DashboardListElement = ({show, list, showSampleCSVPrompt}) => {
+const DashboardListElement = ({show, list}) => {
 
 	return (
 		<tr>
@@ -11,10 +11,10 @@ const DashboardListElement = ({show, list, showSampleCSVPrompt}) => {
 			<td>${list.price}</td>
 			<td>{moment(list.expiration_date).format('MMM DD, YYYY')}</td>
 			<td>
-				<Link className="btn table_btn " to="/client-list" >View Client List</Link>
-				<button type="button" className="btn table_btn" onClick={() => showSampleCSVPrompt(list)}>Import Client List</button>
+				<Link className="btn table_btn " to={`/client-list/${list._id}`} >View Client List</Link>
+				<button type="button" className="btn table_btn" onClick={() => show('showSampleCSVPrompt', {client:list})}>Import Client List</button>
 				<a className="btn table_btn " href="/" role="button">Export Client List</a>
-				<button type="button" className="btn table_btn" onClick={show}>View Script Code</button>
+				<button type="button" className="btn table_btn" onClick={() => show('showScriptCodeDialog', {client:list})}>View Script Code</button>
 			</td>
 		</tr>
 	);

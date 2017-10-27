@@ -510,7 +510,8 @@ section{padding: 70px 0px;}
 .sub_serch_right{position: relative; padding-right: 400px;}
 
 .Export_btn{position: absolute;right: 0; top:0;}
-
+.Export_btn .btn{margin-right: 7px;}
+.Export_btn .btn:last-child{margin-right: 0px;}
 .btn_extra{width: 90px; font-weight: 600; font-size: 14px; text-transform: uppercase;}
 
 .btn_extra.yellw{background: #ffbd00; color: #333;}
@@ -556,6 +557,7 @@ section{padding: 70px 0px;}
 .dash_mibble{padding-top: 0;}
 
 .dash_mibble_inner{position: relative; margin-top: -130px;background: #fff; padding: 20px;box-shadow: 0px 0px 10px rgba(0,0,0,0.15);}
+.dash_mibble_inner_top {position: relative; background: #fff; box-shadow: 0px 0px 10px rgba(0,0,0,0.15); padding: 20px; margin-top: 27px; }
 
 .set_hd{font-size: 19px; color: #222; font-weight: 600; margin-bottom: 10px; line-height: 34px;}
 
@@ -640,4 +642,7 @@ header .navbar-default .container-fluid > .navbar-nav{position: absolute; right:
   top: 0;
   opacity: 0;
   z-index: 1;
+}
+.preline {
+  white-space: pre-line;
 }

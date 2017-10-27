@@ -1,17 +1,59 @@
 import React, {Component} from 'react';
-import TableUser from "../images/table_user.png";
 import DashboardNav from './DashboardNav';
 import {LinkContainer} from 'react-router-bootstrap';
 import ViewClientListInfo from './ViewClientListInfo';
+import ViewClientListElement from './ViewClientListElement';
+import {Http} from '../lib/Http';
+import {connect} from 'react-redux';
+import {Paginator} from './common/Paginator';
+import SampleCSVPrompt from './SampleCSVPrompt';
+import ExportClientList from './common/ExportClientList';
 
 class ViewClientList extends Component {
+	constructor() {
+		super();
+		this.showSampleCSVPrompt = this.showSampleCSVPrompt.bind(this);
+		this.state = {
+			showSampleCSVPrompt: false,
+			activePage: 1,
+			client_list: [],
+			paging: {},
+			subscription_details: {},
+			processing: false
+		}
+	}
+	componentDidMount() {
+		this.list();
+	}
+	list() {
+		const {activePage} = this.state;
+		const {params} = this.props.match;
+		const {_id} = this.props.user;
+		this.setState({processing: true});
+		Http.post(`client_list?page=${activePage}`, {subscription_id: params.id, _id })
+		.then(({data}) => this.setState({client_list: data.client_list, paging: data.paging, subscription_details: data.subscription_details, processing: false}))
+		.catch(error => console.log(error));
+	}
+	handleSelect(eventKey) {
+		this.setState({activePage: eventKey});
+		setTimeout(() =>  this.list());
+	}
+	componentDidUpdate(prevProps, prevState) {
+		const { showSampleCSVPrompt } = prevState;
+		if( showSampleCSVPrompt ) {
+			this.list();
+		}
+	}
 	render() {
+		const {activePage, client_list, paging, subscription_details, processing, showSampleCSVPrompt} = this.state;
+		const client = {_id: this.props.match.params.id };
+		const {_id} = this.props.user;
 		return(
 			<div>
 				<DashboardNav/>
 				<section className="gray_bg dash_mibble">
 					<div className="container ">
-				        <ViewClientListInfo/>
+				        <ViewClientListInfo subscription_details={subscription_details}/>
 				        <div className="dash_mibble_inner_top">
 				        	  <div className="sub_serch sub_serch_right">
 				              <form>
@@ -21,134 +63,64 @@ class ViewClientList extends Component {
 				                </div>  
 				              </form>
 				              <div className="Export_btn">
-				                <button className="btn btn_extra grayw"  type="button">Import</button>
-				                <button className="btn btn_extra yellw"  type="button">Export</button>
+				                <button className="btn btn_extra grayw" onClick={() => this.showDialog('showSampleCSVPrompt')} type="button">Import</button>
+				                <ExportClientList className="btn_extra yellw" id={_id}/>
 				                <LinkContainer to="/dashboard">
 				                	<button className="btn btn_extra bluew"  type="button">Back</button>
 				                </LinkContainer>	
 				              </div>  
 				            </div>   
 				            <div className="clearfix table-responsive">
-				                <table className="table dash_table">
-				                  <thead>
-				                    <tr>
-				                      <th width="30%">Client Name</th>
-				                      <th width="30%">Location</th>
-				                      <th width="20%">Plan</th>
-				                      <th width="20%">Date</th>
-				                    </tr>
-				                  </thead>
-				                  <tbody>
-				                    <tr>
-				                      <td><img src={TableUser} alt="TableUser"/> James</td>
-				                      <td>Canada</td>
-				                      <td>Pro</td>
-				                      <td>Mar 24, 2017</td>
-				                    </tr>
-				                    <tr>
-				                      <td><img src={TableUser} alt="TableUser"/> James</td>
-				                      <td>Canada</td>
-				                      <td>Pro</td>
-				                      <td>Mar 24, 2017</td>
-				                    </tr>
-				                    <tr>
-				                      <td><img src={TableUser} alt="TableUser"/> James</td>
-				                      <td>Canada</td>
-				                      <td>Pro</td>
-				                      <td>Mar 24, 2017</td>
-				                    </tr>
-				                    <tr>
-				                      <td><img src={TableUser} alt="TableUser"/> James</td>
-				                      <td>Canada</td>
-				                      <td>Pro</td>
-				                      <td>Mar 24, 2017</td>
-				                    </tr>
-				                    <tr>
-				                      <td><img src={TableUser} alt="TableUser"/> James</td>
-				                      <td>Canada</td>
-				                      <td>Pro</td>
-				                      <td>Mar 24, 2017</td>
-				                    </tr>
-				                    <tr>
-				                      <td><img src={TableUser} alt="TableUser"/> James</td>
-				                      <td>Canada</td>
-				                      <td>Pro</td>
-				                      <td>Mar 24, 2017</td>
-				                    </tr>
-				                    <tr>
-				                      <td><img src={TableUser} alt="TableUser"/> James</td>
-				                      <td>Canada</td>
-				                      <td>Pro</td>
-				                      <td>Mar 24, 2017</td>
-				                    </tr>
-				                    <tr>
-				                      <td><img src={TableUser} alt="TableUser"/> James</td>
-				                      <td>Canada</td>
-				                      <td>Pro</td>
-				                      <td>Mar 24, 2017</td>
-				                    </tr>
-				                    <tr>
-				                      <td><img src={TableUser} alt="TableUser"/> James</td>
-				                      <td>Canada</td>
-				                      <td>Pro</td>
-				                      <td>Mar 24, 2017</td>
-				                    </tr>
-				                    <tr>
-				                      <td><img src={TableUser} alt="TableUser"/> James</td>
-				                      <td>Canada</td>
-				                      <td>Pro</td>
-				                      <td>Mar 24, 2017</td>
-				                    </tr>
-				                    <tr>
-				                      <td><img src={TableUser} alt="TableUser"/> James</td>
-				                      <td>Canada</td>
-				                      <td>Pro</td>
-				                      <td>Mar 24, 2017</td>
-				                    </tr>
-				                    <tr>
-				                      <td><img src={TableUser} alt="TableUser"/> James</td>
-				                      <td>Canada</td>
-				                      <td>Pro</td>
-				                      <td>Mar 24, 2017</td>
-				                    </tr>
-				                  </tbody>
+				                <table className="table dash_table table-bordered">
+				                  	<thead>
+					                    <tr>
+					                      	<th width="30%">Client Name</th>
+					                      	<th width="30%">Location</th>
+					                      	<th width="20%">Plan</th>
+					                      	<th width="20%">Date</th>
+					                    </tr>
+				                  	</thead>
+				                  	<tbody>
+				                  		{client_list.length > 0 
+				                  			? client_list.map((client, index) => <ViewClientListElement key={index} subscription_details={subscription_details} client={client}/>)
+				                  			: (processing) 
+					                    		? <tr>
+													<td colSpan="5" className="text-center">
+														<span className="loader loader-small">No Records</span>
+													</td>
+												</tr>
+					                    		: (
+													<tr>
+														<td colSpan="5" className="text-center">
+															<span>No Records</span>
+														</td>
+													</tr>	
+												)
+				                  		}	
+				                  	</tbody>
 				                </table>
 				            </div> 
-				            <div className="table_pagination clearfix">
-				                <nav className="pull-right" aria-label="Page navigation">
-				                    <ul className="pagination">
-				                        <li className="hidden-xs">
-				                          <a href="/" aria-label="First">
-				                            <span aria-hidden="true">First</span>
-				                          </a>
-				                        </li>
-				                        <li>
-				                          <a href="/" aria-label="Previous">
-				                            <span aria-hidden="true">Previous</span>
-				                          </a>
-				                        </li>
-				                        <li className="active"><a href="/">1</a></li>
-				                        <li><a href="/">2</a></li>
-				                        <li><a href="/">3</a></li>
-				                        <li>
-				                          <a href="/" aria-label="Next">
-				                            <span aria-hidden="true">Next</span>
-				                          </a>
-				                        </li>
-				                        <li className="hidden-xs">
-				                          <a href="/" aria-label="Last">
-				                            <span aria-hidden="true">Last</span>
-				                          </a>
-				                        </li>
-				                     </ul>
-				                </nav>
-				            </div>    
+				            <Paginator paging={paging} activePage={activePage} handleSelect={(e) => this.handleSelect(e)}/>
 				        </div>
 				    </div>
 				</section>
+				<SampleCSVPrompt show={showSampleCSVPrompt} client={client} hideDialog={() => this.hideDialog('showSampleCSVPrompt')} />
 			</div>
 		);	
 	}
+	showSampleCSVPrompt(list) {
+		this.setState({showSampleCSVPrompt: true, client: list});
+	}
+	showDialog(dialog) {
+		this.setState({[dialog]: true});
+	}
+	hideDialog(dialog) {
+		this.setState({[dialog]: false});
+	}
 }
 
-export default ViewClientList;
+const mapStateToProps = (state) => ({
+	user: state.auth.user
+});
+
+export default connect(mapStateToProps)(ViewClientList);

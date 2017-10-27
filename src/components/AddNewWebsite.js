@@ -9,7 +9,6 @@ import { Form } from 'react-bootstrap';
 import FormField from "./common/FormField";
 import FormSubmit from "./common/FormSubmit";
 import {FormSelect} from './common/FormSelect';
-import {connect} from 'react-redux';
 class AddNewWebsite extends Component {
 	constructor() {
 		super();
@@ -135,9 +134,5 @@ const AddNewWebsiteForm = reduxForm({
     	return errors;
   	}
 })(AddNewWebsite);
-
-const mapStateToProps = (state) => ({
-	user: state.auth.user
-});	
 	
-export default connect(mapStateToProps)(AddNewWebsiteForm);
+export default AddNewWebsiteForm;

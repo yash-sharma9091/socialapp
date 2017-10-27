@@ -18,7 +18,7 @@ class SampleCSVPrompt extends Component {
 		this.setState(state);
 	}
 	render(){
-		const {show, hideDialog, client} = this.props;
+		const {show, hideDialog, user, client} = this.props;
 		const {isUploading, error, success} = this.state;
 		return (
 			<Modal show={show} onHide={hideDialog} className="scriptModal SampleModal">
@@ -38,7 +38,7 @@ class SampleCSVPrompt extends Component {
 						  	<div className="col-sm-6 text-right">
 						  		<div className="inputFile ">
 						  			<button type="button" className="btn yellobtn" disabled={isUploading}>{isUploading ? 'Uploading ...' : 'Import Client List' }</button>
-						  			<ImportClientList toggleUploading={this.toggleUploading} client={client}/>
+						  			<ImportClientList toggleUploading={this.toggleUploading} user={user} client={client}/>
 						  		</div>
 						  	</div>	
 						</div>  

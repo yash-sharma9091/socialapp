@@ -9,6 +9,8 @@ window.moment = moment;
 window.axios.defaults.headers.common = {'X-Requested-With': 'XMLHttpRequest'};
 window.axios.defaults.baseURL = ( process.env.NODE_ENV !== 'production') ? 'http://100.100.7.38:9000/api/' : 'http://158.85.67.166:8028/api/';
 
+window._socket = window.io.connect('http://localhost:5000');
+
 // Global images url
 window.IMAGE_PATH = ( process.env.NODE_ENV !== 'production') ? 'http://100.100.7.38:9000' : 'http://158.85.67.166:8028';
 
