@@ -25,7 +25,7 @@ class Header extends Component {
 			   			<div className="navbar-right headerRight">
 		   					<Nav className="headerLinks">
 		   						<LinkContainer to={token ? "/dashboard" : "/"} exact={true}>
-		   				  			<NavItem eventKey={1}>Home</NavItem>
+		   				  			<NavItem eventKey={1}>Homes</NavItem>
 		   				  		</LinkContainer>
 		   				  		<LinkContainer to="/pricing">
 		   				  			<NavItem eventKey={2}>Pricing</NavItem>
