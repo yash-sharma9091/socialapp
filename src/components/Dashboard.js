@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import DashboardNav from './DashboardNav';
 import AddNewWebsite from './AddNewWebsite';
+import EditWebsiteDialog from './EditWebsiteDialog';
 import SampleCSVPrompt from './SampleCSVPrompt';
 import ScriptCode from './ScriptCode';
 import DashboardListElement from './DashboardListElements';
@@ -16,6 +17,7 @@ class Dashboard extends Component {
 			showNewWebsiteDialog: false,
 			showScriptCodeDialog: false,
 			showSampleCSVPrompt: false,
+			editWebsiteDialog: false,
 			activePage: 1,
 			list: [],
 			paging: {},
@@ -46,7 +48,7 @@ class Dashboard extends Component {
 		setTimeout(() =>  this.list());
 	}
 	render(){
-		const {list, activePage, showNewWebsiteDialog, showScriptCodeDialog, paging, processing, showSampleCSVPrompt, client} = this.state;
+		const {list, activePage, showNewWebsiteDialog, showScriptCodeDialog, paging, processing, editWebsiteDialog, showSampleCSVPrompt, client} = this.state;
 		const {user} = this.props;
 		return (
 			<div>
@@ -101,6 +103,13 @@ class Dashboard extends Component {
 				<AddNewWebsite show={showNewWebsiteDialog} user={user} hideDialog={() => this.hideDialog('showNewWebsiteDialog')} />
 				<ScriptCode show={showScriptCodeDialog} client={client} user={user} hideDialog={() => this.hideDialog('showScriptCodeDialog')} />
 				<SampleCSVPrompt show={showSampleCSVPrompt} client={client} user={user} hideDialog={() => this.hideDialog('showSampleCSVPrompt')} />
+				{editWebsiteDialog && <EditWebsiteDialog 
+					show={editWebsiteDialog} 
+					initialValues={client} 
+					client={client} 
+					user={user} 
+					hideDialog={() => this.hideDialog('editWebsiteDialog')} 
+				/>}
 			</div>
 		);
 	}

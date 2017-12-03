@@ -15,6 +15,7 @@ const DashboardListElement = ({show, list}) => {
 				<button type="button" className="btn table_btn" onClick={() => show('showSampleCSVPrompt', {client:list})}>Import Client List</button>
 				<a className="btn table_btn " href="/" role="button">Export Client List</a>
 				<button type="button" className="btn table_btn" onClick={() => show('showScriptCodeDialog', {client:list})}>View Script Code</button>
+				<button type="button" className="btn table_btn" onClick={() => show('editWebsiteDialog', {client:list})}>Edit Website Url</button>
 			</td>
 		</tr>
 	);

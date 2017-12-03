@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import {StripeProvider} from 'react-stripe-elements';
-//import registerServiceWorker from './registerServiceWorker';
+import registerServiceWorker from './registerServiceWorker';
 
 import App from './components/App';
 import {store, history} from './store';
@@ -32,4 +32,4 @@ if (module.hot) {
     	)
   	});
 }
-//registerServiceWorker();
+registerServiceWorker();
